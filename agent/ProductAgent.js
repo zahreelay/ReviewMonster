@@ -1,6 +1,7 @@
+const crypto = require("crypto");
 const { fetchRecentReviews } = require("../reviewFetcher");
-const { understandReview } = require("./reviewUnderstanding");
-const { generateMemoV1 } = require("./reviewUnderstanding");
+const { understandReview, generateMemoV1 } = require("./reviewUnderstanding");
+const { getCached, setCached } = require("../llmcache");
 
 class ProductAgent {
     async ingestAndSummarize() {
@@ -8,18 +9,22 @@ class ProductAgent {
 
         const enriched = [];
         for (const r of reviews) {
-            //console.log(r);
-            const brain = await understandReview(r);
-            //console.log(brain);
-            //process.exit(0);
-            enriched.push({ ...r, ...brain });
+            const key = makeCacheKey(r);
+            console.log(key);
+            const cached = getCached(key);
+            if (cached) {
+                console.log("cached");
+                enriched.push({ ...r, ...cached.value });
+                continue;
+            }
+            console.log("not cached");
 
+            const brain = await understandReview(r);
+            enriched.push({ ...r, ...brain });
+            setCached(key, brain);
         }
 
-
         const memo = generateMemoV1(enriched);
-        // console.log(memo);
-        // process.exit(0);
         return {
             meta: {
                 days: 180,
@@ -29,6 +34,13 @@ class ProductAgent {
             memo: memo
         };
     }
+}
+
+function makeCacheKey(review) {
+    return crypto
+        .createHash("sha256")
+        .update(`${review.text}|${review.rating}|${review.version}`)
+        .digest("hex");
 }
 
 module.exports = ProductAgent;

@@ -1,0 +1,97 @@
+{
+  "2dae1cb3ce63e453c147708528bcb008197e4d0f595e85594d8605c5c78279db": {
+    "value": {
+      "original_text": "I love reading from the magazine directly. It is exciting to turn pages but I love the accessibility of the phone so I can leave the magazine at home and read from my phone if ever I find myself waiting.",
+      "intent": "praise",
+      "issues": [],
+      "summary": "User appreciates the convenience of reading the magazine on their phone and enjoys the experience of turning pages."
+    },
+    "cachedAt": "2026-01-02T17:11:49.849Z"
+  },
+  "2907859233d1a197f19b5d83f4bd91672bdf5166e8466566957462aa89f09932": {
+    "value": {
+      "original_text": "I know you have only had like 30 years to get a decent functional app, but maybe prioritize it now? Signs itself out randomly and makes it impossible to sign back  picture don’t align with the article titles in the list of articles in “current issue” I search short fiction then select a story and I get a completely random article. Repeatedly. Did someone hire his old college friend’s god son to develop this? I quit the app last year because the app was (hint not sap, not pap, but cr…yeah. (And there is a bit too much shallow pop culture stuff these days). But I missed it so in our modern wilderness and resubscribed this year. Still…. The app. The app! Onward and upward.. I hope!",
+      "intent": "complaint",
+      "issues": [
+        "random_sign_out",
+        "picture_title_misalignment",
+        "incorrect_article_loading"
+      ],
+      "summary": "User experiences frequent random sign-outs, mismatched pictures and article titles, and incorrect articles loading when selecting stories, leading to frustration with app functionality."
+    },
+    "cachedAt": "2026-01-02T17:11:55.964Z"
+  },
+  "7d560f8dbdada364d385351189ddfed8d834f8c69ef6010f30e2cabe94afcf8e": {
+    "value": {
+      "original_text": "I would enjoy this mote if it ere not a battle to sign in and get recognized every time I try.  Other subscriptions recognize me from their app, and open up immediately.  New Yorker practically asks for my birth certificate and passport.  There is no reason for it to be this way.  It discourages me from using it.  Fortunately I have a print subscription also so that’s pretty much what I stick to.  New Yorker, come into the 21st century.",
+      "intent": "complaint",
+      "issues": [
+        "difficult_sign_in_process",
+        "lack_of_user_recognition"
+      ],
+      "summary": "The user finds the sign-in process overly complicated and frustrating, with poor user recognition compared to other apps, discouraging usage."
+    },
+    "cachedAt": "2026-01-02T17:12:00.243Z"
+  },
+  "75df7790dc0200bb39f7e5c9eb0458c9a2de359be97e9a43e777241dd4a011e7": {
+    "value": {
+      "original_text": "I can’t find anywhere to email you from on the app and no place to sign in. SO FRUSTRATING!!!\nAnd, yeah, I haven’t been able to do your crossword puzzles for weeks.",
+      "intent": "complaint",
+      "issues": [
+        "no_contact_email_option",
+        "no_sign_in_option",
+        "crossword_puzzles_unavailable"
+      ],
+      "summary": "User is frustrated due to lack of contact email, missing sign-in option, and inability to access crossword puzzles for weeks."
+    },
+    "cachedAt": "2026-01-02T17:12:03.471Z"
+  },
+  "c8b85fa304ac788f2943c8ab1a22694a428275c37134fa209c12c8fed3eab923": {
+    "value": {
+      "original_text": "How do you cancel a digital subscription? I don't have any option to cancel in Apple Settings Subscriptions",
+      "intent": "complaint",
+      "issues": [
+        "no_option_to_cancel_subscription_in_apple_settings"
+      ],
+      "summary": "User cannot find an option to cancel the digital subscription via Apple Settings."
+    },
+    "cachedAt": "2026-01-02T17:12:06.657Z"
+  },
+  "9588e68d4a8fd1eecd11f939fc790541a5b95cebaacf96f778ca64832b7f2eb0": {
+    "value": {
+      "original_text": "It works well on an iPhone but doesn’t work at all on an iPad￼. The iPad app doesn’t always keep up with the contents of an issue. The cover is right but the contents are from a different week. As the New Yorker told me, in that case you have to delete the app and reinstall it from the App Store. It has worked the three or four times I’ve had the problem over the past year or so, but I would think someone would fix it.",
+      "intent": "complaint",
+      "issues": [
+        "ipad_app_content_sync_issue",
+        "need_to_reinstall_to_fix_content_issue"
+      ],
+      "summary": "The iPad app frequently shows outdated content and requires reinstalling to update, unlike the iPhone version which works well."
+    },
+    "cachedAt": "2026-01-02T17:12:09.852Z"
+  },
+  "3bfbcfadccb27f4ac86ccbae4ae9cd6c1f36b3056743b412536a8d87e3d5dd7f": {
+    "value": {
+      "original_text": "Sticks out like a sore thumb on my home screen. Please add a dark mode icon so I don’t have to hide it.",
+      "intent": "feature_request",
+      "issues": [
+        "lack_of_dark_mode_icon"
+      ],
+      "summary": "User requests a dark mode icon to better integrate the app on the home screen and avoid hiding it."
+    },
+    "cachedAt": "2026-01-02T17:12:11.524Z"
+  },
+  "aca93b6c4dc4adaf90add3543bedc05e354853eec0f778c82a1a474d34944659": {
+    "value": {
+      "original_text": "My wife pays this bill, and I’ve had log in difficulties. I got a page that only displayed pay or not pay options, not log in. Getting to the “settings “ page is awkward. It feels like they were too cheap to really test it out. I ended up hitting a button that had me buy another subscription. I called customer service and was told the new subscription might take 24-48 hours to post. I’ve invested an hour plus fiddling with . I hate the app, love the magazine.",
+      "intent": "complaint",
+      "issues": [
+        "login_difficulties",
+        "poor_navigation_to_settings",
+        "accidental_subscription_purchase",
+        "slow_subscription_activation"
+      ],
+      "summary": "User experiences login issues, awkward navigation, accidental subscription purchase, and slow activation, leading to frustration with the app despite liking the magazine."
+    },
+    "cachedAt": "2026-01-02T17:12:16.611Z"
+  }
+}
