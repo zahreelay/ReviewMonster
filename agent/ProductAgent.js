@@ -1,5 +1,6 @@
 const { fetchRecentReviews } = require("../reviewFetcher");
 const { understandReview } = require("./reviewUnderstanding");
+const { generateMemoV1 } = require("./reviewUnderstanding");
 
 class ProductAgent {
     async ingestAndSummarize() {
@@ -15,12 +16,17 @@ class ProductAgent {
 
         }
 
+
+        const memo = generateMemoV1(enriched);
+        // console.log(memo);
+        // process.exit(0);
         return {
             meta: {
                 days: 180,
                 total_reviews: enriched.length
             },
-            reviews: enriched
+            reviews: enriched,
+            memo: memo
         };
     }
 }
