@@ -93,5 +93,9 @@
       "summary": "User experiences login issues, awkward navigation, accidental subscription purchase, and slow activation, leading to frustration with the app despite liking the magazine."
     },
     "cachedAt": "2026-01-02T17:12:16.611Z"
+  },
+  "edf346900baff3709a5bc496f47dd373b3eabfa78f137be45fc2193f5bd6d333": {
+    "value": "PRODUCT FEEDBACK MEMO\n\nEXECUTIVE SUMMARY\nUsers submitted 8 reviews with an average rating of 2.75. The strongest negative signals come from random_sign_out, picture_title_misalignment, incorrect_article_loading, while top positive sentiment is driven by no dominant theme.\n\nKEY METRICS\n• Total Reviews: 8\n• Average Rating: 2.75\n\nBIGGEST COMPLAINTS\n• random_sign_out (1)\n• picture_title_misalignment (1)\n• incorrect_article_loading (1)\n\nBIGGEST FEATURE REQUESTS\n• lack_of_dark_mode_icon (1)\n\nBIGGEST PRAISES\n• No strong signal yet\n\nWHAT DRIVES LOW RATINGS (1-2★)\n• no_option_to_cancel_subscription_in_apple_settings (1)\n• ipad_app_content_sync_issue (1)\n• need_to_reinstall_to_fix_content_issue (1)\n\nWHAT DRIVES MID RATINGS (3-4★)\n• random_sign_out (1)\n• picture_title_misalignment (1)\n• incorrect_article_loading (1)\n\nWHAT DRIVES HIGH RATINGS (5★)\n• No strong signal yet\n\nRECOMMENDATIONS\n1. Address top complaint issues immediately to improve low ratings.\n2. Evaluate most frequent feature requests for roadmap inclusion.\n3. Reinforce strengths driving 5★ reviews in future releases.",
+    "cachedAt": "2026-01-02T17:44:03.490Z"
   }
 }

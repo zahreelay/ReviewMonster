@@ -23,16 +23,46 @@ class ProductAgent {
             enriched.push({ ...r, ...brain });
             setCached(key, brain);
         }
-
-        const memo = generateMemoV1(enriched);
-        return {
-            meta: {
-                days: 180,
-                total_reviews: enriched.length
-            },
-            reviews: enriched,
-            memo: memo
-        };
+        if (enriched.length) {
+            const memoKey = makeReviewKey(enriched);
+            console.log(memoKey)
+            const cachedMemo = getCached(memoKey);
+            console.log(cachedMemo);
+            if (cachedMemo) {
+                console.log("cached memo");
+                return {
+                    meta: {
+                        days: 180,
+                        total_reviews: enriched.length
+                    },
+                    reviews: enriched,
+                    memo: cachedMemo.value
+                };
+            } else {
+                console.log("not cached memo");
+                const memo = generateMemoV1(enriched);
+                console.log(memo);
+                setCached(memoKey, memo);
+                return {
+                    meta: {
+                        days: 180,
+                        total_reviews: enriched.length
+                    },
+                    reviews: enriched,
+                    memo: memo
+                };
+            }
+        }
+        // console.log("not cached memo");
+        // const memo = generateMemoV1(enriched);
+        // return {
+        //     meta: {
+        //         days: 180,
+        //         total_reviews: enriched.length
+        //     },
+        //     reviews: enriched,
+        //     memo: memo
+        // };
     }
 }
 
@@ -40,6 +70,15 @@ function makeCacheKey(review) {
     return crypto
         .createHash("sha256")
         .update(`${review.text}|${review.rating}|${review.version}`)
+        .digest("hex");
+}
+
+function makeReviewKey(enriched) {
+    console.log(`enriched: ${JSON.stringify(enriched)}`);
+    //process.exit(0);
+    return crypto
+        .createHash("sha256")
+        .update(JSON.stringify(enriched))
         .digest("hex");
 }
 
