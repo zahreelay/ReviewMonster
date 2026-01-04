@@ -63,10 +63,8 @@ function generateMemoV1(reviews) {
     if (!reviews.length) return "No reviews available for this period.";
 
     const totalReviews = reviews.length;
-    console.log(totalReviews);
     const avgRating =
         (reviews.reduce((sum, r) => sum + r.rating, 0) / totalReviews).toFixed(2);
-    console.log(avgRating);
 
     const countIssues = (filtered) => {
         const map = {};
