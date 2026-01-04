@@ -1,7 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 
-const ProductAgent = require("../agent/ProductAgent");
+//const ProductAgent = require("../agent/ProductAgent");
 const { AgentManager } = require("../Agents/AgentManager");
 
 const { fetchReviews } = require("../tools/fetchReviews");
@@ -11,21 +11,11 @@ const cache = require("../tools/cache");
 const app = express();
 app.use(express.json());
 
-const agent = new ProductAgent();
 const manager = new AgentManager({
     fetchReviews,
     analyzeReview,
     generateMemo,
     cache
-});
-app.post("/ingest", async (req, res) => {
-    try {
-        const memo = await agent.ingestAndSummarize();
-        res.type("text/plain").send(memo);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send("Error fetching reviews / generating memo");
-    }
 });
 
 app.post("/run-agent", async (req, res) => {
