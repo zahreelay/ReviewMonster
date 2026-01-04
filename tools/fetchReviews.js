@@ -1,3 +1,6 @@
+//const fetch = require("node-fetch");
+const { get, set } = require("./httpCache");
+
 const APP_ID = "1081530898"; // your iOS app id
 
 function isWithinNDays(dateString, days) {
@@ -25,10 +28,16 @@ async function fetchReviews(days = 10) {
 
     while (true) {
         const url = `https://itunes.apple.com/rss/customerreviews/page=${page}/id=${APP_ID}/sortBy=mostRecent/json`;
-        const response = await fetch(url);
+        //const response = await fetch(url);
+        let response = get(url);
 
+        if (!response) {
+            const res = await fetch(url);
+            response = await res.json();
+            set(url, response);
+        }
 
-        const data = await response.json();
+        const data = response;
 
 
         const entries = data.feed?.entry || [];
