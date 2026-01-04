@@ -44,6 +44,17 @@ app.post("/init", async (req, res) => {
     }
 });
 
+app.get("/yearly-report", async (req, res) => {
+    try {
+        const result = await manager.runYearlyReport();
+        console.log("Yearly report generated:", result);
+        res.json(result);
+    } catch (e) {
+        console.error(e);
+        res.status(400).json({ error: e.message });
+    }
+});
+
 
 
 app.post("/run-agent", async (req, res) => {
