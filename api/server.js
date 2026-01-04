@@ -8,6 +8,13 @@ const { fetchReviews } = require("../tools/fetchReviews");
 const { analyzeReview } = require("../tools/analyzeReview");
 const generateMemo = require("../tools/generateMemo").generateMemo;
 const cache = require("../tools/cache");
+
+const { InitAgent } = require("../Agents/InitAgent");
+const { scrapeLastYear } = require("../tools/appStoreScraper");
+const rawStore = require("../tools/rawReviewStore");
+
+
+
 const app = express();
 app.use(express.json());
 
@@ -17,6 +24,27 @@ const manager = new AgentManager({
     generateMemo,
     cache
 });
+
+const initAgent = new InitAgent({
+    scraper: { scrapeLastYear },
+    rawStore,
+    analyzeReview,
+    cache
+});
+
+app.post("/init", async (req, res) => {
+    const { refresh = false } = req.body;
+
+    try {
+        const result = await initAgent.run({ refresh });
+        res.json(result);
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ error: "Init failed" });
+    }
+});
+
+
 
 app.post("/run-agent", async (req, res) => {
     const { days = 30 } = req.body;
