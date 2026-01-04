@@ -1,5 +1,3 @@
-//const fetch = require("node-fetch");
-
 const APP_ID = "1081530898"; // your iOS app id
 
 function isWithinNDays(dateString, days) {
@@ -23,18 +21,18 @@ function normalizeReview(r) {
 async function fetchReviews(days = 10) {
     let page = 1;
     let results = [];
-    console.log("Fetching reviews... 2");
+    console.log("Fetching reviews...");
 
     while (true) {
         const url = `https://itunes.apple.com/rss/customerreviews/page=${page}/id=${APP_ID}/sortBy=mostRecent/json`;
         const response = await fetch(url);
-        //console.log("Fetching reviews... 3", response);
+
 
         const data = await response.json();
-        console.log("Fetching reviews... 4", data);
+
 
         const entries = data.feed?.entry || [];
-        //console.log("Fetching reviews... 5", entries);
+
 
         if (!entries.length) break;
 
@@ -47,9 +45,7 @@ async function fetchReviews(days = 10) {
                 user: r.author?.name?.label || "unknown",
                 version: r["im:version"]?.label || "unknown",
                 rating: Number(r["im:rating"]?.label || 0),
-                //sentiment: "unknown",
-                //intent: "unknown",
-                //issues: []
+
             }))
             .filter((r) => r.date && isWithinNDays(r.date, days));
 
@@ -57,13 +53,11 @@ async function fetchReviews(days = 10) {
         if (!reviews.length) break;
 
         results.push(...reviews);
-        //console.log("Fetching reviews... 7", results);
-        //process.exit(0);
+
         page++;
     }
 
-    //console.log("Fetching reviews... 8", results);
-    //process.exit(0);
+
     return results;
 }
 

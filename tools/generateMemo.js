@@ -1,8 +1,7 @@
 function generateMemo(reviews) {
     const total = reviews.length;
     const avg = (reviews.reduce((s, r) => s + r.rating, 0) / total).toFixed(2);
-    console.log("Generating memo... 1");
-    console.log(reviews);
+
     const group = (filter) => {
         const m = {};
         reviews.filter(filter).forEach(r =>
