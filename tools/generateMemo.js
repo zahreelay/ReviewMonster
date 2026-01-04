@@ -1,4 +1,5 @@
 function generateMemo(reviews) {
+    console.log("Generating memo for", reviews.length, "reviews");
     const total = reviews.length;
     const avg = (reviews.reduce((s, r) => s + r.rating, 0) / total).toFixed(2);
 
@@ -11,7 +12,6 @@ function generateMemo(reviews) {
     };
 
     const fmt = arr => arr.length ? arr.map(([k, v]) => `• ${k} (${v})`).join("\n") : "• No strong signal";
-
     return `
 PRODUCT FEEDBACK MEMO
 

@@ -11,8 +11,7 @@ function initStore() {
 
 function readStore() {
     initStore();
-    console.log("Reading store...");
-    console.log(fs.readFileSync(PATH, "utf8"));
+
     return JSON.parse(fs.readFileSync(PATH, "utf8"));
 }
 
