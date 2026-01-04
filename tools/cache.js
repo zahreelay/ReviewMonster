@@ -1,7 +1,8 @@
 const fs = require("fs");
+const path = require("path");
 const crypto = require("crypto");
 
-const PATH = "./agent_cache.json";
+const PATH = path.join(__dirname, "../data/agent_cache.json");
 if (!fs.existsSync(PATH)) fs.writeFileSync(PATH, "{}");
 
 function read() {
