@@ -61,12 +61,27 @@ class CompetitorAgent {
      * STEP 2 — DATA PREPARATION (AUTO MODE)
      * Same pipeline as main app
      */
-    async run(appProfile, reviews, ourIntel, opts = {}) {
-        const days = opts.days || 90;
+    async run(mainApp, competitorIds, days) {
+        // const competitors = await discoverCompetitors(appProfile, reviews, opts);
+        // const top3 = competitors.slice(0, 3);
 
-        const competitors = await discoverCompetitors(appProfile, reviews, opts);
-        const top3 = competitors.slice(0, 3);
+        if (!mainApp?.appId) {
+            throw new Error("appProfile.appId is required");
+        }
 
+        if (!Array.isArray(competitorIds) || competitorIds.length === 0) {
+            throw new Error(
+                "CompetitorAgent.run requires competitorIds[] from API"
+            );
+        }
+
+        const competitors = competitorIds.map(id => ({
+            appId: id,
+            name: id // name can be enriched later via lookup if needed
+        }));
+
+        //console.log("Competitors:", competitors);
+        //process.exit(0);
         const analyzeOne = async ({ appId, name }) => {
             const raw = await ingestCompetitorReviews(
                 [{ appId, name }],
@@ -83,7 +98,11 @@ class CompetitorAgent {
 
                 if (this.cache) {
                     const cached = this.cache.get(cacheKey);
-                    if (cached) parsed = safeParseAnalysis(cached);
+                    if (cached) {
+                        //console.log("Cache hit:", cacheKey);
+                        //process.exit(0);
+                        parsed = safeParseAnalysis(cached);
+                    }
                 }
 
                 if (!parsed) {
@@ -94,18 +113,19 @@ class CompetitorAgent {
 
                 analyzed.push({ ...r, ...parsed });
             }
-
+            //console.log("Analyzed:", analyzed);
+            //process.exit(0);
             return { appId, name, reviews, analyzed };
         };
 
         const dataset = {
             generatedAt: new Date().toISOString(),
             windowDays: days,
-            mainApp: await analyzeOne(appProfile),
+            mainApp: await analyzeOne(mainApp),
             competitors: {}
         };
 
-        for (const c of top3) {
+        for (const c of competitors) {
             dataset.competitors[c.appId] = await analyzeOne(c);
         }
 
@@ -166,7 +186,8 @@ class CompetitorAgent {
     compare(dataset) {
         const { mainApp, competitors } = dataset;
         const swot = {};
-
+        //console.log("Competitors:", mainApp, competitors);
+        //process.exit(0);
         for (const c of Object.values(competitors)) {
             swot[c.name] = {
                 strengths: summarize(c.analyzed, "praise"),
@@ -175,7 +196,8 @@ class CompetitorAgent {
                 threats: summarize(mainApp.analyzed, "praise")
             };
         }
-
+        //console.log("SWOT:", swot);
+        //process.exit(0);
         fs.writeFileSync(
             path.join(__dirname, "../data/competitive_swot.json"),
             JSON.stringify(swot, null, 2)

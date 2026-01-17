@@ -1,5 +1,5 @@
 {
-  "The Wall Street Journal. News": {
+  "364387007": {
     "strengths": [],
     "weaknesses": [
       {
@@ -26,34 +26,7 @@
     "opportunities": [],
     "threats": []
   },
-  "The Atlantic Magazine": {
-    "strengths": [],
-    "weaknesses": [
-      {
-        "text": "article_disappears_while_reading",
-        "count": 1
-      },
-      {
-        "text": "lack_of_dark_mode",
-        "count": 1
-      },
-      {
-        "text": "limited_audio_options",
-        "count": 1
-      },
-      {
-        "text": "inconvenient_sharing_options",
-        "count": 1
-      },
-      {
-        "text": "app_crashes_to_black_screen",
-        "count": 1
-      }
-    ],
-    "opportunities": [],
-    "threats": []
-  },
-  "The Times Literary Supplement": {
+  "556820250": {
     "strengths": [],
     "weaknesses": [
       {
