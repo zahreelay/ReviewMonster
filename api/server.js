@@ -3,7 +3,7 @@ require("dotenv").config();
 const cors = require("cors");
 
 
-//const ProductAgent = require("../agent/ProductAgent");
+
 const { AgentManager } = require("../Agents/AgentManager");
 
 const { fetchReviews } = require("../tools/fetchReviews");
@@ -15,8 +15,7 @@ const { InitAgent } = require("../Agents/InitAgent");
 const { scrapeLastYear } = require("../tools/appStoreScraper");
 const rawStore = require("../tools/rawReviewStore");
 
-//const { CompetitorAgent } = require("../Agents/CompetitorAgent");
-//const competitorAgent = new CompetitorAgent({ fetchReviews });
+
 
 const app = express();
 
@@ -30,9 +29,7 @@ app.use(cors({
 app.use(express.json());
 
 
-//app.options("/*", cors());
 
-//app.use(express.json());
 /* ----------------------------------------------------------- */
 
 const manager = new AgentManager({
@@ -154,24 +151,7 @@ app.post("/competitors/run", async (req, res) => {
 });
 
 
-// app.post("/competitors/run", async (req, res) => {
-//     try {
-//         const { country = "us", k = 8, days = 30 } = req.body || {};
-//         const appProfile = { appId: req.body?.ourAppId || "1081530898" };
-//         const reviews = require("../data/reviews_store.json");
-//         const ourIntel = require("../data/memory.json");
 
-//         const result = await competitorAgent.run(appProfile, reviews, ourIntel, { country, k, days });
-//         res.json(result);
-//     } catch (e) {
-//         res.status(400).json({ error: e.message });
-//     }
-// });
-
-// app.get("/competitors/report", async (req, res) => {
-//     const data = require("../data/competitive_memory.json");
-//     res.json(data);
-// });
 
 
 app.listen(3000, () => {
