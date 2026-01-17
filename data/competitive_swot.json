@@ -1,0 +1,83 @@
+{
+  "The Wall Street Journal. News": {
+    "strengths": [],
+    "weaknesses": [
+      {
+        "text": "app_freezing",
+        "count": 8
+      },
+      {
+        "text": "app_crashes",
+        "count": 7
+      },
+      {
+        "text": "device_overheating",
+        "count": 5
+      },
+      {
+        "text": "phone_overheating",
+        "count": 3
+      },
+      {
+        "text": "app_crashing",
+        "count": 3
+      }
+    ],
+    "opportunities": [],
+    "threats": []
+  },
+  "The Atlantic Magazine": {
+    "strengths": [],
+    "weaknesses": [
+      {
+        "text": "article_disappears_while_reading",
+        "count": 1
+      },
+      {
+        "text": "lack_of_dark_mode",
+        "count": 1
+      },
+      {
+        "text": "limited_audio_options",
+        "count": 1
+      },
+      {
+        "text": "inconvenient_sharing_options",
+        "count": 1
+      },
+      {
+        "text": "app_crashes_to_black_screen",
+        "count": 1
+      }
+    ],
+    "opportunities": [],
+    "threats": []
+  },
+  "The Times Literary Supplement": {
+    "strengths": [],
+    "weaknesses": [
+      {
+        "text": "login_issues",
+        "count": 1
+      },
+      {
+        "text": "subscription_recognition_issues",
+        "count": 1
+      },
+      {
+        "text": "tiny_font",
+        "count": 1
+      },
+      {
+        "text": "unreliable_digital_subscription_access",
+        "count": 1
+      },
+      {
+        "text": "clunky_navigation",
+        "count": 1
+      }
+    ],
+    "opportunities": [],
+    "threats": []
+  }
+}
