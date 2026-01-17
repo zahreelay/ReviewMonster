@@ -1,23 +1,759 @@
 {
-  "556820250": {
-    "appId": "556820250",
-    "name": "Competitor C",
+  "364387007": {
+    "appId": "364387007",
+    "name": "364387007",
     "reviews": [
       {
-        "title": "Accessibility and Login Issues",
-        "text": "Continue to have login issues, issues recognizing subscription, font is tiny. Access to the digital subscription is really hit or miss. As one reviewer pointed out, at least I don’t have to search for my subscriber number!",
-        "rating": 2,
-        "version": "6.3.0",
-        "date": "2025-12-01T19:58:14-07:00",
-        "author": "ElroyandJudy"
+        "title": "zoom doesn’t work when opening app on iPad",
+        "text": "The ‘2 Finger ‘ zoom on iPad should work but doesn’t",
+        "rating": 1,
+        "version": "14.56.1",
+        "date": "2026-01-12T12:08:31-07:00",
+        "author": "disappointed %$@%"
       },
       {
-        "title": "TLS great; accessibility mediocre.",
-        "text": "Not just clunky navigation — but print on ipad unnecessarily tiny and not adjustable.   Their writers deserve better",
+        "title": "Nobody asked for this",
+        "text": "Please give an option to eliminate the AI summaries.  Would rather read reporting from real people",
+        "rating": 1,
+        "version": "14.56.1",
+        "date": "2026-01-12T03:36:57-07:00",
+        "author": "timjbuck"
+      },
+      {
+        "title": "Article stopped loading and app became very slow",
+        "text": "After a recent update, articles stopped loading. It takes several app relaunches to load an article. If I want to read more than one article, I need to restart the app constantly. Overall, the app got very slow and unbearable to use. If both issues aren't fixedb soon, I may need to request a refund for my subscription, as I can't read the news I pay for.",
+        "rating": 1,
+        "version": "14.56.1",
+        "date": "2026-01-11T23:06:49-07:00",
+        "author": "t9ux5n1b"
+      },
+      {
+        "title": "The surrender of the WSJ",
+        "text": "The Wall Street Journal was once the gold standard of American business journalism. Today, it reads like a parody of its former self. Facts have given way to partisan talking points, with coverage increasingly indistinguishable from Democratic Party messaging and the fashionable dogmas of socialist, secular elites. Editorial honor is gone. Rigor is gone. In its place are shallow, unverified hit pieces aimed not at informing readers, but at harming Trump, Religious, children and scolding the country that built it.\n\nI say this with real sadness. I have read this paper for nearly forty years, and watching its steady abandonment of intellectual honesty, economic literacy, and even basic respect for its readers has been painful. What was once a mighty institution now seems content to trade credibility for applause from people who would have mocked it a generation ago. The Wall Street Journal didn’t lose the battle —it surrendered.   (Maybe it is the Neville Chamberlain of papers)",
+        "rating": 1,
+        "version": "14.56.1",
+        "date": "2026-01-09T16:12:54-07:00",
+        "author": "Business Men Buy Papers"
+      },
+      {
+        "title": "5 stars",
+        "text": "I don't understand how anyone gives this app five stars it continually crashes and has to be restarted.",
+        "rating": 2,
+        "version": "14.56.1",
+        "date": "2026-01-07T07:41:36-07:00",
+        "author": "* Patricio *"
+      },
+      {
+        "title": "40$ a month",
+        "text": "Why would anyone pay $40 a month for the news in the age of technology. Most I’d pay is 10$",
+        "rating": 1,
+        "version": "14.56.1",
+        "date": "2026-01-07T05:31:45-07:00",
+        "author": "Anonymous199375"
+      },
+      {
+        "title": "Why no comments?",
+        "text": "Obviously this is a very good newspaper, and I enjoy reading it. However, the app would be greatly improved by also allowing me to see the comments left by other readers on the article.",
         "rating": 3,
-        "version": "6.3.0",
-        "date": "2025-11-13T18:24:14-07:00",
-        "author": "Mikesho"
+        "version": "14.56.1",
+        "date": "2026-01-04T10:56:01-07:00",
+        "author": "jgsihdkxkhckgsidkhzir"
+      },
+      {
+        "title": "Mark your one year",
+        "text": "If you don’t cancel your subscription, they will charge 43$ per month. A real shame.",
+        "rating": 1,
+        "version": "14.56.0",
+        "date": "2025-12-27T07:54:54-07:00",
+        "author": "Proppppp"
+      },
+      {
+        "title": "Great content, but drains battery",
+        "text": "I find the content and writing is top-notch, the app UI is intuitive and easy to use, catering to those who prefer both blog style with most recent news appearing at top as well as broadsheet like the print edition. Another plus: the ads are low-key unlike other news apps. Starting a few months ago though I’ve noticed the WSJ app seriously drains my battery. I’d give it 5 stars if it wasn’t so power-hungry.",
+        "rating": 4,
+        "version": "14.56.0",
+        "date": "2025-12-24T16:26:47-07:00",
+        "author": "JohnnyBravo77"
+      },
+      {
+        "title": "A 200-Year-Old Paper With a 2-Month-Old App",
+        "text": "Running the WSJ app on an iPhone 17 Pro Max feels like beta-testing a two-month-old startup, not using a product from a nearly 200-year-old institution. Perhaps the app team could take a few notes from Johanna Stern and set “basic performance” as a New Year’s resolution for 2026.",
+        "rating": 1,
+        "version": "14.56.0",
+        "date": "2025-12-22T08:59:50-07:00",
+        "author": "NeoTX35"
+      },
+      {
+        "title": "Where are the comments?",
+        "text": "Excellent app and some of the only real journalism left out there. Would give 5 stars easily if the comments below articles were not missing.",
+        "rating": 3,
+        "version": "14.56.0",
+        "date": "2025-12-21T17:31:28-07:00",
+        "author": "missMyAndroidSoMuch"
+      },
+      {
+        "title": "Just Add WSJ.com to Home Screen Instead",
+        "text": "The app eats my battery like no other app and makes my phone hot. The scrolling seems to be pretty jumpy and unpredictable lately.\n\nI’ve ended up adding the WSJ.com webpage to my Home Screen and having it “Open as a web app”. Boom, problems solved!",
+        "rating": 1,
+        "version": "14.56.0",
+        "date": "2025-12-21T09:26:09-07:00",
+        "author": "CougarGrad"
+      },
+      {
+        "title": "Wsj app make my phone HOT!",
+        "text": "iPhone 15 Pro running iOS 18.7.  Phone immediately heats up when using the WSJ app….. no other app causes this.  WSJ app can easily consume 30% of my battery with just a single casual reading session.       \n**** Update Oct 4,’25. After the recent WSJ app update (14.50.0) 34197 it seems like the high battery consumption and burning hot phone has been improved…..WSJ still consumes a lot of battery but less than before….App still hangs periodically then just gets itself “unstuck”\n**** Update Oct 7 ‘25.  I am now on iOS 18.7.1. App is now worse than ever…. Hangs frequently and now I have to force close the app.  There are now also video based Ads that cannot be paused.\n****Update Oct 20, 2025.. Updated to 14.51.0 with no improvement.\n\n**Update Nov 15 ‘25. Big backslide with the 14.53.0 release! My phone gets really warm again and WsJ is again consuming tons of battery. Has used 21% of my battery in about 20 minutes of reading\n\n*** Update Dec 20 ‘25. Now at iOS 26.2 and WSJ 14.56.00…. Phone gets hotter than ever! WSJ seemed to have fixed the hot battery issue only to break it again….\n\nWSJ….. turn off this auto-play garbage!! \n\nWSJ Developer…. It would be nice if your release notes told users what was fixed rather than “…. Fixed minor issues”.\n\nIt seems that no one is reading or responding to feedback on the app here. I’m going to try reaching out to the editors via email…. Someone at WSJ needs to know how awful the app is and how upset customers are.",
+        "rating": 1,
+        "version": "14.56.0",
+        "date": "2025-12-20T10:11:27-07:00",
+        "author": "Disappointed S40 user"
+      },
+      {
+        "title": "STOP the Auto-Play Videos and Ads!",
+        "text": "PLEASE provide an ability to stop auto-playing videos in the app (which I access mainly from an iPad). It is annoying and distracting. I pull up an article to READ it - not to be assaulted by a barrage of audio and video. \n\nSame for the auto-playing video ads. They are tacky and make the app look and feel like a third world bazaar. \n\nNavigation remains clunky, with some navigation at bottom of page and some at top. No other app I’ve seen uses this mixed method of navigation\n\nThere is a lot of “jerkiness”, especially looking at sections of articles, where the list spontaneously moves up or down for unknown reasons (I suspect it’s ads or surveillance of users). The app also crashes frequently. \n\nAll in all, the app is very weak and frustrating. I find myself enjoying the content, but cursing the app, every time I bring up the WSJ on my iPad",
+        "rating": 1,
+        "version": "14.56.0",
+        "date": "2025-12-19T10:45:00-07:00",
+        "author": "NJ Guitarist"
+      },
+      {
+        "title": "Trash",
+        "text": "If you want to read more on an. Article you need to pay up homie lol",
+        "rating": 5,
+        "version": "14.56.0",
+        "date": "2025-12-19T07:05:07-07:00",
+        "author": "Eduardo82000"
+      },
+      {
+        "title": "Great newspaper, terrible app",
+        "text": "I love the WSJ paper. But the app is terrible. I want a newspaper, not videos. I certainly don’t want autoplaying videos every time I open the app. And either there’s no way to turn them off or the setting is hidden in a way that makes it impossible to find.",
+        "rating": 2,
+        "version": "14.56.0",
+        "date": "2025-12-19T04:56:34-07:00",
+        "author": "RW_DC"
+      },
+      {
+        "title": "Glitchy and constantly fails",
+        "text": "When reading headlines, the app jumps around constantly. Compared to every other news app I use, this one is notoriously glitchy. Often I open it and it just freezes. Disappointing given this is the content I want.",
+        "rating": 2,
+        "version": "14.56.0",
+        "date": "2025-12-18T21:08:57-07:00",
+        "author": "DillMcGill"
+      },
+      {
+        "title": "Great reporting, bad app",
+        "text": "I really love the news reporting here, but the app’s performance has been a major hurdle, especially after the recent update. There are several critical UX issues:\n\n- Scroll Instability: The story list jumps randomly while scrolling, which is incredibly frustrating.\n\n- Audio/Video Conflict: While listening to audio transcripts, the jumping scroll often triggers a video auto-play. This mutes the current audio - a significant issue while driving.\n\n- Syncing Issues: Bookmarking is unreliable. The \"Bookmarked\" tab often displays incorrect stories or fails to update unless I restart the app or toggle tabs. Bookmarking/unbookmarking actions often don't work.\n\n- Stability: The app crashes sometimes.\n\nI’d love to keep using this for my daily news, but the technical execution needs serious attention to be usable.",
+        "rating": 2,
+        "version": "14.55.0",
+        "date": "2025-12-17T10:33:41-07:00",
+        "author": "lucas676"
+      },
+      {
+        "title": "Ugh! - where is today’s WsJ",
+        "text": "Can’t share via iMessage anymore.  I can’t take all the video!  Let me turn it off.  If it’s worth watching I will.\n\n\nSuper glitchy…. When is today’s edition going to drop.   This app gets worse with each release.  Turn off all the video.  If I wan to watch, I will.  If I wanted a video news channel, I would have the WSJ.\n\n\n\n\n\nAfter many months of this new app version, and repeated updates, it continues to be an inferior experience to the prior version.\n\nFor each item an update attempts to address, another feature or functionality is broken or lost.  When are we going to have the ability to read the print version while offline again?  When will I be able to load the current print version without having to launch the app, close and launch again (often 3 or 4 times), waiting for 20 or 30 seconds each time to see if it will work?\n\nThe developer response to the overwhelming frustration with the version launched last summer and the persistent promises of improvement suggest no one on the development team is capable of creating and improving this horrible product.  This app should have been kept in development until you figured out how to make it work.",
+        "rating": 1,
+        "version": "14.55.0",
+        "date": "2025-12-16T04:05:12-07:00",
+        "author": "Blkfish71"
+      },
+      {
+        "title": "Doesn’t open anymore",
+        "text": "The digital version on the WSJ used to be a pleasure to use. The months long “improvement” process has resulted in significant slowing of the app as well as bizarre relocations of search functions back and forth across the page. Now, it simply won’t work. I have deleted and reinstalled the app but it remains nonfunctional. Fortunately, I still have the traditional newspaper. Addendum: so the app now works again but still has very frustrating features. For example, when it opens, it displays the previous day’s edition, not the current one. Second, it remains very slow to open page 1 (tho possibly not AS slow as it was). Articles are opening more consistently-previously, you could try to open an article and it would just freeze-that seems better. Fact remains, what was a smooth running, reliable and pleasurable experience has been significantly degraded. They keep talking about “improving” the product but if they were serious, they would go back to square one.\n\nAddendum:\nThey’re at it again, fiddling with the app and making it extremely frustrating to use-it freezes, cuts out and slows to a crawl. After reboots, shut downs and restarts it reverts to the older version of the app which works flawlessly. You think there’s a lesson in that? Very disappointing.",
+        "rating": 1,
+        "version": "14.55.0",
+        "date": "2025-12-13T07:39:26-07:00",
+        "author": "jcm43md"
+      },
+      {
+        "title": "Too Many Notifications!",
+        "text": "Can we please control what type of notifications we get? I want breaking news. I have no interest in some random article. I read the whole thing almost daily. I don’t need encouragement.",
+        "rating": 3,
+        "version": "14.55.0",
+        "date": "2025-12-12T18:16:44-07:00",
+        "author": "Thandrol"
+      },
+      {
+        "title": "Ads in a paid sub",
+        "text": "You gotta be kidding me. I pay a subscription and you add ads!",
+        "rating": 1,
+        "version": "14.55.0",
+        "date": "2025-12-11T10:59:07-07:00",
+        "author": "mpls55412"
+      },
+      {
+        "title": "Jittery scrolling!",
+        "text": "This app jitters when scrolling and then the phone heats up. Annoying to use the app. The New York Times app behaves properly. I gave 3 stars because the reporting and writing are excellent.",
+        "rating": 3,
+        "version": "14.55.0",
+        "date": "2025-12-10T06:15:41-07:00",
+        "author": "Murray130"
+      },
+      {
+        "title": "Gets stuck scrolling",
+        "text": "App worked fine before but now it gets stuck while scrolling, difficult to read articles without the app hanging and sometimes needing to be reset. Need to fix this bug!",
+        "rating": 1,
+        "version": "14.55.0",
+        "date": "2025-12-08T20:27:09-07:00",
+        "author": "Rav4 prime 99"
+      },
+      {
+        "title": "Buggy App",
+        "text": "I like the WSJ, but the app needs some work. When I open the app, it takes a while to update the latest news. I have to sit there staring at the old news until it finally reloads. It will also glitch while I’m scrolling through the main feed, where it suddenly shifts way down. Then it takes me a while to go back and find the article I was going to click on.",
+        "rating": 3,
+        "version": "14.55.0",
+        "date": "2025-12-08T10:48:00-07:00",
+        "author": "Brett_123"
+      },
+      {
+        "title": "It used to seem more balanced",
+        "text": "Sadly, Media is a uniparty now and that includes the WSJ.",
+        "rating": 3,
+        "version": "14.55.0",
+        "date": "2025-12-07T12:42:42-07:00",
+        "author": "musoyui"
+      },
+      {
+        "title": "Missing two key features",
+        "text": "Doesn’t integrate with iOS and Google well. Opening stories in Google News and elsewhere should allow me to open the story in the app where I’m logged in. And I really miss audio speed control. Please allow us to set playback speed!",
+        "rating": 3,
+        "version": "14.55.0",
+        "date": "2025-12-07T09:44:44-07:00",
+        "author": "p7345"
+      },
+      {
+        "title": "Uses too much storage",
+        "text": "This app is \n flawed for several reasons that the developers should be able to fix: 1. The app runs hot and drains the battery more than any other app on my iPhone. 2. The app uses 2GB+ of storage even when there are no saved articles — and there is no way to clear the cache (the only way to remedy the issue is to delete the app periodically). 3. Every time you navigate to another app (e.g. Safari), the WSJ reloads and you lose the article you’re reading and where you are in the article. This last one is especially egregious because Apple has a standard way for applications to be coded to “hold their place” when you navigate to another iOS app. For reference, I have plenty of storage and memory on my iPhone and this problem only occurs with the WSJ app.",
+        "rating": 1,
+        "version": "14.55.0",
+        "date": "2025-12-05T17:43:01-07:00",
+        "author": "GEO444NE"
+      },
+      {
+        "title": "App crashes on every use",
+        "text": "What a happened to app stability?? It not hangs or crashes on every use!",
+        "rating": 1,
+        "version": "14.55.0",
+        "date": "2025-12-05T16:07:09-07:00",
+        "author": "BeatHappy"
+      },
+      {
+        "title": "SLOW Please fix backend!",
+        "text": "The newspaper is great! But the app is the most inefficient, slow, computationally hungry app on the App Store! \n\nPlease work on your backend, the ui is fine. It makes the app unusable and drains battery quickly.",
+        "rating": 1,
+        "version": "14.55.0",
+        "date": "2025-12-05T10:37:50-07:00",
+        "author": "Somebody3012"
+      },
+      {
+        "title": "Freezing while scrolling since recent updates",
+        "text": "Since the last update, the app freezes while scrolling. Previously it seemed to preload content allowing for even offline reading. The previous architecture was better and never froze.",
+        "rating": 3,
+        "version": "14.54.1",
+        "date": "2025-12-04T09:09:36-07:00",
+        "author": "Rachel BK"
+      },
+      {
+        "title": "Frog in a pot",
+        "text": "Feeling like a frog in a pot. WSJ app keeps getting worse. Distracting videos, ads, bad updates.  Par for the course. We never jump out even while paying $500 a year!  Such ingenious profiteers they are….",
+        "rating": 1,
+        "version": "14.54.1",
+        "date": "2025-12-02T15:01:18-07:00",
+        "author": "Artcubed"
+      },
+      {
+        "title": "Drains battery amazingly fast",
+        "text": "Although I like the app, when using it my phone gets hot to the touch and the app chews through the battery amazingly quickly.  Not sure if this is a design feature or a bug.",
+        "rating": 3,
+        "version": "14.54.1",
+        "date": "2025-12-02T11:14:42-07:00",
+        "author": "Hughbill"
+      },
+      {
+        "title": "Huge performance issue",
+        "text": "Ever since the newer version of this app came out, I have had non stop lags and pauses.  It is just pulling text from the internet so I don't understand why this app is suddenly now so slow.  Obviously it is doing some sync or whatever but it still doesn't excuse this - none of the other apps that are very intense have this issue.",
+        "rating": 1,
+        "version": "14.54.1",
+        "date": "2025-12-01T07:19:55-07:00",
+        "author": "WSJ reader digit"
+      },
+      {
+        "title": "Good app but widgets would make it 5 star",
+        "text": "No complaints with the app but would like to see the WSJ widget come back.",
+        "rating": 4,
+        "version": "14.54.1",
+        "date": "2025-11-27T09:08:41-07:00",
+        "author": "TheAvo-mountains"
+      },
+      {
+        "title": "Clunker",
+        "text": "Super clunky, slow app. News is obv good or would be 1 star",
+        "rating": 2,
+        "version": "14.54.1",
+        "date": "2025-11-26T18:15:14-07:00",
+        "author": "miles Nardi"
+      },
+      {
+        "title": "The UI got worse?",
+        "text": "Navigation is ungainly, but at least it’s painfully slow at (many) times",
+        "rating": 2,
+        "version": "14.54.0",
+        "date": "2025-11-24T06:37:40-07:00",
+        "author": "pgaston"
+      },
+      {
+        "title": "App has been buggy for weeks",
+        "text": "The app seems to freeze constantly - mostly when you’re scrolling past video. It’s often jittery and laggy at times too.",
+        "rating": 1,
+        "version": "14.54.0",
+        "date": "2025-11-24T06:22:08-07:00",
+        "author": "RajRD13"
+      },
+      {
+        "title": "Paid through December 5th – stopped working in October",
+        "text": "Will not allow me to access news I paid for. Apple/ WSJ say the subscription goes through December 5 –  I’ve been locked out of access since October. Demanding a new subscription: $349 for nine months of news.",
+        "rating": 1,
+        "version": "14.54.0",
+        "date": "2025-11-23T03:53:39-07:00",
+        "author": "Total dish"
+      },
+      {
+        "title": "Great content, but but app itself leaves a lot to be desired",
+        "text": "Great content, but the application has so many little things that I’m not thought through especially lately. It’s being a buggy hanging and experience has gone down.",
+        "rating": 2,
+        "version": "14.54.0",
+        "date": "2025-11-22T07:21:27-07:00",
+        "author": "Hat3rik"
+      },
+      {
+        "title": "Spy App",
+        "text": "Uses your mic to provide ads even without permission!",
+        "rating": 1,
+        "version": "14.54.0",
+        "date": "2025-11-22T06:16:50-07:00",
+        "author": "Chrishaas61"
+      },
+      {
+        "title": "Like the app, want speed control on audio",
+        "text": "The app is great minus one feature I really really want. Include faster audio speaking. Up to 3x minimum",
+        "rating": 5,
+        "version": "14.53.0",
+        "date": "2025-11-21T06:52:46-07:00",
+        "author": "BotanyRulz"
+      },
+      {
+        "title": "Great content, not great app",
+        "text": "Great content - I read it every day, but the app becomes more and more glitchy, freezes, and eventually crashes the more you use it 20-30 minutes). This is infuriating for full priced subscription to WSJ.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-21T02:32:09-07:00",
+        "author": "Roman Todd"
+      },
+      {
+        "title": "14.50.0 followed authors bug",
+        "text": "Grey mode is not dark mode, bring back true dark mode",
+        "rating": 2,
+        "version": "14.53.0",
+        "date": "2025-11-20T17:21:40-07:00",
+        "author": "nenejdidi8374"
+      },
+      {
+        "title": "Poor app design, but great news coverage",
+        "text": "The wsj news coverage is great, but the app keeps getting worse. It used to display many stories at once but now only shows about one at a time requiring unnecessary scrolling. I don’t care if they change the default look, but should give users a way to go back to the old format if they want.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-20T11:42:49-07:00",
+        "author": "Brian1234456"
+      },
+      {
+        "title": "Freezes up while scrolling",
+        "text": "Been going on for weeks.  Latest update did not fix.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-19T15:12:49-07:00",
+        "author": "kjmlam9"
+      },
+      {
+        "title": "Buggy, freezes",
+        "text": "This latest update causes the app to freeze.   I wish I could go back.",
+        "rating": 2,
+        "version": "14.53.0",
+        "date": "2025-11-19T13:24:10-07:00",
+        "author": "Irritated."
+      },
+      {
+        "title": "Stop the videos",
+        "text": "I find the embedded videos to be distracting and have been unable to turn them off. If I wanted to watch the news, I would turn on the TV. I read the Wall Street Journal because I don’t want to turn on the TV.",
+        "rating": 4,
+        "version": "14.53.0",
+        "date": "2025-11-19T09:01:13-07:00",
+        "author": "Chip Oidos"
+      },
+      {
+        "title": "Good content; awful app",
+        "text": "Three things. \nOne, the app freezes whenever I scroll. I suspect it’s because it’s loading as content or videos. \nTwo , give me an option to prevent videos from autoplaying. I don’t want to watch your videos; I want to read the articles. This isn’t some Buzzfeed and I’m not a child. Don’t treat me like one. \nThree, push notifications for breaking news also send feature article notifications. These are categorizing separately in notifications settings but not distinguished in execution.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-19T06:08:17-07:00",
+        "author": "Dee Awr"
+      },
+      {
+        "title": "Going the wrong way",
+        "text": "Navigation that plays hide and seek. Videos that want to play, but don’t start at the beginning when you tap unmute. And lowbrow ads, despite me accepting all cookies and clicking on the good ones. This is not curated. \nI accept that I’m a bit old-school, but this is not beauty in the objective sense of the word. I downloaded this app in 2011. It’s not ascending. \nI love the reporting, but this app keeps getting worse.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-18T20:30:20-07:00",
+        "author": "karlbruno"
+      },
+      {
+        "title": "Freeze while scrolling",
+        "text": "The app has been freezing up when scrolling down. It’s been going on for months and seems getting worse. Not having similar issues with other news apps",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-18T07:15:35-07:00",
+        "author": "speedlimit89"
+      },
+      {
+        "title": "Update made my WSJ app more readable",
+        "text": "Live the update, it is more readable and clean , the new fonts are great to read for long time. Also the way live updates shows up for markets and economics and stocks is nicely displayed in Home Screen. Great work WSJ.",
+        "rating": 5,
+        "version": "14.53.0",
+        "date": "2025-11-18T04:43:08-07:00",
+        "author": "Imharry4u"
+      },
+      {
+        "title": "Glitchy for the Price",
+        "text": "Reducing stars to 1 as the developers have not resolved the lagginess/glitches that have been highlighted by many users for several months. The app frequently glitches, doesn’t scroll and gets “stuck” on certain articles. Really not the sort of experience you would expect from a respectable news agency, especially not for the price that WSJ asks for.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-16T18:54:55-07:00",
+        "author": "Zespeboy"
+      },
+      {
+        "title": "Laggy freezing app",
+        "text": "I got the app for the content, but I hate the interface. I don't know why you can't smooth scroll through a story.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-16T17:11:08-07:00",
+        "author": "Whynothanks"
+      },
+      {
+        "title": "My Favorite News Source",
+        "text": "An array of fascinating articles. I read it almost every morning.",
+        "rating": 5,
+        "version": "14.53.0",
+        "date": "2025-11-16T10:58:32-07:00",
+        "author": "Bourke Design"
+      },
+      {
+        "title": "Fix the bugs",
+        "text": "Latest app version is freezing up while scrolling",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-16T04:06:44-07:00",
+        "author": "bbdeeznutz"
+      },
+      {
+        "title": "Great news. App has been laggy",
+        "text": "Since the most recent update, what used to be a flawless app now constantly freezes and sometimes crashes. Can’t make it through a story with some glitch anymore.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-15T14:37:06-07:00",
+        "author": "Lafargatron"
+      },
+      {
+        "title": "Keeps freezing",
+        "text": "App is ruined and keeps freezing while I am trying to read articles",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-14T19:33:54-07:00",
+        "author": "Adamb.12"
+      },
+      {
+        "title": "Crash and burn",
+        "text": "App is constantly crashing, making it unusable. Also, we need apple car play integration.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-14T18:23:08-07:00",
+        "author": "Tomcat751"
+      },
+      {
+        "title": "locks / freezes",
+        "text": "constantly locks up while scrolling",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-13T06:03:43-07:00",
+        "author": "XXxft"
+      },
+      {
+        "title": "Like it",
+        "text": "Terrible app, a change from the prior one. In their efforts to restrict usage to one subscriber they made the app impossible to use. It increasingly stalls after the first few screens even though I am the only user. All attempts to reach help or technical support are useless. They never return emails or calls. Good paper but awful app and service.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-12T05:18:02-07:00",
+        "author": "Bnbmn"
+      },
+      {
+        "title": "great journalism, bad app",
+        "text": "I read the Print Edition every day in the app, and I have noticed a steady degradation of user experience. The large amount of embedded videos (some advertising, mostly WSJ content) autoplay and rapidly drain my iPad’s battery. Since there is no option to turn off autoplay, the only way to use the app for an extended period of time is with my wifi connection turned off. I don’t have the same issue with other apps (Economist, FT, books).",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-12T03:42:39-07:00",
+        "author": "Geoffrey Wildanger"
+      },
+      {
+        "title": "Hard to believe how bad this app is",
+        "text": "This app is unusable and unfixable… might just go ahead and cancel my subscription.. and it does not work on any device, any platform.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-11T05:43:04-07:00",
+        "author": "MP00004"
+      },
+      {
+        "title": "Laggy performance",
+        "text": "Scrolling through a list of headlines shouldn’t cause the most recent iPhone to experience lag. You need to optimize your app better.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-10T16:36:36-07:00",
+        "author": "EricLangston357"
+      },
+      {
+        "title": "App freezes when opening",
+        "text": "1. I click a link from the 10-point email\n2. I land on article in app\n3. I can scroll briefly then app is unresponsive\n\nSeems to happen more severely if I haven’t opened the app in a while.",
+        "rating": 2,
+        "version": "14.53.0",
+        "date": "2025-11-10T09:12:28-07:00",
+        "author": "simple_topology"
+      },
+      {
+        "title": "Slow, Buggy, non-responsive",
+        "text": "App is fine, love the journal. But every time I open it up, and frequently while I use it, it lags like crazy. This doesn’t happen with other apps. Please contact your swift dev.",
+        "rating": 2,
+        "version": "14.53.0",
+        "date": "2025-11-10T09:04:35-07:00",
+        "author": "CharlesFreid"
+      },
+      {
+        "title": "Pinging",
+        "text": "Recently I am getting persistent  pinging on my phone when I try to read an article. I have to kill the app to make it stop.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-09T18:19:01-07:00",
+        "author": "jbgeers"
+      },
+      {
+        "title": "App Crashing",
+        "text": "App continues to be very buggy even after crashing issue has been resolved. The main feed constantly freezes making it impossible to use the app.  The fact that ads and media features seem to move everything around at random times is frustrating.",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-09T11:10:03-07:00",
+        "author": "History fan12"
+      },
+      {
+        "title": "Crashing even after multiple updates",
+        "text": "Page never loads, take forever at-least more than 4 updates came along without a proper fix, Its the worst update ever in iphone 16 pro",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-09T06:51:23-07:00",
+        "author": "Rengaram"
+      },
+      {
+        "title": "Scrolling is aweful",
+        "text": "Your news is great, but you’ve got a serious problem with the scrolling in this app that’s making it exceedingly difficult to read the daily news headlines.    I have to imagine others have noticed this, hope you can fix in the next update.",
+        "rating": 3,
+        "version": "14.53.0",
+        "date": "2025-11-08T19:02:38-07:00",
+        "author": "Co9-bos"
+      },
+      {
+        "title": "Ads are locking up app",
+        "text": "Lately the app is freezing when trying to serve me ads. Makes me grumpy, because I pay you, you show me ads anyway, and they break your app.",
+        "rating": 2,
+        "version": "14.53.0",
+        "date": "2025-11-08T19:00:13-07:00",
+        "author": "OpossibleKingdom"
+      },
+      {
+        "title": "App too glitchy",
+        "text": "I love reading the Wall Street Journal, but more frequently not when I open the app it freezes and does not allow me to scroll. Or it crashes. I have an up-to-date Apple iPhone and in 2025. I am disappointed that the app does not perform better.",
+        "rating": 3,
+        "version": "14.53.0",
+        "date": "2025-11-08T07:04:32-07:00",
+        "author": "pointcg"
+      },
+      {
+        "title": "Needs work",
+        "text": "This app constantly shuts down when I try to listen to new stories. It also freezes pretty frequently and is overall inconsistent. I would’ve expected more.",
+        "rating": 2,
+        "version": "14.53.0",
+        "date": "2025-11-08T03:09:43-07:00",
+        "author": "Kewa02"
+      },
+      {
+        "title": "Best news source, period",
+        "text": "11/7/26 UX observation: while listening to the audio of an article, the playback stops when I scroll down past an embedded video. The video's audio does not start but I have to manually restart the article's playback. Very annoying, please fix.",
+        "rating": 4,
+        "version": "14.53.0",
+        "date": "2025-11-07T21:04:29-07:00",
+        "author": "Spectre88"
+      },
+      {
+        "title": "Buggy",
+        "text": "Seems buggy. Locks up. Makes my iPhone heat up. Tried reinstalling but still the same. Maybe stop trying to push so many ads to a paying customer. Maybe invest in a better user interface.",
+        "rating": 3,
+        "version": "14.53.0",
+        "date": "2025-11-07T09:56:06-07:00",
+        "author": "TiredOfLockups"
+      },
+      {
+        "title": "Burns the phone up to load pop up full screen video ads 5 times per article",
+        "text": "$26 per month just to watch annoying ads? They pop up every ten seconds too",
+        "rating": 1,
+        "version": "14.53.0",
+        "date": "2025-11-06T13:20:17-07:00",
+        "author": "wage0-0"
+      },
+      {
+        "title": "App is slow and unresponsive at times",
+        "text": "It also drains my battery and overheats my phone",
+        "rating": 1,
+        "version": "14.52.1",
+        "date": "2025-11-04T14:00:14-07:00",
+        "author": "MegaAwesomeDude"
+      },
+      {
+        "title": "App locks up constantly",
+        "text": "Running iOS 18.7 on iPhone 12",
+        "rating": 1,
+        "version": "14.52.1",
+        "date": "2025-11-04T06:25:39-07:00",
+        "author": "HeyScooter18"
+      },
+      {
+        "title": "The media features they keep adding make the app unusable",
+        "text": "This app keeps adding video, voice over, and other media features which combine to make the app so unstable that it can’t even be used for reading. Give us a setting to turn this junk off and just read the paper!",
+        "rating": 1,
+        "version": "14.52.0",
+        "date": "2025-11-03T08:20:12-07:00",
+        "author": "Lanoitarus"
+      },
+      {
+        "title": "Great Reporting, Bad App",
+        "text": "The WSJ app has never been stellar, but a recent update has reduced it to lagging freezing mess that makes reading the news nigh impossible. I don't recommend this app, although I do recommend reading the WSJ on their website.",
+        "rating": 1,
+        "version": "14.52.0",
+        "date": "2025-11-01T15:13:38-07:00",
+        "author": "Hold_The_Sugar"
+      },
+      {
+        "title": "Freezing app, hot iPhone- bugs galore!",
+        "text": "Way too many issues with this app lately. It hangs up constantly, freezing for 5-10 seconds, is killing my battery when using the app, and my phone is getting very hot when using the app. Clearly the app is loaded with bugs.",
+        "rating": 1,
+        "version": "14.52.0",
+        "date": "2025-10-31T05:39:28-07:00",
+        "author": "Ptrack"
+      },
+      {
+        "title": "App is constantly freezing",
+        "text": "App is constantly freezing and stuttering to where I can’t scroll for a couple seconds at a time and then when I do leave and come back my, you have lost my place in the article. Honestly, it’s probably better just to use WSJ in the the web browser",
+        "rating": 2,
+        "version": "14.52.0",
+        "date": "2025-10-30T09:50:54-07:00",
+        "author": "Jarrrrrrrrrrrr"
+      },
+      {
+        "title": "Library login no longer works on iOS wsj app",
+        "text": "Our local library includes access to wsj digital. Before 14.52.0, everything worked great. After 14.52.0, the app goes to a login screen as soon as an article is selected. The wsj app works fine on android.",
+        "rating": 1,
+        "version": "14.52.0",
+        "date": "2025-10-30T05:05:11-07:00",
+        "author": "tbhokie"
+      },
+      {
+        "title": "Stop the pop up ads!",
+        "text": "I pay a lot of money for my WSJ subscription and do not expect pop-ups in your app. I have been played with pop-ups this whole afternoon reading the app.",
+        "rating": 1,
+        "version": "14.51.0",
+        "date": "2025-10-26T15:39:25-07:00",
+        "author": "Theguyinchi73"
+      },
+      {
+        "title": "No ability to increase audio speed",
+        "text": "The app works, although there are some limits.\n\nNo ability to change text size as you want, it goes the same as phone settings. And no ability to increase audio speed",
+        "rating": 3,
+        "version": "14.51.0",
+        "date": "2025-10-25T16:53:49-07:00",
+        "author": "Xirlamaister"
+      },
+      {
+        "title": "Laggy and slow",
+        "text": "Constantly hangs up while scrolling to read news stories and headlines.\n\n WSJ needs to focus on basic text journalism functionality (my main consumption format) before adding more video, which seems to massively degrade the entire experience.",
+        "rating": 1,
+        "version": "14.51.0",
+        "date": "2025-10-25T09:50:32-07:00",
+        "author": "William Zenker"
+      },
+      {
+        "title": "Crashing",
+        "text": "Love the Wall Street Journal. Hate the app. Crashed three times this morning trying to listen to an article. It’s unbelievable how much better than New York Times app is compared to the Wall Street Journal app. The functionality has improved over the years, but to still be crashing in 2025 is unacceptable.",
+        "rating": 1,
+        "version": "14.51.0",
+        "date": "2025-10-25T08:01:12-07:00",
+        "author": "Hutson14"
+      },
+      {
+        "title": "Massively buggy",
+        "text": "I have to restart this app at least once every time I open it. Good content and design, but your tech is ruining the experience.",
+        "rating": 2,
+        "version": "14.51.0",
+        "date": "2025-10-25T07:04:24-07:00",
+        "author": "Ceckel"
+      },
+      {
+        "title": "Heats up my iPad and runs down the battery",
+        "text": "The WSJ is indispensable, but after a half hour or so it heats up my iPad and drains the battery. I kill it, do something else—like write this review— for a while then get back to it and it’s fine again— for a while. I’ve had to do this for several months now. This app right now is anything BUT a “sticky” platform.",
+        "rating": 2,
+        "version": "14.51.0",
+        "date": "2025-10-25T04:43:31-07:00",
+        "author": "Fnelowet"
+      },
+      {
+        "title": "Cool news, hot device",
+        "text": "First rate content and usability, but nothing on my iPhone or iPad drains battery faster when open. Both become hot to the touch. Would be 5 stars if that was fixed.",
+        "rating": 4,
+        "version": "14.51.0",
+        "date": "2025-10-24T15:15:24-07:00",
+        "author": "@MacksMind"
+      },
+      {
+        "title": "WSJ App",
+        "text": "Nice access to stories and markets, but lacks some features (article gifting and comments) found on the website.",
+        "rating": 3,
+        "version": "14.51.0",
+        "date": "2025-10-23T05:45:11-07:00",
+        "author": "GeogBoise"
+      },
+      {
+        "title": "In General Good But",
+        "text": "My one big complaint is that the audio feature doesn’t work when the phone locks up. It doesn’t continue playing the way music, podcasts and the NYT app do.  It’s very annoying.",
+        "rating": 3,
+        "version": "14.51.0",
+        "date": "2025-10-22T07:37:09-07:00",
+        "author": "Swashbuckling Cowboy"
+      },
+      {
+        "title": "Would be 10 if audio worked in the app",
+        "text": "Would be great to be able to listen to articles without the app crashing every 15 seconds. This has been happening for several versions now and is such basic functionality.",
+        "rating": 2,
+        "version": "14.51.0",
+        "date": "2025-10-21T15:59:05-07:00",
+        "author": "Stop asking for this plz"
+      },
+      {
+        "title": "Slow buffering",
+        "text": "I like the content, unfortunately, the apps performance after recent changes has degraded significantly. Scrolling becomes impossible for 10 - 20 seconds , rendering the app frustratingly unnavigable and slow( from time to time).",
+        "rating": 1,
+        "version": "14.51.0",
+        "date": "2025-10-21T03:17:51-07:00",
+        "author": "Alexandre123223"
       }
     ]
   }

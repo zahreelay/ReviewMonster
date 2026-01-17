@@ -106,10 +106,10 @@ class AgentManager {
         return await this.competitorAgent.discover(appProfile, reviews, opts);
     }
 
-    async runCompetitorAnalysis({ appProfile, reviews, ourIntel, opts = {} }) {
-        return await this.competitorAgent.run(appProfile, reviews, ourIntel, opts);
+    async runCompetitorRun({ mainApp, competitorIds, days }) {
+        return await this.competitorAgent.run(mainApp, competitorIds, days);
     }
-    async runCompetitorCompare() {
+    async runCompetitorCompare({ mainApp, competitorIds, days }) {
         const fs = require("fs");
         const path = require("path");
 
@@ -119,15 +119,24 @@ class AgentManager {
         );
 
         if (!fs.existsSync(datasetPath)) {
-            throw new Error("Run /competitors/run first");
+            throw new Error("No dataset found. Run /competitors/run first.");
         }
 
-        const dataset = JSON.parse(
-            fs.readFileSync(datasetPath, "utf-8")
-        );
+        const dataset = JSON.parse(fs.readFileSync(datasetPath, "utf-8"));
+
+        // Sanity: ensure dataset matches request
+        if (
+            dataset.mainApp.appId !== mainApp.appId ||
+            competitorIds.some(id => !dataset.competitors[id])
+        ) {
+            throw new Error(
+                "Dataset does not match supplied mainApp / competitorIds. Re-run /competitors/run."
+            );
+        }
 
         return this.competitorAgent.compare(dataset);
     }
+
 
 
 
