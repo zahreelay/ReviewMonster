@@ -124,6 +124,16 @@ app.post("/competitors/init", async (req, res) => {
     }
 });
 
+app.post("/competitors/compare", async (req, res) => {
+    try {
+        const swot = await manager.runCompetitorCompare();
+        res.json(swot);
+    } catch (e) {
+        res.status(400).json({ error: e.message });
+    }
+});
+
+
 app.post("/competitors/run", async (req, res) => {
     try {
         const appProfile = { appId: req.body?.ourAppId || "1081530898" };
@@ -144,24 +154,24 @@ app.post("/competitors/run", async (req, res) => {
 });
 
 
-app.post("/competitors/run", async (req, res) => {
-    try {
-        const { country = "us", k = 8, days = 30 } = req.body || {};
-        const appProfile = { appId: req.body?.ourAppId || "1081530898" };
-        const reviews = require("../data/reviews_store.json");
-        const ourIntel = require("../data/memory.json");
+// app.post("/competitors/run", async (req, res) => {
+//     try {
+//         const { country = "us", k = 8, days = 30 } = req.body || {};
+//         const appProfile = { appId: req.body?.ourAppId || "1081530898" };
+//         const reviews = require("../data/reviews_store.json");
+//         const ourIntel = require("../data/memory.json");
 
-        const result = await competitorAgent.run(appProfile, reviews, ourIntel, { country, k, days });
-        res.json(result);
-    } catch (e) {
-        res.status(400).json({ error: e.message });
-    }
-});
+//         const result = await competitorAgent.run(appProfile, reviews, ourIntel, { country, k, days });
+//         res.json(result);
+//     } catch (e) {
+//         res.status(400).json({ error: e.message });
+//     }
+// });
 
-app.get("/competitors/report", async (req, res) => {
-    const data = require("../data/competitive_memory.json");
-    res.json(data);
-});
+// app.get("/competitors/report", async (req, res) => {
+//     const data = require("../data/competitive_memory.json");
+//     res.json(data);
+// });
 
 
 app.listen(3000, () => {

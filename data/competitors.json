@@ -62,21 +62,5 @@
     "genre": "News",
     "score": 0.7372,
     "rating": 4.57287
-  },
-  {
-    "appId": "568014889",
-    "name": "The Spectator Magazine",
-    "seller": "The Spectator (1828) Ltd",
-    "genre": "News",
-    "score": 0.7359,
-    "rating": 4.793
-  },
-  {
-    "appId": "1239397626",
-    "name": "The Economist - News",
-    "seller": "The Economist Newspaper Group Inc.",
-    "genre": "News",
-    "score": 0.7347,
-    "rating": 4.87144
   }
 ]

@@ -109,6 +109,26 @@ class AgentManager {
     async runCompetitorAnalysis({ appProfile, reviews, ourIntel, opts = {} }) {
         return await this.competitorAgent.run(appProfile, reviews, ourIntel, opts);
     }
+    async runCompetitorCompare() {
+        const fs = require("fs");
+        const path = require("path");
+
+        const datasetPath = path.join(
+            __dirname,
+            "../data/competitive_dataset.json"
+        );
+
+        if (!fs.existsSync(datasetPath)) {
+            throw new Error("Run /competitors/run first");
+        }
+
+        const dataset = JSON.parse(
+            fs.readFileSync(datasetPath, "utf-8")
+        );
+
+        return this.competitorAgent.compare(dataset);
+    }
+
 
 
 
