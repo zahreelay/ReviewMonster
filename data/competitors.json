@@ -1,0 +1,82 @@
+[
+  {
+    "appId": "556820250",
+    "name": "The Times Literary Supplement",
+    "seller": "Times Media Limited (Apps)",
+    "genre": "News",
+    "score": 0.7547,
+    "rating": 4.71359
+  },
+  {
+    "appId": "364387007",
+    "name": "The Wall Street Journal. News",
+    "seller": "Dow Jones & Company, Inc., publisher of The Wall Street Journal.",
+    "genre": "News",
+    "score": 0.7506,
+    "rating": 4.70666
+  },
+  {
+    "appId": "397599894",
+    "name": "The Atlantic Magazine",
+    "seller": "The Atlantic Monthly Group LLC",
+    "genre": "News",
+    "score": 0.7473,
+    "rating": 4.92037
+  },
+  {
+    "appId": "409128287",
+    "name": "The Guardian - US & World News",
+    "seller": "Guardian News & Media Ltd",
+    "genre": "News",
+    "score": 0.7473,
+    "rating": 4.85885
+  },
+  {
+    "appId": "331786748",
+    "name": "CNN: Live & Breaking News",
+    "seller": "CNN Interactive Group, Inc.",
+    "genre": "News",
+    "score": 0.7457,
+    "rating": 4.77019
+  },
+  {
+    "appId": "313904711",
+    "name": "PressReader: News & Magazines",
+    "seller": "PressReader Inc",
+    "genre": "News",
+    "score": 0.7434,
+    "rating": 4.67584
+  },
+  {
+    "appId": "404607612",
+    "name": "ABC 7 New York",
+    "seller": "Disney Electronic Content, Inc.",
+    "genre": "News",
+    "score": 0.7398,
+    "rating": 4.7507
+  },
+  {
+    "appId": "459182288",
+    "name": "Google News",
+    "seller": "Google LLC",
+    "genre": "News",
+    "score": 0.7372,
+    "rating": 4.57287
+  },
+  {
+    "appId": "568014889",
+    "name": "The Spectator Magazine",
+    "seller": "The Spectator (1828) Ltd",
+    "genre": "News",
+    "score": 0.7359,
+    "rating": 4.793
+  },
+  {
+    "appId": "1239397626",
+    "name": "The Economist - News",
+    "seller": "The Economist Newspaper Group Inc.",
+    "genre": "News",
+    "score": 0.7347,
+    "rating": 4.87144
+  }
+]

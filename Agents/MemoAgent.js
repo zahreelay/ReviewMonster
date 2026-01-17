@@ -10,9 +10,10 @@ class MemoAgent {
         }
 
         const key = this.cache.makeMemoKey(analyzedReviews);
-
+        console.log("Memo key:", key);
         // Try to get from cache
         const cached = this.cache.get(key);
+        console.log("Cached memo:", cached);
         if (cached) {
             return cached;
         }
@@ -21,7 +22,7 @@ class MemoAgent {
 
         // Save to cache
         this.cache.set(key, memo);
-
+        console.log("Generated memo:", memo);
         return memo;
     }
 }
