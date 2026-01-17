@@ -1,0 +1,24 @@
+{
+  "556820250": {
+    "appId": "556820250",
+    "name": "The Times Literary Supplement",
+    "reviews": [
+      {
+        "title": "Accessibility and Login Issues",
+        "text": "Continue to have login issues, issues recognizing subscription, font is tiny. Access to the digital subscription is really hit or miss. As one reviewer pointed out, at least I don’t have to search for my subscriber number!",
+        "rating": 2,
+        "version": "6.3.0",
+        "date": "2025-12-01T19:58:14-07:00",
+        "author": "ElroyandJudy"
+      },
+      {
+        "title": "TLS great; accessibility mediocre.",
+        "text": "Not just clunky navigation — but print on ipad unnecessarily tiny and not adjustable.   Their writers deserve better",
+        "rating": 3,
+        "version": "6.3.0",
+        "date": "2025-11-13T18:24:14-07:00",
+        "author": "Mikesho"
+      }
+    ]
+  }
+}
