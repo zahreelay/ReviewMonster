@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "review-monster-api",
+		"name": "ReviewMonster API",
+		"description": "Product Intelligence Platform - App Store Review Analysis API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "appId",
+			"value": "1081530898",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Onboarding",
+			"item": [
+				{
+					"name": "Fetch App Metadata",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"appId\": \"{{appId}}\",\n    \"country\": \"us\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/apps/metadata",
+							"host": ["{{baseUrl}}"],
+							"path": ["apps", "metadata"]
+						},
+						"description": "Fetch app metadata from App Store using iTunes API. Returns app name, icon, rating, description, etc."
+					},
+					"response": []
+				},
+				{
+					"name": "Initialize Reviews",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/init",
+							"host": ["{{baseUrl}}"],
+							"path": ["init"]
+						},
+						"description": "Download and analyze reviews from App Store. Set refresh=true to fetch new reviews, false to use cached data."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for app setup and review initialization"
+		},
+		{
+			"name": "Core Analysis",
+			"item": [
+				{
+					"name": "Get Overview Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/overview",
+							"host": ["{{baseUrl}}"],
+							"path": ["overview"]
+						},
+						"description": "Get executive summary with metrics, top issues, feature requests, alerts, and AI-generated memo."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Your Product Deep Dive",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/your-product",
+							"host": ["{{baseUrl}}"],
+							"path": ["your-product"]
+						},
+						"description": "Deep dive into issues (with severity), feature requests (with demand), and strengths with evidence."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Yearly Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/yearly-report",
+							"host": ["{{baseUrl}}"],
+							"path": ["yearly-report"]
+						},
+						"description": "Generate yearly analysis report with memo."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Regression Tree",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regression-tree",
+							"host": ["{{baseUrl}}"],
+							"path": ["regression-tree"]
+						},
+						"description": "Rating driver regression analysis - identifies issues causing rating drops."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Release Timeline",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/release-timeline",
+							"host": ["{{baseUrl}}"],
+							"path": ["release-timeline"]
+						},
+						"description": "Version-by-version sentiment analysis with new/resolved issues per release."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Impact Model",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/impact-model",
+							"host": ["{{baseUrl}}"],
+							"path": ["impact-model"]
+						},
+						"description": "Predictive impact analysis with priority scores and fix recommendations."
+					},
+					"response": []
+				},
+				{
+					"name": "Run Analysis Agent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"days\": 30\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/run-agent",
+							"host": ["{{baseUrl}}"],
+							"path": ["run-agent"]
+						},
+						"description": "Run the analysis agent for specified number of days."
+					},
+					"response": []
+				}
+			],
+			"description": "Core analysis endpoints for review insights"
+		},
+		{
+			"name": "Evidence & Queries",
+			"item": [
+				{
+					"name": "Get Evidence - Issue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/evidence/issue/login_bug",
+							"host": ["{{baseUrl}}"],
+							"path": ["evidence", "issue", "login_bug"]
+						},
+						"description": "Get review evidence for a specific issue. Replace 'login_bug' with the issue identifier."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Evidence - Feature Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/evidence/request/dark_mode",
+							"host": ["{{baseUrl}}"],
+							"path": ["evidence", "request", "dark_mode"]
+						},
+						"description": "Get review evidence for a feature request. Replace 'dark_mode' with the request identifier."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Evidence - Strength",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/evidence/strength/easy_to_use",
+							"host": ["{{baseUrl}}"],
+							"path": ["evidence", "strength", "easy_to_use"]
+						},
+						"description": "Get review evidence for a strength/praise. Replace 'easy_to_use' with the strength identifier."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Evidence - Competitor Weakness",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/evidence/weakness/crashes?competitorId=123456789",
+							"host": ["{{baseUrl}}"],
+							"path": ["evidence", "weakness", "crashes"],
+							"query": [
+								{
+									"key": "competitorId",
+									"value": "123456789"
+								}
+							]
+						},
+						"description": "Get competitor review evidence for a weakness. Requires competitorId query param."
+					},
+					"response": []
+				},
+				{
+					"name": "Natural Language Query",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"What are the top complaints from users?\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/query",
+							"host": ["{{baseUrl}}"],
+							"path": ["query"]
+						},
+						"description": "Ask natural language questions about review data. AI-powered answers."
+					},
+					"response": []
+				},
+				{
+					"name": "Query - Why Rating Dropped",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"Why did our rating drop recently?\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/query",
+							"host": ["{{baseUrl}}"],
+							"path": ["query"]
+						},
+						"description": "Example query: Ask about rating drops."
+					},
+					"response": []
+				},
+				{
+					"name": "Query - Feature Requests",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"What features are users requesting the most?\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/query",
+							"host": ["{{baseUrl}}"],
+							"path": ["query"]
+						},
+						"description": "Example query: Ask about feature requests."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for getting evidence and asking questions"
+		},
+		{
+			"name": "Competitors",
+			"item": [
+				{
+					"name": "Discover Competitors",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ourAppId\": \"{{appId}}\",\n    \"country\": \"us\",\n    \"k\": 10\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/competitors/init",
+							"host": ["{{baseUrl}}"],
+							"path": ["competitors", "init"]
+						},
+						"description": "Discover top competitors based on app genre and keywords. Returns up to k competitors."
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Competitor Reviews",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\",\n        \"name\": \"Your App\"\n    },\n    \"competitorIds\": [\"544007664\", \"835599320\"],\n    \"days\": 90\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/competitors/run",
+							"host": ["{{baseUrl}}"],
+							"path": ["competitors", "run"]
+						},
+						"description": "Fetch and analyze reviews for specified competitors. Creates competitive dataset."
+					},
+					"response": []
+				},
+				{
+					"name": "Generate SWOT Comparison",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\"\n    },\n    \"competitorIds\": [\"544007664\", \"835599320\"],\n    \"days\": 90\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/competitors/compare",
+							"host": ["{{baseUrl}}"],
+							"path": ["competitors", "compare"]
+						},
+						"description": "Generate SWOT analysis comparing your app to competitors. Requires /competitors/run first."
+					},
+					"response": []
+				}
+			],
+			"description": "Competitor discovery and analysis endpoints"
+		}
+	]
+}
