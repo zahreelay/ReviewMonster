@@ -69,3 +69,64 @@ OPENAI_API_KEY=sk-...
 - Analysis results are JSON-stringified when stored in cache
 - Most endpoints require `/init` to be run first to populate review data
 - Competitor data stored in `data/competitive_dataset.json`
+
+## API Endpoints
+
+### Onboarding
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/apps/metadata` | Fetch app metadata from App Store. Body: `{ appId, country? }` |
+| `POST` | `/init` | Download and analyze reviews. Body: `{ refresh?: boolean }` |
+
+### Core Analysis
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/overview` | Dashboard with executive summary, metrics, top issues, alerts |
+| `GET` | `/your-product` | Deep dive into issues, feature requests, strengths with severity |
+| `GET` | `/yearly-report` | Generate yearly analysis report |
+| `GET` | `/regression-tree` | Rating driver regression analysis |
+| `GET` | `/release-timeline` | Version-by-version sentiment analysis |
+| `GET` | `/impact-model` | Predictive impact analysis with priorities |
+| `POST` | `/run-agent` | Run analysis agent. Body: `{ days?: number }` |
+
+### Evidence & Queries
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/evidence/:type/:item` | Get review evidence. Types: `issue`, `weakness`, `request`, `opportunity`, `strength`, `praise`. Query: `?competitorId=` for competitor data |
+| `POST` | `/query` | Natural language query. Body: `{ query: string }` |
+
+### Competitors
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/competitors/init` | Discover competitors. Body: `{ ourAppId?, country?, k? }` |
+| `POST` | `/competitors/run` | Fetch and analyze competitor reviews. Body: `{ mainApp: { appId }, competitorIds: [], days? }` |
+| `POST` | `/competitors/compare` | Generate SWOT comparison. Body: `{ mainApp: { appId }, competitorIds: [], days? }` |
+
+### Example Usage
+
+```bash
+# 1. Fetch app metadata
+curl -X POST http://localhost:3000/apps/metadata \
+  -H "Content-Type: application/json" \
+  -d '{"appId": "1081530898"}'
+
+# 2. Initialize (download & analyze reviews)
+curl -X POST http://localhost:3000/init \
+  -H "Content-Type: application/json" \
+  -d '{"refresh": true}'
+
+# 3. Get dashboard overview
+curl http://localhost:3000/overview
+
+# 4. Get evidence for an issue
+curl http://localhost:3000/evidence/issue/login_bug
+
+# 5. Ask a natural language question
+curl -X POST http://localhost:3000/query \
+  -H "Content-Type: application/json" \
+  -d '{"query": "What are the top complaints?"}'
+```
