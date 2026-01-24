@@ -15,6 +15,12 @@ npm run dev
 # Production
 npm start
 
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
 # Syntax check
 node -c api/server.js
 ```
