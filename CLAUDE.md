@@ -77,7 +77,8 @@ OPENAI_API_KEY=sk-...
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `POST` | `/apps/metadata` | Fetch app metadata from App Store. Body: `{ appId, country? }` |
-| `POST` | `/init` | Download and analyze reviews. Body: `{ refresh?: boolean }` |
+| `POST` | `/init` | Download and analyze reviews (async). Body: `{ refresh?: boolean, async?: boolean }` |
+| `GET` | `/init/status` | Check init progress. Returns `{ running, progress, total, percentage, lastResult }` |
 
 ### Core Analysis
 

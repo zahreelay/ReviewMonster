@@ -18,7 +18,14 @@ const rawStore = require("../tools/rawReviewStore");
 const fs = require("fs");
 const path = require("path");
 
-
+// Track init job status
+let initStatus = {
+    running: false,
+    progress: 0,
+    total: 0,
+    error: null,
+    lastResult: null
+};
 
 const app = express();
 
@@ -50,15 +57,122 @@ const initAgent = new InitAgent({
 });
 
 app.post("/init", async (req, res) => {
-    const { refresh = false } = req.body;
+    const { refresh = false, async: runAsync = true } = req.body;
 
-    try {
-        const result = await initAgent.run({ refresh });
-        res.json(result);
-    } catch (e) {
-        console.error(e);
-        res.status(500).json({ error: "Init failed" });
+    // If already running, return current status
+    if (initStatus.running) {
+        return res.status(409).json({
+            status: "already_running",
+            progress: initStatus.progress,
+            total: initStatus.total
+        });
     }
+
+    // For sync mode (not recommended for large datasets)
+    if (!runAsync) {
+        try {
+            const result = await initAgent.run({ refresh });
+            res.json(result);
+        } catch (e) {
+            console.error(e);
+            res.status(500).json({ error: "Init failed" });
+        }
+        return;
+    }
+
+    // Async mode: return immediately and process in background
+    initStatus = {
+        running: true,
+        progress: 0,
+        total: 0,
+        error: null,
+        lastResult: null,
+        startedAt: new Date().toISOString()
+    };
+
+    res.json({
+        status: "started",
+        message: "Initialization started. Poll /init/status for progress."
+    });
+
+    // Run in background
+    (async () => {
+        try {
+            let reviews = rawStore.getReviews();
+
+            if (refresh) {
+                console.log("Scraping reviews...");
+                reviews = await scrapeLastYear();
+                rawStore.saveReviews(reviews);
+                console.log(`Scraped ${reviews.length} reviews`);
+            }
+
+            if (!reviews.length) {
+                initStatus.running = false;
+                initStatus.lastResult = {
+                    status: "no_data",
+                    message: "Raw store empty. Run with refresh=true first."
+                };
+                return;
+            }
+
+            initStatus.total = reviews.length;
+            const analyzed = [];
+
+            for (let i = 0; i < reviews.length; i++) {
+                const review = reviews[i];
+                const key = cache.makeReviewKey(review);
+                let analysis = cache.get(key);
+
+                if (!analysis) {
+                    analysis = await analyzeReview(review);
+                    cache.set(key, analysis);
+                }
+
+                analyzed.push({
+                    ...JSON.parse(analysis),
+                    rating: review.rating,
+                    date: review.date,
+                    version: review.version
+                });
+
+                initStatus.progress = i + 1;
+
+                // Log progress every 10 reviews
+                if ((i + 1) % 10 === 0) {
+                    console.log(`Analyzed ${i + 1}/${reviews.length} reviews`);
+                }
+            }
+
+            initStatus.running = false;
+            initStatus.lastResult = {
+                status: "ok",
+                totalRawReviews: reviews.length,
+                totalAnalyzed: analyzed.length,
+                updatedAt: new Date().toISOString()
+            };
+            console.log("Init completed successfully");
+        } catch (e) {
+            console.error("Init error:", e);
+            initStatus.running = false;
+            initStatus.error = e.message;
+            initStatus.lastResult = { status: "error", error: e.message };
+        }
+    })();
+});
+
+app.get("/init/status", (req, res) => {
+    res.json({
+        running: initStatus.running,
+        progress: initStatus.progress,
+        total: initStatus.total,
+        percentage: initStatus.total > 0
+            ? Math.round((initStatus.progress / initStatus.total) * 100)
+            : 0,
+        error: initStatus.error,
+        lastResult: initStatus.lastResult,
+        startedAt: initStatus.startedAt
+    });
 });
 
 app.get("/yearly-report", async (req, res) => {

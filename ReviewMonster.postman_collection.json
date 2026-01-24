@@ -45,7 +45,7 @@
 					"response": []
 				},
 				{
-					"name": "Initialize Reviews",
+					"name": "Initialize Reviews (Async)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -56,14 +56,51 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"refresh\": true\n}"
+							"raw": "{\n    \"refresh\": true,\n    \"async\": true\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/init",
 							"host": ["{{baseUrl}}"],
 							"path": ["init"]
 						},
-						"description": "Download and analyze reviews from App Store. Set refresh=true to fetch new reviews, false to use cached data."
+						"description": "Download and analyze reviews from App Store. Runs asynchronously by default. Set refresh=true to fetch new reviews. Poll /init/status for progress."
+					},
+					"response": []
+				},
+				{
+					"name": "Initialize Reviews (Sync)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh\": false,\n    \"async\": false\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/init",
+							"host": ["{{baseUrl}}"],
+							"path": ["init"]
+						},
+						"description": "Synchronous init - waits for completion. Only use with async=false and refresh=false (cached data only). May timeout with refresh=true."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Init Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/init/status",
+							"host": ["{{baseUrl}}"],
+							"path": ["init", "status"]
+						},
+						"description": "Check the status of async initialization. Returns progress, percentage, and result when complete."
 					},
 					"response": []
 				}
