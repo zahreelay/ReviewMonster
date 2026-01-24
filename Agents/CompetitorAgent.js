@@ -22,11 +22,17 @@ function safeParseAnalysis(text) {
 
 /**
  * Helper for SWOT aggregation
+ * @param analyzed - array of analyzed reviews with { intent, issues, ... }
+ * @param intentFilter - filter by intent: "complaint", "feature_request", "praise", or null for all
+ * @param limit - max items to return
  */
-function summarize(analyzed, key, limit = 5) {
+function summarize(analyzed, intentFilter = null, limit = 5) {
     const freq = {};
     for (const r of analyzed) {
-        const arr = Array.isArray(r[key]) ? r[key] : [];
+        // Filter by intent if specified
+        if (intentFilter && r.intent !== intentFilter) continue;
+
+        const arr = Array.isArray(r.issues) ? r.issues : [];
         for (const v of arr) {
             const k = String(v).toLowerCase();
             freq[k] = (freq[k] || 0) + 1;
@@ -186,13 +192,12 @@ class CompetitorAgent {
     compare(dataset) {
         const { mainApp, competitors } = dataset;
         const swot = {};
-        //console.log("Competitors:", mainApp, competitors);
-        //process.exit(0);
+
         for (const c of Object.values(competitors)) {
             swot[c.name] = {
                 strengths: summarize(c.analyzed, "praise"),
-                weaknesses: summarize(c.analyzed, "issues"),
-                opportunities: summarize(c.analyzed, "requests"),
+                weaknesses: summarize(c.analyzed, "complaint"),
+                opportunities: summarize(c.analyzed, "feature_request"),
                 threats: summarize(mainApp.analyzed, "praise")
             };
         }

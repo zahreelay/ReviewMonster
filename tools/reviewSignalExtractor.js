@@ -2,10 +2,13 @@ function norm(t) {
     return String(t || "").toLowerCase().trim();
 }
 
-function count(reviews, key, limit = 5) {
+function countByIntent(reviews, intentFilter, limit = 5) {
     const freq = {};
     for (const r of reviews) {
-        const arr = Array.isArray(r[key]) ? r[key] : [];
+        // Filter by intent if specified
+        if (intentFilter && r.intent !== intentFilter) continue;
+
+        const arr = Array.isArray(r.issues) ? r.issues : [];
         for (const v of arr) {
             const k = norm(v);
             if (!k) continue;
@@ -38,9 +41,9 @@ function detectShipped(reviews, limit = 5) {
 
 module.exports.extractSignals = function (analyzed) {
     return {
-        liked: count(analyzed, "praise"),
-        disliked: count(analyzed, "issues"),
-        askedFor: count(analyzed, "requests"),
+        liked: countByIntent(analyzed, "praise"),
+        disliked: countByIntent(analyzed, "complaint"),
+        askedFor: countByIntent(analyzed, "feature_request"),
         likelyShipped: detectShipped(analyzed)
     };
 };

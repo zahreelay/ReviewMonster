@@ -158,7 +158,7 @@ ReviewMonster/
 ## 🛠️ Technology Stack
 
 - **Backend:** Node.js + Express
-- **AI:** OpenAI GPT-4.1-mini (for review analysis)
+- **AI:** OpenAI GPT-4o-mini (for review analysis)
 - **Data Source:** Apple App Store RSS & iTunes API
 - **Caching:** In-memory + JSON file cache
 - **CORS:** Enabled for frontend integration

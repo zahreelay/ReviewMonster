@@ -2,9 +2,9 @@ const OpenAI = require("openai");
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 async function analyzeReview(review) {
-    const response = await client.responses.create({
-        model: "gpt-4.1-mini",
-        input: [
+    const response = await client.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
             {
                 role: "system",
                 content: `
@@ -16,6 +16,8 @@ Rules:
 - Extract concrete issues as normalized snake_case identifiers.
 - If the review contains any problem or request, issues must not be empty.
 - Produce a concise executive summary (1–2 lines).
+
+Respond with valid JSON only.
 `
             },
             {
@@ -28,9 +30,9 @@ Analyze this review.
 `
             }
         ],
-        text: {
-            format: {
-                type: "json_schema",
+        response_format: {
+            type: "json_schema",
+            json_schema: {
                 name: "review_intelligence",
                 schema: {
                     type: "object",
@@ -41,13 +43,14 @@ Analyze this review.
                         summary: { type: "string" }
                     },
                     required: ["intent", "issues", "summary"]
-                }
+                },
+                strict: true
             }
         },
         temperature: 0
     });
 
-    return response.output_text;
+    return response.choices[0].message.content;
 }
 
 module.exports = { analyzeReview };
