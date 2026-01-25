@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "review-monster-api",
 		"name": "ReviewMonster API",
-		"description": "Product Intelligence Platform - App Store Review Analysis API",
+		"description": "Product Intelligence Platform - App Store Review Analysis API\n\n## Cache Behavior\nAll OpenAI calls read from cache by default. Pass `bypassCache: true` (POST body) or `?bypassCache=true` (GET query param) to force fresh LLM calls.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"variable": [
@@ -56,14 +56,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"refresh\": true,\n    \"async\": true\n}"
+							"raw": "{\n    \"refresh\": true,\n    \"async\": true,\n    \"bypassCache\": false\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/init",
 							"host": ["{{baseUrl}}"],
 							"path": ["init"]
 						},
-						"description": "Download and analyze reviews from App Store. Runs asynchronously by default. Set refresh=true to fetch new reviews. Poll /init/status for progress."
+						"description": "Download and analyze reviews from App Store. Runs asynchronously by default.\n\n- `refresh`: true to fetch new reviews from App Store\n- `async`: true for background processing (recommended)\n- `bypassCache`: true to force re-analysis even if cached\n\nPoll /init/status for progress."
 					},
 					"response": []
 				},
@@ -79,14 +79,37 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"refresh\": false,\n    \"async\": false\n}"
+							"raw": "{\n    \"refresh\": false,\n    \"async\": false,\n    \"bypassCache\": false\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/init",
 							"host": ["{{baseUrl}}"],
 							"path": ["init"]
 						},
-						"description": "Synchronous init - waits for completion. Only use with async=false and refresh=false (cached data only). May timeout with refresh=true."
+						"description": "Synchronous init - waits for completion. Only use with async=false and refresh=false (cached data only). May timeout with refresh=true.\n\n- `bypassCache`: true to force re-analysis even if cached"
+					},
+					"response": []
+				},
+				{
+					"name": "Initialize Reviews (Bypass Cache)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh\": false,\n    \"async\": true,\n    \"bypassCache\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/init",
+							"host": ["{{baseUrl}}"],
+							"path": ["init"]
+						},
+						"description": "Force re-analysis of all reviews by bypassing cache. Use when you need fresh LLM analysis."
 					},
 					"response": []
 				},
@@ -148,7 +171,27 @@
 							"host": ["{{baseUrl}}"],
 							"path": ["yearly-report"]
 						},
-						"description": "Generate yearly analysis report with memo."
+						"description": "Generate yearly analysis report with memo. Uses cached analysis by default."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Yearly Report (Bypass Cache)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/yearly-report?bypassCache=true",
+							"host": ["{{baseUrl}}"],
+							"path": ["yearly-report"],
+							"query": [
+								{
+									"key": "bypassCache",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Generate yearly analysis report with fresh LLM analysis (bypasses cache)."
 					},
 					"response": []
 				},
@@ -162,7 +205,27 @@
 							"host": ["{{baseUrl}}"],
 							"path": ["regression-tree"]
 						},
-						"description": "Rating driver regression analysis - identifies issues causing rating drops."
+						"description": "Rating driver regression analysis - identifies issues causing rating drops. Uses cached analysis by default."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Regression Tree (Bypass Cache)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/regression-tree?bypassCache=true",
+							"host": ["{{baseUrl}}"],
+							"path": ["regression-tree"],
+							"query": [
+								{
+									"key": "bypassCache",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Rating driver regression analysis with fresh LLM analysis (bypasses cache)."
 					},
 					"response": []
 				},
@@ -176,7 +239,27 @@
 							"host": ["{{baseUrl}}"],
 							"path": ["release-timeline"]
 						},
-						"description": "Version-by-version sentiment analysis with new/resolved issues per release."
+						"description": "Version-by-version sentiment analysis with new/resolved issues per release. Uses cached analysis by default."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Release Timeline (Bypass Cache)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/release-timeline?bypassCache=true",
+							"host": ["{{baseUrl}}"],
+							"path": ["release-timeline"],
+							"query": [
+								{
+									"key": "bypassCache",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Version-by-version sentiment analysis with fresh LLM analysis (bypasses cache)."
 					},
 					"response": []
 				},
@@ -190,7 +273,27 @@
 							"host": ["{{baseUrl}}"],
 							"path": ["impact-model"]
 						},
-						"description": "Predictive impact analysis with priority scores and fix recommendations."
+						"description": "Predictive impact analysis with priority scores and fix recommendations. Uses cached analysis by default."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Impact Model (Bypass Cache)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/impact-model?bypassCache=true",
+							"host": ["{{baseUrl}}"],
+							"path": ["impact-model"],
+							"query": [
+								{
+									"key": "bypassCache",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Predictive impact analysis with fresh LLM analysis (bypasses cache)."
 					},
 					"response": []
 				},
@@ -206,14 +309,37 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"days\": 30\n}"
+							"raw": "{\n    \"days\": 30,\n    \"bypassCache\": false\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/run-agent",
 							"host": ["{{baseUrl}}"],
 							"path": ["run-agent"]
 						},
-						"description": "Run the analysis agent for specified number of days."
+						"description": "Run the analysis agent for specified number of days.\n\n- `days`: Number of days to analyze\n- `bypassCache`: true to force fresh LLM analysis"
+					},
+					"response": []
+				},
+				{
+					"name": "Run Analysis Agent (Bypass Cache)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"days\": 30,\n    \"bypassCache\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/run-agent",
+							"host": ["{{baseUrl}}"],
+							"path": ["run-agent"]
+						},
+						"description": "Run the analysis agent with fresh LLM analysis (bypasses cache)."
 					},
 					"response": []
 				}
@@ -297,14 +423,37 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"query\": \"What are the top complaints from users?\"\n}"
+							"raw": "{\n    \"query\": \"What are the top complaints from users?\",\n    \"bypassCache\": false\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/query",
 							"host": ["{{baseUrl}}"],
 							"path": ["query"]
 						},
-						"description": "Ask natural language questions about review data. AI-powered answers."
+						"description": "Ask natural language questions about review data. AI-powered answers.\n\n- `query`: Your question\n- `bypassCache`: true to force fresh LLM response (default: false, uses cached response if available)"
+					},
+					"response": []
+				},
+				{
+					"name": "Natural Language Query (Bypass Cache)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"What are the top complaints from users?\",\n    \"bypassCache\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/query",
+							"host": ["{{baseUrl}}"],
+							"path": ["query"]
+						},
+						"description": "Natural language query with fresh LLM response (bypasses cache)."
 					},
 					"response": []
 				},
@@ -320,7 +469,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"query\": \"Why did our rating drop recently?\"\n}"
+							"raw": "{\n    \"query\": \"Why did our rating drop recently?\",\n    \"bypassCache\": false\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/query",
@@ -343,7 +492,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"query\": \"What features are users requesting the most?\"\n}"
+							"raw": "{\n    \"query\": \"What features are users requesting the most?\",\n    \"bypassCache\": false\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/query",
@@ -395,14 +544,37 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\",\n        \"name\": \"Your App\"\n    },\n    \"competitorIds\": [\"544007664\", \"835599320\"],\n    \"days\": 90\n}"
+							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\",\n        \"name\": \"Your App\"\n    },\n    \"competitorIds\": [\"544007664\", \"835599320\"],\n    \"days\": 90,\n    \"bypassCache\": false\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/competitors/run",
 							"host": ["{{baseUrl}}"],
 							"path": ["competitors", "run"]
 						},
-						"description": "Fetch and analyze reviews for specified competitors. Creates competitive dataset."
+						"description": "Fetch and analyze reviews for specified competitors. Creates competitive dataset.\n\n- `bypassCache`: true to force fresh LLM analysis (default: false)"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Competitor Reviews (Bypass Cache)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\",\n        \"name\": \"Your App\"\n    },\n    \"competitorIds\": [\"544007664\", \"835599320\"],\n    \"days\": 90,\n    \"bypassCache\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/competitors/run",
+							"host": ["{{baseUrl}}"],
+							"path": ["competitors", "run"]
+						},
+						"description": "Fetch and analyze competitor reviews with fresh LLM analysis (bypasses cache)."
 					},
 					"response": []
 				},

@@ -28,6 +28,13 @@ function makeMemoKey(analyzedReviews) {
     return crypto.createHash("sha256").update(fingerprint).digest("hex");
 }
 
+function makeQueryKey(query, contextHash) {
+    return crypto
+        .createHash("sha256")
+        .update(`query:${query}|${contextHash}`)
+        .digest("hex");
+}
+
 function get(key) {
     return read()[key];
 }
@@ -38,4 +45,4 @@ function set(key, value) {
     write(c);
 }
 
-module.exports = { makeReviewKey, makeMemoKey, get, set };
+module.exports = { makeReviewKey, makeMemoKey, makeQueryKey, get, set };

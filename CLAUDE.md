@@ -69,6 +69,7 @@ OPENAI_API_KEY=sk-...
 - Analysis results are JSON-stringified when stored in cache
 - Most endpoints require `/init` to be run first to populate review data
 - Competitor data stored in `data/competitive_dataset.json`
+- **Cache-first by default**: All OpenAI calls read from cache by default. Pass `bypassCache: true` to force fresh LLM calls
 
 ## API Endpoints
 
@@ -77,7 +78,7 @@ OPENAI_API_KEY=sk-...
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `POST` | `/apps/metadata` | Fetch app metadata from App Store. Body: `{ appId, country? }` |
-| `POST` | `/init` | Download and analyze reviews (async). Body: `{ refresh?: boolean, async?: boolean }` |
+| `POST` | `/init` | Download and analyze reviews (async). Body: `{ refresh?: boolean, async?: boolean, bypassCache?: boolean }` |
 | `GET` | `/init/status` | Check init progress. Returns `{ running, progress, total, percentage, lastResult }` |
 
 ### Core Analysis
@@ -86,25 +87,25 @@ OPENAI_API_KEY=sk-...
 |--------|----------|-------------|
 | `GET` | `/overview` | Dashboard with executive summary, metrics, top issues, alerts |
 | `GET` | `/your-product` | Deep dive into issues, feature requests, strengths with severity |
-| `GET` | `/yearly-report` | Generate yearly analysis report |
-| `GET` | `/regression-tree` | Rating driver regression analysis |
-| `GET` | `/release-timeline` | Version-by-version sentiment analysis |
-| `GET` | `/impact-model` | Predictive impact analysis with priorities |
-| `POST` | `/run-agent` | Run analysis agent. Body: `{ days?: number }` |
+| `GET` | `/yearly-report` | Generate yearly analysis report. Query: `?bypassCache=true` to force fresh LLM calls |
+| `GET` | `/regression-tree` | Rating driver regression analysis. Query: `?bypassCache=true` |
+| `GET` | `/release-timeline` | Version-by-version sentiment analysis. Query: `?bypassCache=true` |
+| `GET` | `/impact-model` | Predictive impact analysis with priorities. Query: `?bypassCache=true` |
+| `POST` | `/run-agent` | Run analysis agent. Body: `{ days?: number, bypassCache?: boolean }` |
 
 ### Evidence & Queries
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET` | `/evidence/:type/:item` | Get review evidence. Types: `issue`, `weakness`, `request`, `opportunity`, `strength`, `praise`. Query: `?competitorId=` for competitor data |
-| `POST` | `/query` | Natural language query. Body: `{ query: string }` |
+| `POST` | `/query` | Natural language query. Body: `{ query: string, bypassCache?: boolean }` |
 
 ### Competitors
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `POST` | `/competitors/init` | Discover competitors. Body: `{ ourAppId?, country?, k? }` |
-| `POST` | `/competitors/run` | Fetch and analyze competitor reviews. Body: `{ mainApp: { appId }, competitorIds: [], days? }` |
+| `POST` | `/competitors/run` | Fetch and analyze competitor reviews. Body: `{ mainApp: { appId }, competitorIds: [], days?, bypassCache?: boolean }` |
 | `POST` | `/competitors/compare` | Generate SWOT comparison. Body: `{ mainApp: { appId }, competitorIds: [], days? }` |
 
 ### Example Usage

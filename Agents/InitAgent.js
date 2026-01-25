@@ -6,7 +6,7 @@ class InitAgent {
         this.cache = cache;
     }
 
-    async run({ refresh = false }) {
+    async run({ refresh = false, bypassCache = false }) {
         let reviews = this.rawStore.getReviews();
 
         if (refresh) {
@@ -25,7 +25,7 @@ class InitAgent {
 
         for (const review of reviews) {
             const key = this.cache.makeReviewKey(review);
-            let analysis = this.cache.get(key);
+            let analysis = bypassCache ? null : this.cache.get(key);
 
             if (!analysis) {
                 analysis = await this.analyzeReview(review);

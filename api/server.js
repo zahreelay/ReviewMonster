@@ -57,7 +57,7 @@ const initAgent = new InitAgent({
 });
 
 app.post("/init", async (req, res) => {
-    const { refresh = false, async: runAsync = true } = req.body;
+    const { refresh = false, async: runAsync = true, bypassCache = false } = req.body;
 
     // If already running, return current status
     if (initStatus.running) {
@@ -71,7 +71,7 @@ app.post("/init", async (req, res) => {
     // For sync mode (not recommended for large datasets)
     if (!runAsync) {
         try {
-            const result = await initAgent.run({ refresh });
+            const result = await initAgent.run({ refresh, bypassCache });
             res.json(result);
         } catch (e) {
             console.error(e);
@@ -122,7 +122,7 @@ app.post("/init", async (req, res) => {
             for (let i = 0; i < reviews.length; i++) {
                 const review = reviews[i];
                 const key = cache.makeReviewKey(review);
-                let analysis = cache.get(key);
+                let analysis = bypassCache ? null : cache.get(key);
 
                 if (!analysis) {
                     analysis = await analyzeReview(review);
@@ -177,7 +177,8 @@ app.get("/init/status", (req, res) => {
 
 app.get("/yearly-report", async (req, res) => {
     try {
-        const result = await manager.runYearlyReport();
+        const bypassCache = req.query.bypassCache === "true";
+        const result = await manager.runYearlyReport({ bypassCache });
         console.log("Yearly report generated:", result);
         res.json(result);
     } catch (e) {
@@ -188,7 +189,8 @@ app.get("/yearly-report", async (req, res) => {
 
 app.get("/regression-tree", async (req, res) => {
     try {
-        const result = await manager.runRegressionTree();
+        const bypassCache = req.query.bypassCache === "true";
+        const result = await manager.runRegressionTree({ bypassCache });
         res.json(result);
     } catch (e) {
         res.status(400).json({ error: e.message });
@@ -196,14 +198,15 @@ app.get("/regression-tree", async (req, res) => {
 });
 
 app.post("/run-agent", async (req, res) => {
-    const { days = 30 } = req.body;
-    const result = await manager.run({ days });
+    const { days = 30, bypassCache = false } = req.body;
+    const result = await manager.run({ days, bypassCache });
     res.json(result);
 });
 
 app.get("/release-timeline", async (req, res) => {
     try {
-        const result = await manager.runReleaseTimeline();
+        const bypassCache = req.query.bypassCache === "true";
+        const result = await manager.runReleaseTimeline({ bypassCache });
         res.json(result);
     } catch (e) {
         res.status(400).json({ error: e.message });
@@ -211,7 +214,8 @@ app.get("/release-timeline", async (req, res) => {
 });
 app.get("/impact-model", async (req, res) => {
     try {
-        const result = await manager.runImpactModel();
+        const bypassCache = req.query.bypassCache === "true";
+        const result = await manager.runImpactModel({ bypassCache });
         res.json(result);
     } catch (e) {
         res.status(400).json({ error: e.message });
@@ -241,7 +245,7 @@ app.post("/competitors/init", async (req, res) => {
 
 app.post("/competitors/run", async (req, res) => {
     try {
-        const { mainApp, competitorIds, days = 90 } = req.body;
+        const { mainApp, competitorIds, days = 90, bypassCache = false } = req.body;
 
         if (!mainApp?.appId) {
             return res.status(400).json({
@@ -258,7 +262,8 @@ app.post("/competitors/run", async (req, res) => {
         const result = await manager.runCompetitorRun({
             mainApp,
             competitorIds,
-            days
+            days,
+            bypassCache
         });
 
         res.json(result);
@@ -685,7 +690,7 @@ app.get("/evidence/:type/:item", async (req, res) => {
 // Natural language query endpoint (Query Console)
 app.post("/query", async (req, res) => {
     try {
-        const { query } = req.body;
+        const { query, bypassCache = false } = req.body;
 
         if (!query) {
             return res.status(400).json({ error: "query is required" });
@@ -746,17 +751,27 @@ ${analyzed.slice(0, 20).map(r => `[${r.rating}★] ${r.text.slice(0, 200)}`).joi
 Answer the user's query concisely and accurately based on this data.
 `;
 
-        const response = await client.chat.completions.create({
-            model: "gpt-4o-mini",
-            messages: [
-                { role: "system", content: context },
-                { role: "user", content: query }
-            ],
-            temperature: 0.7,
-            max_tokens: 500
-        });
+        // Create cache key based on query and context hash
+        const contextHash = `${total}|${avgRating}|${topIssues.map(([k, v]) => `${k}:${v}`).join(",")}`;
+        const queryKey = cache.makeQueryKey(query, contextHash);
 
-        const answer = response.choices[0].message.content;
+        // Check cache first (unless bypassCache is true)
+        let answer = bypassCache ? null : cache.get(queryKey);
+
+        if (!answer) {
+            const response = await client.chat.completions.create({
+                model: "gpt-4o-mini",
+                messages: [
+                    { role: "system", content: context },
+                    { role: "user", content: query }
+                ],
+                temperature: 0.7,
+                max_tokens: 500
+            });
+
+            answer = response.choices[0].message.content;
+            cache.set(queryKey, answer);
+        }
 
         res.json({
             query,

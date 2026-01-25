@@ -32,9 +32,9 @@ class AgentManager {
         });
     }
 
-    async run({ days }) {
-        const analyzed = await this.reviewAgent.run({ days });
-        const memo = await this.memoAgent.run(analyzed);
+    async run({ days, bypassCache = false }) {
+        const analyzed = await this.reviewAgent.run({ days, bypassCache });
+        const memo = await this.memoAgent.run(analyzed, { bypassCache });
 
         return {
             generatedAt: new Date().toISOString(),
@@ -44,10 +44,10 @@ class AgentManager {
         };
     }
 
-    async runYearlyReport() {
-        return await this.yearlyAgent.run();
+    async runYearlyReport({ bypassCache = false } = {}) {
+        return await this.yearlyAgent.run({ bypassCache });
     }
-    async runRegressionTree() {
+    async runRegressionTree({ bypassCache = false } = {}) {
         const reviews = rawStore.getReviews();
 
         if (!reviews.length) {
@@ -58,19 +58,20 @@ class AgentManager {
 
         for (const review of reviews) {
             const key = this.cache.makeReviewKey(review);
-            let analysis = this.cache.get(key);
-            analysis = JSON.parse(analysis);
+            let analysis = bypassCache ? null : this.cache.get(key);
+            if (analysis) {
+                analysis = JSON.parse(analysis);
+            }
             if (!analysis) {
                 analysis = await this.analyzeReview(review);
                 this.cache.set(key, analysis);
             }
-            //console.log("Analysis:", analysis, review);
             analyzed.push({ ...review, ...analysis });
         }
 
         return buildRegressionTree(analyzed);
     }
-    async runReleaseTimeline() {
+    async runReleaseTimeline({ bypassCache = false } = {}) {
         const reviews = rawStore.getReviews();
 
         if (!reviews.length) {
@@ -81,8 +82,10 @@ class AgentManager {
 
         for (const review of reviews) {
             const key = this.cache.makeReviewKey(review);
-            let analysis = this.cache.get(key);
-            analysis = JSON.parse(analysis);
+            let analysis = bypassCache ? null : this.cache.get(key);
+            if (analysis) {
+                analysis = JSON.parse(analysis);
+            }
 
             if (!analysis) {
                 analysis = await this.analyzeReview(review);
@@ -95,9 +98,9 @@ class AgentManager {
         return buildReleaseTimeline(analyzed);
     }
 
-    async runImpactModel() {
-        const regression = await this.runRegressionTree();
-        const timeline = await this.runReleaseTimeline();
+    async runImpactModel({ bypassCache = false } = {}) {
+        const regression = await this.runRegressionTree({ bypassCache });
+        const timeline = await this.runReleaseTimeline({ bypassCache });
 
         return buildImpactModel(regression, timeline);
     }
@@ -106,8 +109,8 @@ class AgentManager {
         return await this.competitorAgent.discover(appProfile, reviews, opts);
     }
 
-    async runCompetitorRun({ mainApp, competitorIds, days }) {
-        return await this.competitorAgent.run(mainApp, competitorIds, days);
+    async runCompetitorRun({ mainApp, competitorIds, days, bypassCache = false }) {
+        return await this.competitorAgent.run(mainApp, competitorIds, days, { bypassCache });
     }
     async runCompetitorCompare({ mainApp, competitorIds, days }) {
         const fs = require("fs");

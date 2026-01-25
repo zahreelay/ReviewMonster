@@ -6,7 +6,7 @@ class YearlyReportAgent {
         this.generateMemo = generateMemo;
     }
 
-    async run() {
+    async run({ bypassCache = false } = {}) {
         const reviews = this.rawStore.getReviews();
 
         if (!reviews.length) {
@@ -17,7 +17,7 @@ class YearlyReportAgent {
 
         for (const review of reviews) {
             const key = this.cache.makeReviewKey(review);
-            let analysis = this.cache.get(key);
+            let analysis = bypassCache ? null : this.cache.get(key);
 
             if (!analysis) {
                 analysis = await this.analyzeReview(review);

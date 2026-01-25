@@ -66,10 +66,13 @@ class CompetitorAgent {
     /**
      * STEP 2 — DATA PREPARATION (AUTO MODE)
      * Same pipeline as main app
+     * @param {Object} mainApp - Main app info with appId
+     * @param {Array} competitorIds - Array of competitor app IDs
+     * @param {number} days - Number of days of reviews to fetch
+     * @param {Object} opts - Options including bypassCache
      */
-    async run(mainApp, competitorIds, days) {
-        // const competitors = await discoverCompetitors(appProfile, reviews, opts);
-        // const top3 = competitors.slice(0, 3);
+    async run(mainApp, competitorIds, days, opts = {}) {
+        const { bypassCache = false } = opts;
 
         if (!mainApp?.appId) {
             throw new Error("appProfile.appId is required");
@@ -86,8 +89,6 @@ class CompetitorAgent {
             name: id // name can be enriched later via lookup if needed
         }));
 
-        //console.log("Competitors:", competitors);
-        //process.exit(0);
         const analyzeOne = async ({ appId, name }) => {
             const raw = await ingestCompetitorReviews(
                 [{ appId, name }],
@@ -102,11 +103,9 @@ class CompetitorAgent {
                 const cacheKey = `analyze:${appId}:${r.text}`;
                 let parsed = null;
 
-                if (this.cache) {
+                if (this.cache && !bypassCache) {
                     const cached = this.cache.get(cacheKey);
                     if (cached) {
-                        //console.log("Cache hit:", cacheKey);
-                        //process.exit(0);
                         parsed = safeParseAnalysis(cached);
                     }
                 }
@@ -119,8 +118,6 @@ class CompetitorAgent {
 
                 analyzed.push({ ...r, ...parsed });
             }
-            //console.log("Analyzed:", analyzed);
-            //process.exit(0);
             return { appId, name, reviews, analyzed };
         };
 
@@ -148,6 +145,7 @@ class CompetitorAgent {
      */
     async compareByIds(mainApp, competitors, opts = {}) {
         const days = opts.days || 90;
+        const bypassCache = opts.bypassCache || false;
 
         const analyzeOne = async ({ appId, name }) => {
             const raw = await ingestCompetitorReviews(
@@ -160,8 +158,23 @@ class CompetitorAgent {
             const analyzed = [];
 
             for (const r of reviews) {
-                const out = await this.analyzeReview(r);
-                analyzed.push({ ...r, ...safeParseAnalysis(out) });
+                const cacheKey = `analyze:${appId}:${r.text}`;
+                let parsed = null;
+
+                if (this.cache && !bypassCache) {
+                    const cached = this.cache.get(cacheKey);
+                    if (cached) {
+                        parsed = safeParseAnalysis(cached);
+                    }
+                }
+
+                if (!parsed) {
+                    const out = await this.analyzeReview(r);
+                    parsed = safeParseAnalysis(out);
+                    if (this.cache) this.cache.set(cacheKey, out);
+                }
+
+                analyzed.push({ ...r, ...parsed });
             }
 
             return { appId, name, reviews, analyzed };

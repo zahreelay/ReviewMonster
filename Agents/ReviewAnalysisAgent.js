@@ -5,20 +5,16 @@ class ReviewAnalysisAgent {
         this.cache = cache;
     }
 
-    async run({ days }) {
-
-
+    async run({ days, bypassCache = false }) {
         const reviews = await this.fetchReviews(days);
         const results = [];
 
         for (const review of reviews) {
             const key = this.cache.makeReviewKey(review);
 
-
-            let analysis = this.cache.get(key);
+            let analysis = bypassCache ? null : this.cache.get(key);
             if (!analysis) {
                 analysis = await this.analyzeReview(review);
-
                 this.cache.set(key, analysis);
             }
             analysis = JSON.parse(analysis);
