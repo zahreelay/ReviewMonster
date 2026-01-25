@@ -47,6 +47,10 @@ Server runs on `http://localhost:3000`.
   - `regressionEngine.js` - Rating driver analysis
   - `releaseTimeline.js` / `impactModel.js` - Version-based analytics
   - `competitorDiscovery.js` / `competitorIngestion.js` - Competitor handling
+  - `llm/` - LLM abstraction layer (plug-and-play provider switching)
+
+- **config/** - Configuration files:
+  - `llm.config.js` - LLM provider configuration (default provider, API keys, models)
 
 - **data/** - JSON file storage for reviews, cache, and analysis results
 
@@ -54,14 +58,40 @@ Server runs on `http://localhost:3000`.
 
 1. `/apps/metadata` fetches app info from iTunes API
 2. `/init` downloads reviews via `appStoreScraper` and stores in `rawReviewStore`
-3. Reviews are analyzed via `analyzeReview` (OpenAI) and cached
+3. Reviews are analyzed via `analyzeReview` (uses LLM abstraction layer) and cached
 4. Endpoints like `/overview`, `/your-product` aggregate cached analysis
 
 ### Environment Variables
 
 ```
+# LLM Provider (default: openai)
+LLM_PROVIDER=openai
+
+# OpenAI
 OPENAI_API_KEY=sk-...
+OPENAI_MODEL=gpt-4o-mini
+
+# Anthropic (optional)
+ANTHROPIC_API_KEY=sk-ant-...
+ANTHROPIC_MODEL=claude-3-5-sonnet-20241022
+
+# Google (optional)
+GOOGLE_API_KEY=...
+GOOGLE_MODEL=gemini-1.5-flash
 ```
+
+### LLM Abstraction Layer
+
+The app uses a plug-and-play LLM provider system. To switch providers:
+
+1. Set `LLM_PROVIDER` env var to: `openai`, `anthropic`, or `google`
+2. Ensure the corresponding API key is set
+3. Restart the server
+
+Provider-specific models are configured in `config/llm.config.js` with tiers:
+- `fast` - Optimized for speed (gpt-4o-mini, claude-3-5-haiku, gemini-1.5-flash)
+- `standard` - Balanced (gpt-4o, claude-3-5-sonnet, gemini-1.5-pro)
+- `advanced` - Best quality (gpt-4-turbo, claude-3-opus, gemini-1.5-pro)
 
 ### Key Patterns
 
@@ -69,9 +99,15 @@ OPENAI_API_KEY=sk-...
 - Analysis results are JSON-stringified when stored in cache
 - Most endpoints require `/init` to be run first to populate review data
 - Competitor data stored in `data/competitive_dataset.json`
-- **Cache-first by default**: All OpenAI calls read from cache by default. Pass `bypassCache: true` to force fresh LLM calls
+- **Cache-first by default**: All LLM calls read from cache by default. Pass `bypassCache: true` to force fresh LLM calls
 
 ## API Endpoints
+
+### System
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/llm/info` | Get current LLM provider info and available providers |
 
 ### Onboarding
 

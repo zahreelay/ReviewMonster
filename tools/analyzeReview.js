@@ -1,9 +1,22 @@
-const OpenAI = require("openai");
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const llm = require("./llm");
+
+const REVIEW_ANALYSIS_SCHEMA = {
+    name: "review_intelligence",
+    schema: {
+        type: "object",
+        additionalProperties: false,
+        properties: {
+            intent: { type: "string", enum: ["complaint", "feature_request", "praise"] },
+            issues: { type: "array", items: { type: "string" } },
+            summary: { type: "string" }
+        },
+        required: ["intent", "issues", "summary"]
+    },
+    strict: true
+};
 
 async function analyzeReview(review) {
-    const response = await client.chat.completions.create({
-        model: "gpt-4o-mini",
+    const response = await llm.chat({
         messages: [
             {
                 role: "system",
@@ -30,27 +43,12 @@ Analyze this review.
 `
             }
         ],
-        response_format: {
-            type: "json_schema",
-            json_schema: {
-                name: "review_intelligence",
-                schema: {
-                    type: "object",
-                    additionalProperties: false,
-                    properties: {
-                        intent: { type: "string", enum: ["complaint", "feature_request", "praise"] },
-                        issues: { type: "array", items: { type: "string" } },
-                        summary: { type: "string" }
-                    },
-                    required: ["intent", "issues", "summary"]
-                },
-                strict: true
-            }
-        },
-        temperature: 0
+        model: "fast", // Uses the "fast" tier from config (gpt-4o-mini for OpenAI)
+        temperature: 0,
+        jsonSchema: REVIEW_ANALYSIS_SCHEMA
     });
 
-    return response.choices[0].message.content;
+    return response;
 }
 
 module.exports = { analyzeReview };

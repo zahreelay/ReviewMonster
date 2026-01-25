@@ -10,6 +10,7 @@ const { fetchReviews } = require("../tools/fetchReviews");
 const { analyzeReview } = require("../tools/analyzeReview");
 const generateMemo = require("../tools/generateMemo").generateMemo;
 const cache = require("../tools/cache");
+const llm = require("../tools/llm");
 
 const { InitAgent } = require("../Agents/InitAgent");
 const { scrapeLastYear } = require("../tools/appStoreScraper");
@@ -716,10 +717,6 @@ app.post("/query", async (req, res) => {
             }
         }
 
-        // Use OpenAI to answer the query based on review data
-        const OpenAI = require("openai");
-        const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
         // Prepare context with review summary
         const total = analyzed.length;
         const avgRating = (analyzed.reduce((s, r) => s + r.rating, 0) / total).toFixed(2);
@@ -759,17 +756,15 @@ Answer the user's query concisely and accurately based on this data.
         let answer = bypassCache ? null : cache.get(queryKey);
 
         if (!answer) {
-            const response = await client.chat.completions.create({
-                model: "gpt-4o-mini",
+            answer = await llm.chat({
                 messages: [
                     { role: "system", content: context },
                     { role: "user", content: query }
                 ],
+                model: "fast",
                 temperature: 0.7,
-                max_tokens: 500
+                maxTokens: 500
             });
-
-            answer = response.choices[0].message.content;
             cache.set(queryKey, answer);
         }
 
@@ -787,8 +782,22 @@ Answer the user's query concisely and accurately based on this data.
     }
 });
 
+// Get LLM provider info
+app.get("/llm/info", (req, res) => {
+    const providers = llm.getAvailableProviders().map(name => ({
+        name,
+        isDefault: name === llm.getDefaultProvider(),
+        isConfigured: llm.isProviderConfigured(name),
+        ...llm.getProviderInfo(name)
+    }));
 
+    res.json({
+        default: llm.getDefaultProvider(),
+        providers
+    });
+});
 
 app.listen(3000, () => {
     console.log("Stateless Product Intelligence Agent running on port 3000");
+    console.log(`LLM Provider: ${llm.getDefaultProvider()}`);
 });

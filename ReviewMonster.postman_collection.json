@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "review-monster-api",
 		"name": "ReviewMonster API",
-		"description": "Product Intelligence Platform - App Store Review Analysis API\n\n## Cache Behavior\nAll OpenAI calls read from cache by default. Pass `bypassCache: true` (POST body) or `?bypassCache=true` (GET query param) to force fresh LLM calls.",
+		"description": "Product Intelligence Platform - App Store Review Analysis API\n\n## Cache Behavior\nAll LLM calls read from cache by default. Pass `bypassCache: true` (POST body) or `?bypassCache=true` (GET query param) to force fresh LLM calls.\n\n## LLM Providers\nSupports multiple LLM providers: OpenAI, Anthropic (Claude), Google (Gemini). Set `LLM_PROVIDER` env var to switch.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"variable": [
@@ -18,6 +18,26 @@
 		}
 	],
 	"item": [
+		{
+			"name": "System",
+			"item": [
+				{
+					"name": "Get LLM Provider Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/llm/info",
+							"host": ["{{baseUrl}}"],
+							"path": ["llm", "info"]
+						},
+						"description": "Get information about the current LLM provider and all available providers. Shows which provider is default, which are configured (have API keys), and available models."
+					},
+					"response": []
+				}
+			],
+			"description": "System information and configuration endpoints"
+		},
 		{
 			"name": "Onboarding",
 			"item": [
