@@ -2,9 +2,8 @@ const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 
-
-
 const { AgentManager } = require("../Agents/AgentManager");
+const appsRoutes = require("../routes/apps.routes");
 
 const { fetchReviews } = require("../tools/fetchReviews");
 const { analyzeReview } = require("../tools/analyzeReview");
@@ -39,7 +38,8 @@ app.use(cors({
 
 app.use(express.json());
 
-
+/* ------------------- Phase 1A Multi-App Routes ------------------- */
+app.use("/api/apps", appsRoutes);
 
 /* ----------------------------------------------------------- */
 

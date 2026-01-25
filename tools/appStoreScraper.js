@@ -1,6 +1,6 @@
 //const fetch = require("node-fetch");
 
-const APP_ID = "1081530898";
+const DEFAULT_APP_ID = "1081530898";
 
 function normalize(r) {
     return {
@@ -13,7 +13,12 @@ function normalize(r) {
     };
 }
 
-async function scrapeLastYear() {
+/**
+ * Scrape reviews from the last year for a given app
+ * @param {string} appId - App Store app ID (defaults to DEFAULT_APP_ID for backwards compatibility)
+ * @returns {Promise<Array>} Array of normalized reviews
+ */
+async function scrapeLastYear(appId = DEFAULT_APP_ID) {
     const cutoff = new Date();
     cutoff.setFullYear(cutoff.getFullYear() - 1);
 
@@ -21,7 +26,7 @@ async function scrapeLastYear() {
     let all = [];
 
     while (true) {
-        const url = `https://itunes.apple.com/rss/customerreviews/page=${page}/id=${APP_ID}/sortBy=mostRecent/json`;
+        const url = `https://itunes.apple.com/rss/customerreviews/page=${page}/id=${appId}/sortBy=mostRecent/json`;
         const res = await fetch(url);
         const data = await res.json();
         const entries = data.feed?.entry || [];
