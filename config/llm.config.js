@@ -33,11 +33,11 @@ module.exports = {
         },
         google: {
             apiKey: process.env.GOOGLE_API_KEY,
-            defaultModel: process.env.GOOGLE_MODEL || "gemini-1.5-flash",
+            defaultModel: process.env.GOOGLE_MODEL || "gemini-2.0-flash",
             models: {
-                fast: "gemini-1.5-flash",
-                standard: "gemini-1.5-pro",
-                advanced: "gemini-1.5-pro"
+                fast: "gemini-2.0-flash",
+                standard: "gemini-1.5-pro-latest",
+                advanced: "gemini-1.5-pro-latest"
             }
         }
     }

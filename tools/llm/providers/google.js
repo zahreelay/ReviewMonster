@@ -65,7 +65,11 @@ class GoogleProvider extends BaseLLMProvider {
 
         for (const msg of messages) {
             if (msg.role === "system") {
-                systemInstruction = msg.content;
+                // Gemini expects systemInstruction as a Content object with parts
+                systemInstruction = {
+                    role: "user",
+                    parts: [{ text: msg.content }]
+                };
             } else {
                 contents.push({
                     role: msg.role === "assistant" ? "model" : "user",
