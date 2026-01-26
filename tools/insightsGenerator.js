@@ -63,7 +63,7 @@ function generateInsights(analyzedReviews) {
 }
 
 /**
- * Generate detailed issue analysis
+ * Generate detailed issue analysis with improved impact scoring
  */
 function generateIssueDetails(complaints) {
     const issueMap = {};
@@ -112,16 +112,22 @@ function generateIssueDetails(complaints) {
         }
     }
 
-    // Convert to array and calculate severity
+    // Total complaints for normalization
+    const totalComplaints = complaints.length;
+
+    // Convert to array and calculate impact scores
     return Object.values(issueMap)
         .map(issue => {
             const avgRating = issue.totalRating / issue.count;
-            const severity = calculateSeverity(issue.count, avgRating);
+            const impact = calculateImpactScore(issue, totalComplaints);
 
             return {
                 id: issue.id,
                 title: issue.title,
-                severity,
+                severity: impact.severity,
+                impactScore: impact.score,
+                impactFactors: impact.factors,
+                trend: impact.trend,
                 count: issue.count,
                 avgRating: parseFloat(avgRating.toFixed(2)),
                 firstSeen: issue.firstSeen,
@@ -132,17 +138,13 @@ function generateIssueDetails(complaints) {
             };
         })
         .sort((a, b) => {
-            // Sort by severity then count
-            const severityOrder = { critical: 0, high: 1, medium: 2, low: 3 };
-            if (severityOrder[a.severity] !== severityOrder[b.severity]) {
-                return severityOrder[a.severity] - severityOrder[b.severity];
-            }
-            return b.count - a.count;
+            // Sort by impact score (higher = more important)
+            return b.impactScore - a.impactScore;
         });
 }
 
 /**
- * Generate feature request details
+ * Generate feature request details with improved demand scoring
  */
 function generateRequestDetails(requests) {
     const requestMap = {};
@@ -176,16 +178,25 @@ function generateRequestDetails(requests) {
         }
     }
 
+    // Total requests for normalization
+    const totalRequests = requests.length;
+
     return Object.values(requestMap)
-        .map(request => ({
-            id: request.id,
-            title: request.title,
-            count: request.count,
-            demand: calculateDemand(request.count),
-            firstRequested: request.firstRequested,
-            evidence: request.reviews.slice(0, 10)
-        }))
-        .sort((a, b) => b.count - a.count);
+        .map(request => {
+            const demandInfo = calculateDemandScore(request, totalRequests);
+
+            return {
+                id: request.id,
+                title: request.title,
+                count: request.count,
+                demand: demandInfo.demand,
+                demandScore: demandInfo.score,
+                demandFactors: demandInfo.factors,
+                firstRequested: request.firstRequested,
+                evidence: request.reviews.slice(0, 10)
+            };
+        })
+        .sort((a, b) => b.demandScore - a.demandScore);
 }
 
 /**
@@ -229,7 +240,176 @@ function generateStrengthDetails(praises) {
 }
 
 /**
- * Calculate issue severity based on count and avg rating
+ * Calculate impact score (0-100) for an issue
+ * Factors: frequency, rating severity, recency, trend
+ *
+ * @param {Object} issue - Issue with count, reviews, avgRating, etc.
+ * @param {number} totalComplaints - Total complaints for normalization
+ * @returns {Object} { score: number, severity: string, factors: object }
+ */
+function calculateImpactScore(issue, totalComplaints) {
+    const { count, reviews, totalRating } = issue;
+    const avgRating = totalRating / count;
+
+    // 1. Frequency factor (0-30 points)
+    // Percentage of complaints mentioning this issue
+    const frequencyPct = (count / Math.max(totalComplaints, 1)) * 100;
+    const frequencyScore = Math.min(30, frequencyPct * 3); // Cap at 30
+
+    // 2. Rating severity factor (0-30 points)
+    // Lower avg rating = higher impact
+    // 1★ = 30pts, 2★ = 22.5pts, 3★ = 15pts, 4★ = 7.5pts, 5★ = 0pts
+    const ratingScore = Math.max(0, (5 - avgRating) * 7.5);
+
+    // 3. Recency factor (0-25 points)
+    // Weight reviews from last 30 days more heavily
+    const now = new Date();
+    const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000);
+    const ninetyDaysAgo = new Date(now - 90 * 24 * 60 * 60 * 1000);
+
+    let recentCount = 0;
+    let moderateCount = 0;
+    for (const review of reviews) {
+        const reviewDate = new Date(review.date);
+        if (reviewDate >= thirtyDaysAgo) {
+            recentCount++;
+        } else if (reviewDate >= ninetyDaysAgo) {
+            moderateCount++;
+        }
+    }
+
+    const recentPct = count > 0 ? (recentCount / count) * 100 : 0;
+    const moderatePct = count > 0 ? (moderateCount / count) * 100 : 0;
+    const recencyScore = Math.min(25, (recentPct * 0.2) + (moderatePct * 0.05));
+
+    // 4. Trend factor (0-15 points)
+    // Compare last 30 days vs previous 60 days
+    const sixtyDaysAgo = new Date(now - 60 * 24 * 60 * 60 * 1000);
+    let last30 = 0;
+    let prev60 = 0;
+
+    for (const review of reviews) {
+        const reviewDate = new Date(review.date);
+        if (reviewDate >= thirtyDaysAgo) {
+            last30++;
+        } else if (reviewDate >= sixtyDaysAgo) {
+            prev60++;
+        }
+    }
+
+    let trendScore = 0;
+    let trend = "stable";
+    if (prev60 > 0) {
+        const trendRatio = last30 / (prev60 / 2); // Normalize to same period
+        if (trendRatio > 2) {
+            trendScore = 15;
+            trend = "increasing";
+        } else if (trendRatio > 1.5) {
+            trendScore = 10;
+            trend = "increasing";
+        } else if (trendRatio > 1) {
+            trendScore = 5;
+            trend = "slightly_increasing";
+        } else if (trendRatio < 0.5) {
+            trendScore = 0;
+            trend = "decreasing";
+        }
+    } else if (last30 > 0) {
+        trendScore = 10; // New issue appearing
+        trend = "new";
+    }
+
+    // Calculate total score
+    const totalScore = Math.round(frequencyScore + ratingScore + recencyScore + trendScore);
+
+    // Derive severity from score
+    let severity;
+    if (totalScore >= 70) {
+        severity = "critical";
+    } else if (totalScore >= 50) {
+        severity = "high";
+    } else if (totalScore >= 30) {
+        severity = "medium";
+    } else {
+        severity = "low";
+    }
+
+    return {
+        score: totalScore,
+        severity,
+        trend,
+        factors: {
+            frequency: Math.round(frequencyScore),
+            ratingSeverity: Math.round(ratingScore),
+            recency: Math.round(recencyScore),
+            trend: Math.round(trendScore)
+        }
+    };
+}
+
+/**
+ * Calculate demand score for feature requests (0-100)
+ *
+ * @param {Object} request - Request with count, reviews
+ * @param {number} totalRequests - Total feature requests for normalization
+ * @returns {Object} { score: number, demand: string }
+ */
+function calculateDemandScore(request, totalRequests) {
+    const { count, reviews } = request;
+
+    // 1. Frequency factor (0-50 points)
+    const frequencyPct = (count / Math.max(totalRequests, 1)) * 100;
+    const frequencyScore = Math.min(50, frequencyPct * 5);
+
+    // 2. Recency factor (0-30 points)
+    const now = new Date();
+    const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000);
+
+    let recentCount = 0;
+    for (const review of reviews) {
+        if (new Date(review.date) >= thirtyDaysAgo) {
+            recentCount++;
+        }
+    }
+
+    const recentPct = count > 0 ? (recentCount / count) * 100 : 0;
+    const recencyScore = Math.min(30, recentPct * 0.3);
+
+    // 3. Consistency factor (0-20 points)
+    // Spread across multiple months = more consistent demand
+    const monthsSet = new Set();
+    for (const review of reviews) {
+        if (review.date) {
+            monthsSet.add(review.date.substring(0, 7));
+        }
+    }
+    const consistencyScore = Math.min(20, monthsSet.size * 4);
+
+    const totalScore = Math.round(frequencyScore + recencyScore + consistencyScore);
+
+    let demand;
+    if (totalScore >= 60) {
+        demand = "high";
+    } else if (totalScore >= 35) {
+        demand = "medium";
+    } else {
+        demand = "low";
+    }
+
+    return {
+        score: totalScore,
+        demand,
+        factors: {
+            frequency: Math.round(frequencyScore),
+            recency: Math.round(recencyScore),
+            consistency: Math.round(consistencyScore)
+        }
+    };
+}
+
+/**
+ * Legacy function for backward compatibility
+ * @deprecated Use calculateImpactScore instead
  */
 function calculateSeverity(count, avgRating) {
     if (count >= 10 && avgRating < 2.5) return "critical";
@@ -239,7 +419,8 @@ function calculateSeverity(count, avgRating) {
 }
 
 /**
- * Calculate demand level for feature requests
+ * Legacy function for backward compatibility
+ * @deprecated Use calculateDemandScore instead
  */
 function calculateDemand(count) {
     if (count >= 20) return "high";
@@ -438,5 +619,7 @@ module.exports = {
     generateInsights,
     generateRatingHistory,
     generateIssueDeepDive,
-    normalizeIssueKey
+    normalizeIssueKey,
+    calculateImpactScore,
+    calculateDemandScore
 };

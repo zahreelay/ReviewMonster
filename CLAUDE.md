@@ -2075,7 +2075,12 @@ async function migrate() {
 - [x] Send actual review samples with analysis - all endpoints now include `evidence` array with sample reviews (up to 10 per issue/request/strength)
 
 ## P2 (Future Work)
-- [ ] Impact scoring is bad, need to figure out a better method
+- [x] Impact scoring - DONE: New `calculateImpactScore()` and `calculateDemandScore()` functions with:
+  - Frequency factor (relative to dataset size)
+  - Rating severity factor (lower rating = higher impact)
+  - Recency factor (recent issues weighted more)
+  - Trend factor (increasing = higher priority)
+  - Returns numeric score (0-100) + severity label
 - [ ] Some issues are duplicated, need better grouping logic (improve `normalizeIssueKey` in `insightsGenerator.js`)
 
 ## Logging
@@ -2121,3 +2126,20 @@ Now returns:
   "context": { ... }
 }
 ```
+## next todo
+**Week 5: Competitor Discovery**
+- [ ] Build competitor discovery API
+- [ ] Implement competitor review scraping
+- [ ] Test with The New Yorker's competitors
+
+**Week 6: Competitive Analysis**
+- [ ] Implement SWOT generation
+- [ ] Implement feature comparison matrix
+- [ ] Build competitors tab UI
+- [ ] Test analysis quality
+
+**Week 7: Roadmap & Integration**
+- [ ] Implement roadmap generation
+- [ ] Build roadmap tab UI
+- [ ] Enhance query with competitive context
+- [ ] Update all tabs with competitive data 
