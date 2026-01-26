@@ -1,11 +1,83 @@
 {
-  "updatedAt": "2026-01-15T18:21:48.730Z",
+  "updatedAt": "2026-01-25T10:49:22.943Z",
   "reviews": [
     {
-      "text": "No account setting to see/change password (it says there is a setting box at top right; there isn’t.  It says there is a chatbot for customer support at the bottom; there isn’t.  I am cancelling subscription because this is the most frustrating app.",
-      "title": "Horrible app",
-      "date": "2026-01-09T20:33:37-07:00",
+      "text": "I haven’t had any issues with the app, but I wish it was easier to access old crosswords! I hate having to scroll so much when it could easily be filtered by complete/incomplete.",
+      "title": "Hard to access old crosswords",
+      "date": "2026-01-23T18:20:57-07:00",
+      "user": "cusickmelanie",
+      "version": "11.2.2",
+      "rating": 4
+    },
+    {
+      "text": "On the iPad, there is not a single improvement over the disabled app for the purpose of reading the magazine. Having been an exemplary app for a periodical it is now a somewhat chaotic jumble.  Count me disappointed.",
+      "title": "Poor replacement for old app",
+      "date": "2026-01-23T06:43:40-07:00",
+      "user": "Mostly Concise",
+      "version": "11.2.2",
+      "rating": 1
+    },
+    {
+      "text": "Hooray! Now with dark mode!",
+      "title": "Dark Mode!",
+      "date": "2026-01-21T14:43:24-07:00",
+      "user": "Molingrad",
+      "version": "11.2.2",
+      "rating": 5
+    },
+    {
+      "text": "WHY does the app take me to the web site rather than where I left off reading the magazine?! Also, images are often cut off, downloading is inconsistent, and signing in is difficult.  Why can’t the New Yorker get it right after all these years?",
+      "title": "Frustrating",
+      "date": "2026-01-21T06:21:58-07:00",
+      "user": "Scoober Thrower",
+      "version": "11.2.2",
+      "rating": 2
+    },
+    {
+      "text": "The app experience is smooth but if you want to listen to some of the audio essays/reporting that they feature, prepare for the most monotone, lifeless read by a computer generated voice. Really eerie sounding, especially when the article mentions AI while being read by AI. Just hire someone.",
+      "title": "Great App But Really? AI Voices?",
+      "date": "2026-01-19T21:48:24-07:00",
+      "user": "arbymanxxx",
+      "version": "11.2.2",
+      "rating": 3
+    },
+    {
+      "text": "Not intuitive at all.  Seems to use a logic only known to itself.   Extraordinarily disappointing.",
+      "title": "Clunky",
+      "date": "2026-01-19T05:58:38-07:00",
+      "user": "flomomicmagle",
+      "version": "11.2.2",
+      "rating": 1
+    },
+    {
+      "text": "No setting at top right or any support.  Cant find account info, or change font size.  Cannot find articles even when I type the exact title, etc.  Fire whoever built this app.",
+      "title": "A horrible app, use browser!",
+      "date": "2026-01-18T22:25:30-07:00",
       "user": "Pilotatukb",
+      "version": "11.2.2",
+      "rating": 1
+    },
+    {
+      "text": "If you close the app for any reason, you can't resume reading where you left off.  You've got to REMEMBER what paragraph, in what article, in what issue you were reading and methodically scroll your way back.  Deplorable.",
+      "title": "Impossibly arcane.",
+      "date": "2026-01-17T07:21:53-07:00",
+      "user": "Ed F., Philadelphia",
+      "version": "11.2.2",
+      "rating": 1
+    },
+    {
+      "text": "Poor app",
+      "title": "Great writing but the app doesn’t work well",
+      "date": "2026-01-15T09:53:29-07:00",
+      "user": "twcfyhjigtyi",
+      "version": "11.2.2",
+      "rating": 3
+    },
+    {
+      "text": "The old app at least worked.  This one is slicker but doesn’t download the articles-except for the first two paragraphs and then just spins endlessly.  New Yorker needs to hire some real tech people.",
+      "title": "Just spins and spins",
+      "date": "2026-01-14T18:38:58-07:00",
+      "user": "Cove32",
       "version": "11.2.2",
       "rating": 1
     },
@@ -2130,14 +2202,6 @@
       "rating": 1
     },
     {
-      "text": "It is getting ridiculous. It’s 2025. Where is dark mode on this text reading app. This is not rocket science. I love The New Yorker and the app is otherwise fine by it need dark mode to enjoyably read at night. This is basic stuff now not an obscure frivolous feature.",
-      "title": "Dark Mode",
-      "date": "2025-06-02T17:21:46-07:00",
-      "user": "Molingrad",
-      "version": "10.6.16",
-      "rating": 2
-    },
-    {
       "text": "Won’t load after update",
       "title": "Won’t load on iPad mini after latest update",
       "date": "2025-06-02T07:52:37-07:00",
@@ -2942,38 +3006,6 @@
       "title": "What is the point of “Privacy Choices”",
       "date": "2025-01-25T10:29:03-07:00",
       "user": "Lula P.",
-      "version": "10.6.2",
-      "rating": 1
-    },
-    {
-      "text": "The last time I subscribed to the New Yorker was about six years ago. As with public library borrows, you could download issues of the magazine as PDFs to be opened in the reader of your choice. Additionally, you could keep your progress within a particularly long article within the app.\n\nFast-forward to the new and improved version of the app.\n\nDownloaded magazines seem only accessible within the app, which destroys the effect of the magazine layout.\n\nWorse still, the app refreshes even if you haven’t closed it and are only checking another app for a moment. This means you not only lose your place in the story; you’re also pulled back to the landing content of the app, which might never have interested you in the first place.\n\nAdditionally, you cannot bookmark your progress in an article or a downloaded magazine; you can only bookmark an individual article without progress. You can’t even highlight a passage to give you a clue where you left off, which is why I spend more time searching for my place in Aviv’s long piece on Alice Munro than I do reading the article itself.\n\nI only just subscribed a week ago and am thinking of cancelling my subscription.",
-      "title": "No Bookmarked Progress, Magazines Don’t Download as PDFs",
-      "date": "2025-01-19T11:10:11-07:00",
-      "user": "Scryptitious",
-      "version": "10.6.2",
-      "rating": 3
-    },
-    {
-      "text": "I really liked to listen to New Yorker articles on the go, but I am not going to listen to a robot voice. Really disappointing. At least provide the option to filter.",
-      "title": "All the audio is now read by an automated voice",
-      "date": "2025-01-19T05:03:11-07:00",
-      "user": "t8robot",
-      "version": "10.6.2",
-      "rating": 2
-    },
-    {
-      "text": "Love the organization of the content and the in depth content of the articles",
-      "title": "Best news source",
-      "date": "2025-01-16T12:41:23-07:00",
-      "user": "phonetransfer",
-      "version": "10.6.2",
-      "rating": 5
-    },
-    {
-      "text": "I have been a subscriber for many years. The previous app allowed me to easily read the print edition online. Open the app and it took you right back to where you stopped reading. Now when I open the app, I have to select the magazine, open the issue I’m reading and select the article - EVERY TIME!  I tried going through the customer service online to see if there was some setting I was missing, but it’s obvious that the customer service staff know nothing about the app. No help at all. Why can’t you have a simple app to let me read the magazine?  I don’t care a fig for all the bells and whistles. Additional minor irritation:  once you open an issue, the order of articles is completely random as opposed to the old app which followed the magazine format.",
-      "title": "Major step back",
-      "date": "2025-01-16T07:51:03-07:00",
-      "user": "Montpelier Dave",
       "version": "10.6.2",
       "rating": 1
     }

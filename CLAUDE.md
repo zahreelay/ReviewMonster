@@ -47,11 +47,12 @@ Server runs on `http://localhost:3000`.
   - `analyzeReview.js` - AI-powered review analysis
   - `cache.js` - Review analysis caching (in-memory + JSON file)
   - `rawReviewStore.js` - Raw review storage (legacy single-app)
-  - `appStorage.js` - Multi-app data storage (`/data/apps/{appId}/`)
+  - `appStorage.js` - Multi-app data storage (`/data/apps/{appId}/`), also handles competitors
   - `insightsGenerator.js` - Generates structured insights (issues, requests, strengths, rating history)
   - `regressionEngine.js` - Rating driver analysis
   - `releaseTimeline.js` / `impactModel.js` - Version-based analytics
   - `competitorDiscovery.js` / `competitorIngestion.js` - Competitor handling
+  - `logger.js` - Structured logging with levels (DEBUG, INFO, WARN, ERROR)
   - `llm/` - LLM abstraction layer (plug-and-play provider switching)
 
 - **config/** - Configuration files:
@@ -2065,4 +2066,58 @@ async function migrate() {
 **Estimated migration time:** 2-3 hours for 100 apps
 
 ---
+#   Feedbacks for version 1
 
+## Implemented (v1.1)
+- [x] `/api/apps` now lists competitive apps - includes `competitors` array and `isCompetitor` flag per app
+- [x] Always return cached value as default - cache is checked first, use `bypassCache: true` to skip
+- [x] Added structured logging - `tools/logger.js` with levels (DEBUG, INFO, WARN, ERROR), set `LOG_LEVEL` env var
+- [x] Send actual review samples with analysis - all endpoints now include `evidence` array with sample reviews (up to 10 per issue/request/strength)
+
+## P2 (Future Work)
+- [ ] Impact scoring is bad, need to figure out a better method
+- [ ] Some issues are duplicated, need better grouping logic (improve `normalizeIssueKey` in `insightsGenerator.js`)
+
+## Logging
+Set `LOG_LEVEL` environment variable to control log verbosity:
+- `DEBUG` - Verbose, all logs
+- `INFO` - Default, operational info
+- `WARN` - Warnings only
+- `ERROR` - Errors only
+
+## API Changes (v1.1)
+
+### GET /api/apps
+Now returns:
+```json
+{
+  "apps": [
+    { "appId": "...", "name": "...", "isCompetitor": false, ... }
+  ],
+  "competitors": [
+    { "appId": "...", "name": "...", "score": 0.75, ... }
+  ],
+  "summary": {
+    "totalAnalyzed": 5,
+    "mainApps": 1,
+    "analyzedCompetitors": 4,
+    "pendingCompetitors": 2
+  }
+}
+```
+
+### All insight endpoints now include `evidence`
+- `GET /api/apps/:appId/issues` - each issue has `evidence` array
+- `GET /api/apps/:appId/requests` - each request has `evidence` array
+- `GET /api/apps/:appId/strengths` - each strength has `evidence` array
+- Use `?includeEvidence=false` to exclude samples if not needed
+
+### Query responses now indicate cache status
+```json
+{
+  "query": "...",
+  "answer": "...",
+  "cached": true,
+  "context": { ... }
+}
+```

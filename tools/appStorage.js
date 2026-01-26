@@ -13,6 +13,7 @@ const fs = require("fs");
 const path = require("path");
 
 const DATA_DIR = path.join(__dirname, "../data/apps");
+const ROOT_DATA_DIR = path.join(__dirname, "../data");
 
 // Ensure data directory exists
 if (!fs.existsSync(DATA_DIR)) {
@@ -181,6 +182,56 @@ function deleteApp(appId) {
     }
 }
 
+/**
+ * Load global competitors list
+ * Returns competitors that have been discovered for any app
+ */
+function loadCompetitors() {
+    const filePath = path.join(ROOT_DATA_DIR, "competitors.json");
+    if (!fs.existsSync(filePath)) {
+        return [];
+    }
+    try {
+        return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    } catch (e) {
+        return [];
+    }
+}
+
+/**
+ * Save global competitors list
+ */
+function saveCompetitors(competitors) {
+    const filePath = path.join(ROOT_DATA_DIR, "competitors.json");
+    fs.writeFileSync(filePath, JSON.stringify(competitors, null, 2));
+}
+
+/**
+ * Save app-specific competitors
+ */
+function saveAppCompetitors(appId, competitors) {
+    saveData(appId, "competitors", {
+        competitors,
+        savedAt: new Date().toISOString()
+    });
+}
+
+/**
+ * Load app-specific competitors
+ */
+function loadAppCompetitors(appId) {
+    const data = loadData(appId, "competitors");
+    return data?.competitors || [];
+}
+
+/**
+ * Check if an app is a competitor (exists in competitors.json)
+ */
+function isCompetitor(appId) {
+    const competitors = loadCompetitors();
+    return competitors.some(c => String(c.appId) === String(appId));
+}
+
 module.exports = {
     getAppDir,
     ensureAppDir,
@@ -199,5 +250,10 @@ module.exports = {
     saveRatingHistory,
     loadRatingHistory,
     listApps,
-    deleteApp
+    deleteApp,
+    loadCompetitors,
+    saveCompetitors,
+    saveAppCompetitors,
+    loadAppCompetitors,
+    isCompetitor
 };

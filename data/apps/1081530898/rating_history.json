@@ -1,0 +1,67 @@
+[
+  {
+    "month": "2025-01",
+    "avgRating": 2.5,
+    "reviewCount": 2
+  },
+  {
+    "month": "2025-02",
+    "avgRating": 2.18,
+    "reviewCount": 22
+  },
+  {
+    "month": "2025-03",
+    "avgRating": 2.34,
+    "reviewCount": 29
+  },
+  {
+    "month": "2025-04",
+    "avgRating": 2.27,
+    "reviewCount": 22
+  },
+  {
+    "month": "2025-05",
+    "avgRating": 2.24,
+    "reviewCount": 25
+  },
+  {
+    "month": "2025-06",
+    "avgRating": 1.88,
+    "reviewCount": 40
+  },
+  {
+    "month": "2025-07",
+    "avgRating": 1.87,
+    "reviewCount": 31
+  },
+  {
+    "month": "2025-08",
+    "avgRating": 1.4,
+    "reviewCount": 25
+  },
+  {
+    "month": "2025-09",
+    "avgRating": 2.19,
+    "reviewCount": 26
+  },
+  {
+    "month": "2025-10",
+    "avgRating": 2.65,
+    "reviewCount": 54
+  },
+  {
+    "month": "2025-11",
+    "avgRating": 1.57,
+    "reviewCount": 40
+  },
+  {
+    "month": "2025-12",
+    "avgRating": 1.84,
+    "reviewCount": 44
+  },
+  {
+    "month": "2026-01",
+    "avgRating": 1.94,
+    "reviewCount": 16
+  }
+]

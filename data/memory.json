@@ -14,6 +14,756 @@
           {
             "author": {
               "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id322410475"
+              },
+              "name": {
+                "label": "cusickmelanie"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-23T18:20:57-07:00"
+            },
+            "im:rating": {
+              "label": "4"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13668512899"
+            },
+            "title": {
+              "label": "Hard to access old crosswords"
+            },
+            "content": {
+              "label": "I haven’t had any issues with the app, but I wish it was easier to access old crosswords! I hate having to scroll so much when it could easily be filtered by complete/incomplete.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id13587788"
+              },
+              "name": {
+                "label": "Mostly Concise"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-23T06:43:40-07:00"
+            },
+            "im:rating": {
+              "label": "1"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13666561233"
+            },
+            "title": {
+              "label": "Poor replacement for old app"
+            },
+            "content": {
+              "label": "On the iPad, there is not a single improvement over the disabled app for the purpose of reading the magazine. Having been an exemplary app for a periodical it is now a somewhat chaotic jumble.  Count me disappointed.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id24921165"
+              },
+              "name": {
+                "label": "Molingrad"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-21T14:43:24-07:00"
+            },
+            "im:rating": {
+              "label": "5"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13660622010"
+            },
+            "title": {
+              "label": "Dark Mode!"
+            },
+            "content": {
+              "label": "Hooray! Now with dark mode!",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id117262271"
+              },
+              "name": {
+                "label": "Scoober Thrower"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-21T06:21:58-07:00"
+            },
+            "im:rating": {
+              "label": "2"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13659178647"
+            },
+            "title": {
+              "label": "Frustrating"
+            },
+            "content": {
+              "label": "WHY does the app take me to the web site rather than where I left off reading the magazine?! Also, images are often cut off, downloading is inconsistent, and signing in is difficult.  Why can’t the New Yorker get it right after all these years?",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id921470604"
+              },
+              "name": {
+                "label": "arbymanxxx"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-19T21:48:24-07:00"
+            },
+            "im:rating": {
+              "label": "3"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13654264746"
+            },
+            "title": {
+              "label": "Great App But Really? AI Voices?"
+            },
+            "content": {
+              "label": "The app experience is smooth but if you want to listen to some of the audio essays/reporting that they feature, prepare for the most monotone, lifeless read by a computer generated voice. Really eerie sounding, especially when the article mentions AI while being read by AI. Just hire someone.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id133798794"
+              },
+              "name": {
+                "label": "flomomicmagle"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-19T05:58:38-07:00"
+            },
+            "im:rating": {
+              "label": "1"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13651633094"
+            },
+            "title": {
+              "label": "Clunky"
+            },
+            "content": {
+              "label": "Not intuitive at all.  Seems to use a logic only known to itself.   Extraordinarily disappointing.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id515528820"
+              },
+              "name": {
+                "label": "Pilotatukb"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-18T22:25:30-07:00"
+            },
+            "im:rating": {
+              "label": "1"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13650562570"
+            },
+            "title": {
+              "label": "A horrible app, use browser!"
+            },
+            "content": {
+              "label": "No setting at top right or any support.  Cant find account info, or change font size.  Cannot find articles even when I type the exact title, etc.  Fire whoever built this app.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id247682617"
+              },
+              "name": {
+                "label": "Ed F., Philadelphia"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-17T07:21:53-07:00"
+            },
+            "im:rating": {
+              "label": "1"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13644137501"
+            },
+            "title": {
+              "label": "Impossibly arcane."
+            },
+            "content": {
+              "label": "If you close the app for any reason, you can't resume reading where you left off.  You've got to REMEMBER what paragraph, in what article, in what issue you were reading and methodically scroll your way back.  Deplorable.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id987393006"
+              },
+              "name": {
+                "label": "twcfyhjigtyi"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-15T09:53:29-07:00"
+            },
+            "im:rating": {
+              "label": "3"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13636971123"
+            },
+            "title": {
+              "label": "Great writing but the app doesn’t work well"
+            },
+            "content": {
+              "label": "Poor app",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id19830978"
+              },
+              "name": {
+                "label": "Cove32"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-14T18:38:58-07:00"
+            },
+            "im:rating": {
+              "label": "1"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13634627895"
+            },
+            "title": {
+              "label": "Just spins and spins"
+            },
+            "content": {
+              "label": "The old app at least worked.  This one is slicker but doesn’t download the articles-except for the first two paragraphs and then just spins endlessly.  New Yorker needs to hire some real tech people.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id107240927"
+              },
+              "name": {
+                "label": "dfhjddfghikjdd"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-08T12:50:36-07:00"
+            },
+            "im:rating": {
+              "label": "2"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13610593958"
+            },
+            "title": {
+              "label": "Crossword no?"
+            },
+            "content": {
+              "label": "Crossword puzzles don’t load, app just spins forever.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id1327624174"
+              },
+              "name": {
+                "label": "Idkidikddjjsbaba"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-05T20:48:16-07:00"
+            },
+            "im:rating": {
+              "label": "1"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13600256181"
+            },
+            "title": {
+              "label": "Hard to Use"
+            },
+            "content": {
+              "label": "I signed up for a both digital and physical copy yearly subscription. Although this was my fault, I signed up with my home address instead of my college house address. After many trials and contacting chat bots, it is impossible to change my address. An extremely frustrating app to use.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id531522998"
+              },
+              "name": {
+                "label": "Ibexcvb"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-04T07:23:28-07:00"
+            },
+            "im:rating": {
+              "label": "1"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13593979487"
+            },
+            "title": {
+              "label": "Fixed it!!!"
+            },
+            "content": {
+              "label": "I realized I can actually read articles if I delete the app and just read them on my browser.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id244570632"
+              },
+              "name": {
+                "label": "toucana"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-03T17:27:18-07:00"
+            },
+            "im:rating": {
+              "label": "2"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13591756443"
+            },
+            "title": {
+              "label": "Where?"
+            },
+            "content": {
+              "label": "My downloaded issues are now apparently here, but how do I find them?",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
+                "label": "https://itunes.apple.com/us/reviews/id13261040"
+              },
+              "name": {
+                "label": "DLP2515"
+              },
+              "label": ""
+            },
+            "updated": {
+              "label": "2026-01-03T09:06:03-07:00"
+            },
+            "im:rating": {
+              "label": "2"
+            },
+            "im:version": {
+              "label": "11.2.2"
+            },
+            "id": {
+              "label": "13590285511"
+            },
+            "title": {
+              "label": "Hard to sign in"
+            },
+            "content": {
+              "label": "Hard app to sign in and doesn’t give access I want to prior issues.",
+              "attributes": {
+                "type": "text"
+              }
+            },
+            "link": {
+              "attributes": {
+                "rel": "related",
+                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
+              }
+            },
+            "im:voteSum": {
+              "label": "0"
+            },
+            "im:contentType": {
+              "attributes": {
+                "term": "Application",
+                "label": "Application"
+              }
+            },
+            "im:voteCount": {
+              "label": "0"
+            }
+          },
+          {
+            "author": {
+              "uri": {
                 "label": "https://itunes.apple.com/us/reviews/id36385875"
               },
               "name": {
@@ -588,56 +1338,6 @@
             },
             "content": {
               "label": "It’s just and endless series of things not working. Whoops, the crossword puzzles stopped updating so you can’t play today’s! Oops, you’re signed in, but we still won’t show content! Just burn this down and start over.",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id531522998"
-              },
-              "name": {
-                "label": "Ibexcvb"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-12-16T14:46:03-07:00"
-            },
-            "im:rating": {
-              "label": "1"
-            },
-            "im:version": {
-              "label": "11.2.0"
-            },
-            "id": {
-              "label": "13521716937"
-            },
-            "title": {
-              "label": "So glitchy"
-            },
-            "content": {
-              "label": "Impossible to scroll down through an article. I updated and I still can’t read more than three paragraphs. It just freezes. This app has always been bad and it’s no better. I realized I can actually read articles if I delete the app and just read them on my browser.",
               "attributes": {
                 "type": "text"
               }
@@ -1810,7 +2510,78 @@
             "im:voteCount": {
               "label": "0"
             }
+          }
+        ],
+        "updated": {
+          "label": "2026-01-25T02:47:21-07:00"
+        },
+        "rights": {
+          "label": "Copyright 2008 Apple Inc."
+        },
+        "title": {
+          "label": "iTunes Store: Customer Reviews"
+        },
+        "icon": {
+          "label": "http://itunes.apple.com/favicon.ico"
+        },
+        "link": [
+          {
+            "attributes": {
+              "rel": "alternate",
+              "type": "text/html",
+              "href": "https://music.apple.com/WebObjects/MZStore.woa/wa/viewGrouping?cc=us&id=1"
+            }
           },
+          {
+            "attributes": {
+              "rel": "self",
+              "href": "https://itunes.apple.com/rss/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
+            }
+          },
+          {
+            "attributes": {
+              "rel": "first",
+              "href": "https://itunes.apple.com/us/rss/customerreviews/page=1/id=1081530898/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
+            }
+          },
+          {
+            "attributes": {
+              "rel": "last",
+              "href": "https://itunes.apple.com/us/rss/customerreviews/page=10/id=1081530898/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
+            }
+          },
+          {
+            "attributes": {
+              "rel": "previous",
+              "href": "https://itunes.apple.com/us/rss/customerreviews/page=1/id=1081530898/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
+            }
+          },
+          {
+            "attributes": {
+              "rel": "next",
+              "href": "https://itunes.apple.com/us/rss/customerreviews/page=2/id=1081530898/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
+            }
+          }
+        ],
+        "id": {
+          "label": "https://itunes.apple.com/rss/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
+        }
+      }
+    },
+    "timestamp": 1769338210356
+  },
+  "https://itunes.apple.com/rss/customerreviews/page=2/id=1081530898/sortBy=mostRecent/json": {
+    "value": {
+      "feed": {
+        "author": {
+          "name": {
+            "label": "iTunes Store"
+          },
+          "uri": {
+            "label": "http://www.apple.com/itunes/"
+          }
+        },
+        "entry": [
           {
             "author": {
               "uri": {
@@ -2510,78 +3281,7 @@
             "im:voteCount": {
               "label": "1"
             }
-          }
-        ],
-        "updated": {
-          "label": "2026-01-04T00:12:00-07:00"
-        },
-        "rights": {
-          "label": "Copyright 2008 Apple Inc."
-        },
-        "title": {
-          "label": "iTunes Store: Customer Reviews"
-        },
-        "icon": {
-          "label": "http://itunes.apple.com/favicon.ico"
-        },
-        "link": [
-          {
-            "attributes": {
-              "rel": "alternate",
-              "type": "text/html",
-              "href": "https://music.apple.com/WebObjects/MZStore.woa/wa/viewGrouping?cc=us&id=1"
-            }
           },
-          {
-            "attributes": {
-              "rel": "self",
-              "href": "https://itunes.apple.com/rss/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
-            }
-          },
-          {
-            "attributes": {
-              "rel": "first",
-              "href": "https://itunes.apple.com/us/rss/customerreviews/page=1/id=1081530898/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
-            }
-          },
-          {
-            "attributes": {
-              "rel": "last",
-              "href": "https://itunes.apple.com/us/rss/customerreviews/page=10/id=1081530898/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
-            }
-          },
-          {
-            "attributes": {
-              "rel": "previous",
-              "href": "https://itunes.apple.com/us/rss/customerreviews/page=1/id=1081530898/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
-            }
-          },
-          {
-            "attributes": {
-              "rel": "next",
-              "href": "https://itunes.apple.com/us/rss/customerreviews/page=2/id=1081530898/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
-            }
-          }
-        ],
-        "id": {
-          "label": "https://itunes.apple.com/rss/customerreviews/page=1/id=1081530898/sortBy=mostRecent/json"
-        }
-      }
-    },
-    "timestamp": 1767514320314
-  },
-  "https://itunes.apple.com/rss/customerreviews/page=2/id=1081530898/sortBy=mostRecent/json": {
-    "value": {
-      "feed": {
-        "author": {
-          "name": {
-            "label": "iTunes Store"
-          },
-          "uri": {
-            "label": "http://www.apple.com/itunes/"
-          }
-        },
-        "entry": [
           {
             "author": {
               "uri": {
@@ -3488,7 +4188,7 @@
                 "label": "https://itunes.apple.com/us/reviews/id25368419"
               },
               "name": {
-                "label": "Scott Higgins"
+                "label": "Prisoner65864"
               },
               "label": ""
             },
@@ -4381,710 +5081,10 @@
             "im:voteCount": {
               "label": "1"
             }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id142680405"
-              },
-              "name": {
-                "label": "Haydn88"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-31T17:14:53-07:00"
-            },
-            "im:rating": {
-              "label": "1"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13339971709"
-            },
-            "title": {
-              "label": "Lost"
-            },
-            "content": {
-              "label": "I don’t know who thought of this change, but I can’t find anything any more.  If they don’t fix this I’ll have to cancel my subscription.",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "1"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "1"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id239832859"
-              },
-              "name": {
-                "label": "Climate Ian"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-29T20:23:12-07:00"
-            },
-            "im:rating": {
-              "label": "2"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13331994619"
-            },
-            "title": {
-              "label": "Crosswords"
-            },
-            "content": {
-              "label": "The keyboard is cut off on my iPhone SE screen. I used to be able to access the whole keyboard but something changed about a month again and I haven’t been able to access the bottom half of the keyboard since then",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id462225329"
-              },
-              "name": {
-                "label": "Jselmz"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-29T13:41:15-07:00"
-            },
-            "im:rating": {
-              "label": "3"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13330916271"
-            },
-            "title": {
-              "label": "Garbage"
-            },
-            "content": {
-              "label": "Reloads constantly , can’t back out of app and go back to where you were reading , have to read entire article or scroll all the way back multiple times, poorly thought out and will be cancelling.\n\nEdit: This issue seems to be resolved now on iOS 26.1 RC",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id192686524"
-              },
-              "name": {
-                "label": "Jlfkys"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-29T05:30:19-07:00"
-            },
-            "im:rating": {
-              "label": "4"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13329181477"
-            },
-            "title": {
-              "label": "The Latest Bug"
-            },
-            "content": {
-              "label": "I love the New Yorker and the app! I’ve been using it for a few years without any major problems. The only issue is with some of the newer updates and “The Latest” section that recently was introduced on the mobile app. I find that it never updates to the most recent when you click “All latest stories” and if I refresh that specific page to see them, it says there is no internet connection which I know isn’t true because I have no issue with any other part of the app or with my phones connectivity in general. I love this app and magazine and just wish that part could be fixed so I don’t have to use my laptop to see if there’s any distal stories I’ve missed",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "1"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "1"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id176408757"
-              },
-              "name": {
-                "label": "seriouslyenteranickname"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-28T20:42:49-07:00"
-            },
-            "im:rating": {
-              "label": "3"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13327778031"
-            },
-            "title": {
-              "label": "Audio speed"
-            },
-            "content": {
-              "label": "I like to use .7-8 speed in evening to slow down the mind. Only options .5 or 1. available. Disappointing!",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id397740248"
-              },
-              "name": {
-                "label": "Nelson_Carroway"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-28T09:24:25-07:00"
-            },
-            "im:rating": {
-              "label": "2"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13325825285"
-            },
-            "title": {
-              "label": "Font size"
-            },
-            "content": {
-              "label": "Please make it possible to change the font from within the app. I find the default font size very small when compared to my Mac text size, and to make it normally sized I have to change the entire mac’s text size until it’s ridiculously large. This seems like an easy fix - just allow us to change text size from within the app itself. Thanks.",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id13503315"
-              },
-              "name": {
-                "label": "LemanSole"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-27T12:14:53-07:00"
-            },
-            "im:rating": {
-              "label": "3"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13322181794"
-            },
-            "title": {
-              "label": "Articles only partially loading on iPad"
-            },
-            "content": {
-              "label": "This problem has become much worse recently, to the point where the app is becoming unusable.\n\nAny given article will load the initial content, then “pause” with a spinning wheel & nothing further no matter how long I wait.\n\nI have restarted the iPad, deleted/reinstalled the app, and cleared more iPad storage space - nothing works.  \n\nAs a very longtime New Yorker subscriber I find this frustrating as I must either delete the app and go browser-only, or wait for the print edition to arrive in the post …. Like I used to circa 2002 or so.",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id460311425"
-              },
-              "name": {
-                "label": "Deetz_415"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-26T23:10:54-07:00"
-            },
-            "im:rating": {
-              "label": "5"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13319675767"
-            },
-            "title": {
-              "label": "Great!"
-            },
-            "content": {
-              "label": "Love that they added dark mode",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id20744103"
-              },
-              "name": {
-                "label": "M.F.F.L."
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-26T20:19:31-07:00"
-            },
-            "im:rating": {
-              "label": "2"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13319298702"
-            },
-            "title": {
-              "label": "Crosswords stopped loading"
-            },
-            "content": {
-              "label": "The crossword puzzles will not load. When you choose a puzzle it takes you to the load screen and all you get is the constant loading circle. It never loads! I have deleted, reinstalled, logged out & back in. None solved the issue.",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id107267082"
-              },
-              "name": {
-                "label": "Baby baby drc"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-26T20:03:20-07:00"
-            },
-            "im:rating": {
-              "label": "4"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13319259292"
-            },
-            "title": {
-              "label": "Needs Dark Mode"
-            },
-            "content": {
-              "label": "Love The New Yorker.  Longtime subscriber.  It’s 2025… we need DARK MODE.",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id125665500"
-              },
-              "name": {
-                "label": "BSchnee1806"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-26T15:22:08-07:00"
-            },
-            "im:rating": {
-              "label": "3"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13318533623"
-            },
-            "title": {
-              "label": "Lack of functions"
-            },
-            "content": {
-              "label": "Was dark mode introduced so that it can mask the captions on the cartoons? That seems to be the primary impact. Why are making it so hard to read the cartoons in the print format?\nWhy are you masking the captions on cartoons with the black border?\nThank you for fixing the captions. White on black is much easier to read than black on black.",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id838430059"
-              },
-              "name": {
-                "label": "Benwathefreeman14"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-25T05:43:56-07:00"
-            },
-            "im:rating": {
-              "label": "3"
-            },
-            "im:version": {
-              "label": "11.0.2"
-            },
-            "id": {
-              "label": "13312057400"
-            },
-            "title": {
-              "label": "Reinstalled after it stopped working"
-            },
-            "content": {
-              "label": "The app totally stopped working for me one day, after loading slowly for many weeks. I completely uninstalled it, then reinstalled and signed back in. Now it seems to be working fine.",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id152081284"
-              },
-              "name": {
-                "label": "transeme"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-24T00:34:47-07:00"
-            },
-            "im:rating": {
-              "label": "2"
-            },
-            "im:version": {
-              "label": "11.0.1"
-            },
-            "id": {
-              "label": "13306768791"
-            },
-            "title": {
-              "label": "Minimal and lacking functionality,"
-            },
-            "content": {
-              "label": "The app is only good for reading a current issue. You cannot use it to search for previous  content even if you have the article title and author name.. Worse is that if you download issues, you can’t read them if you’re not online. So you can’t read the issues while traveling or just offline.",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
-          },
-          {
-            "author": {
-              "uri": {
-                "label": "https://itunes.apple.com/us/reviews/id38621891"
-              },
-              "name": {
-                "label": "Havelock310"
-              },
-              "label": ""
-            },
-            "updated": {
-              "label": "2025-10-23T10:56:41-07:00"
-            },
-            "im:rating": {
-              "label": "2"
-            },
-            "im:version": {
-              "label": "11.0.1"
-            },
-            "id": {
-              "label": "13304657787"
-            },
-            "title": {
-              "label": "Annoying moving graphics"
-            },
-            "content": {
-              "label": "There should be a way to turn off the “cute” flashing graphics, which makes it difficult or impossible to focus on the print. In a magazine supposedly devoted to quality writing, why are the graphic designers trying to prevent readers from enjoying reading or comprehending the actual text, which is supposed to be the point of the magazine. Regular features such as the new books section are impossible to read because of the distracting flashing graphics.",
-              "attributes": {
-                "type": "text"
-              }
-            },
-            "link": {
-              "attributes": {
-                "rel": "related",
-                "href": "https://itunes.apple.com/us/review?id=1081530898&type=Purple%20Software"
-              }
-            },
-            "im:voteSum": {
-              "label": "0"
-            },
-            "im:contentType": {
-              "attributes": {
-                "term": "Application",
-                "label": "Application"
-              }
-            },
-            "im:voteCount": {
-              "label": "0"
-            }
           }
         ],
         "updated": {
-          "label": "2026-01-04T00:12:00-07:00"
+          "label": "2026-01-25T02:47:22-07:00"
         },
         "rights": {
           "label": "Copyright 2008 Apple Inc."
@@ -5139,6 +5139,6 @@
         }
       }
     },
-    "timestamp": 1767514320657
+    "timestamp": 1769338210373
   }
 }

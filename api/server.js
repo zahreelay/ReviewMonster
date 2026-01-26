@@ -10,6 +10,7 @@ const { analyzeReview } = require("../tools/analyzeReview");
 const generateMemo = require("../tools/generateMemo").generateMemo;
 const cache = require("../tools/cache");
 const llm = require("../tools/llm");
+const logger = require("../tools/logger");
 
 const { InitAgent } = require("../Agents/InitAgent");
 const { scrapeLastYear } = require("../tools/appStoreScraper");
@@ -99,16 +100,18 @@ app.post("/init", async (req, res) => {
     // Run in background
     (async () => {
         try {
+            logger.info("Starting legacy init");
             let reviews = rawStore.getReviews();
 
             if (refresh) {
-                console.log("Scraping reviews...");
+                logger.info("Scraping reviews from App Store");
                 reviews = await scrapeLastYear();
                 rawStore.saveReviews(reviews);
-                console.log(`Scraped ${reviews.length} reviews`);
+                logger.info("Scraped reviews", { count: reviews.length });
             }
 
             if (!reviews.length) {
+                logger.warn("No reviews found in raw store");
                 initStatus.running = false;
                 initStatus.lastResult = {
                     status: "no_data",
@@ -119,13 +122,18 @@ app.post("/init", async (req, res) => {
 
             initStatus.total = reviews.length;
             const analyzed = [];
+            let cacheHits = 0;
+            let cacheMisses = 0;
 
             for (let i = 0; i < reviews.length; i++) {
                 const review = reviews[i];
                 const key = cache.makeReviewKey(review);
                 let analysis = bypassCache ? null : cache.get(key);
 
-                if (!analysis) {
+                if (analysis) {
+                    cacheHits++;
+                } else {
+                    cacheMisses++;
                     analysis = await analyzeReview(review);
                     cache.set(key, analysis);
                 }
@@ -139,9 +147,14 @@ app.post("/init", async (req, res) => {
 
                 initStatus.progress = i + 1;
 
-                // Log progress every 10 reviews
-                if ((i + 1) % 10 === 0) {
-                    console.log(`Analyzed ${i + 1}/${reviews.length} reviews`);
+                // Log progress every 50 reviews
+                if ((i + 1) % 50 === 0) {
+                    logger.info("Analysis progress", {
+                        progress: i + 1,
+                        total: reviews.length,
+                        cacheHits,
+                        cacheMisses
+                    });
                 }
             }
 
@@ -152,9 +165,9 @@ app.post("/init", async (req, res) => {
                 totalAnalyzed: analyzed.length,
                 updatedAt: new Date().toISOString()
             };
-            console.log("Init completed successfully");
+            logger.info("Legacy init completed", { cacheHits, cacheMisses, total: analyzed.length });
         } catch (e) {
-            console.error("Init error:", e);
+            logger.error("Init error", { error: e.message });
             initStatus.running = false;
             initStatus.error = e.message;
             initStatus.lastResult = { status: "error", error: e.message };
@@ -798,6 +811,8 @@ app.get("/llm/info", (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log("Stateless Product Intelligence Agent running on port 3000");
-    console.log(`LLM Provider: ${llm.getDefaultProvider()}`);
+    logger.info("Server started", {
+        port: 3000,
+        llmProvider: llm.getDefaultProvider()
+    });
 });
