@@ -14,7 +14,32 @@
 		{
 			"key": "appId",
 			"value": "1081530898",
-			"type": "string"
+			"type": "string",
+			"description": "App Store app ID (The New Yorker)"
+		},
+		{
+			"key": "issueId",
+			"value": "subscription_not_recognized",
+			"type": "string",
+			"description": "Issue ID for deep-dive (use normalized key from /issues endpoint)"
+		},
+		{
+			"key": "requestId",
+			"value": "lack_of_dark_mode",
+			"type": "string",
+			"description": "Feature request ID (use normalized key from /requests endpoint)"
+		},
+		{
+			"key": "strengthId",
+			"value": "easy_to_use",
+			"type": "string",
+			"description": "Strength ID (use normalized key from /strengths endpoint)"
+		},
+		{
+			"key": "competitorId",
+			"value": "544007664",
+			"type": "string",
+			"description": "Competitor app ID for evidence queries"
 		}
 	],
 	"item": [
@@ -129,11 +154,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/apps/{{appId}}/issues/subscription_not_recognized",
+							"raw": "{{baseUrl}}/api/apps/{{appId}}/issues/{{issueId}}",
 							"host": ["{{baseUrl}}"],
-							"path": ["api", "apps", "{{appId}}", "issues", "subscription_not_recognized"]
+							"path": ["api", "apps", "{{appId}}", "issues", "{{issueId}}"]
 						},
-						"description": "Deep-dive into a specific issue. Replace 'subscription_not_recognized' with the issue ID.\n\nReturns:\n- Issue details (title, severity, count)\n- Impact analysis (rating drop, affected %, trend)\n- Timeline by month\n- Recommendations\n- Evidence (sample reviews)"
+						"description": "Deep-dive into a specific issue. Set the `issueId` variable or get IDs from the /issues endpoint.\n\nReturns:\n- Issue details (title, severity, count)\n- Impact analysis (rating drop, affected %, trend)\n- Timeline by month\n- Recommendations\n- Evidence (sample reviews)"
 					},
 					"response": []
 				},
@@ -147,7 +172,7 @@
 							"host": ["{{baseUrl}}"],
 							"path": ["api", "apps", "{{appId}}", "requests"]
 						},
-						"description": "Get all feature requests with:\n- Demand level (high/medium/low)\n- Count of requests\n- First requested date\n- Evidence (sample reviews)"
+						"description": "Get all feature requests with:\n- Demand level (high/medium/low)\n- Count of requests\n- First requested date\n- Evidence (sample reviews)\n\nEach request includes up to 10 sample reviews as evidence."
 					},
 					"response": []
 				},
@@ -657,11 +682,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/evidence/issue/login_bug",
+							"raw": "{{baseUrl}}/evidence/issue/{{issueId}}",
 							"host": ["{{baseUrl}}"],
-							"path": ["evidence", "issue", "login_bug"]
+							"path": ["evidence", "issue", "{{issueId}}"]
 						},
-						"description": "Get review evidence for a specific issue. Replace 'login_bug' with the issue identifier."
+						"description": "Get review evidence for a specific issue. Set the `issueId` variable or replace with issue identifier."
 					},
 					"response": []
 				},
@@ -671,11 +696,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/evidence/request/dark_mode",
+							"raw": "{{baseUrl}}/evidence/request/{{requestId}}",
 							"host": ["{{baseUrl}}"],
-							"path": ["evidence", "request", "dark_mode"]
+							"path": ["evidence", "request", "{{requestId}}"]
 						},
-						"description": "Get review evidence for a feature request. Replace 'dark_mode' with the request identifier."
+						"description": "Get review evidence for a feature request. Set the `requestId` variable or replace with request identifier."
 					},
 					"response": []
 				},
@@ -685,11 +710,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/evidence/strength/easy_to_use",
+							"raw": "{{baseUrl}}/evidence/strength/{{strengthId}}",
 							"host": ["{{baseUrl}}"],
-							"path": ["evidence", "strength", "easy_to_use"]
+							"path": ["evidence", "strength", "{{strengthId}}"]
 						},
-						"description": "Get review evidence for a strength/praise. Replace 'easy_to_use' with the strength identifier."
+						"description": "Get review evidence for a strength/praise. Set the `strengthId` variable or replace with strength identifier."
 					},
 					"response": []
 				},
@@ -699,17 +724,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/evidence/weakness/crashes?competitorId=123456789",
+							"raw": "{{baseUrl}}/evidence/weakness/{{issueId}}?competitorId={{competitorId}}",
 							"host": ["{{baseUrl}}"],
-							"path": ["evidence", "weakness", "crashes"],
+							"path": ["evidence", "weakness", "{{issueId}}"],
 							"query": [
 								{
 									"key": "competitorId",
-									"value": "123456789"
+									"value": "{{competitorId}}"
 								}
 							]
 						},
-						"description": "Get competitor review evidence for a weakness. Requires competitorId query param."
+						"description": "Get competitor review evidence for a weakness. Uses `issueId` and `competitorId` variables."
 					},
 					"response": []
 				},
@@ -846,14 +871,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\",\n        \"name\": \"Your App\"\n    },\n    \"competitorIds\": [\"544007664\", \"835599320\"],\n    \"days\": 90,\n    \"bypassCache\": false\n}"
+							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\",\n        \"name\": \"Your App\"\n    },\n    \"competitorIds\": [\"{{competitorId}}\"],\n    \"days\": 90,\n    \"bypassCache\": false\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/competitors/run",
 							"host": ["{{baseUrl}}"],
 							"path": ["competitors", "run"]
 						},
-						"description": "Fetch and analyze reviews for specified competitors. Creates competitive dataset.\n\n- `bypassCache`: true to force fresh LLM analysis (default: false)"
+						"description": "Fetch and analyze reviews for specified competitors. Creates competitive dataset.\n\n- `competitorIds`: Array of App Store app IDs\n- `days`: Number of days of reviews to fetch\n- `bypassCache`: true to force fresh LLM analysis (default: false)"
 					},
 					"response": []
 				},
@@ -869,7 +894,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\",\n        \"name\": \"Your App\"\n    },\n    \"competitorIds\": [\"544007664\", \"835599320\"],\n    \"days\": 90,\n    \"bypassCache\": true\n}"
+							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\",\n        \"name\": \"Your App\"\n    },\n    \"competitorIds\": [\"{{competitorId}}\"],\n    \"days\": 90,\n    \"bypassCache\": true\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/competitors/run",
@@ -892,14 +917,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\"\n    },\n    \"competitorIds\": [\"544007664\", \"835599320\"],\n    \"days\": 90\n}"
+							"raw": "{\n    \"mainApp\": {\n        \"appId\": \"{{appId}}\"\n    },\n    \"competitorIds\": [\"{{competitorId}}\"],\n    \"days\": 90\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/competitors/compare",
 							"host": ["{{baseUrl}}"],
 							"path": ["competitors", "compare"]
 						},
-						"description": "Generate SWOT analysis comparing your app to competitors. Requires /competitors/run first."
+						"description": "Generate SWOT analysis comparing your app to competitors. Requires /competitors/run first.\n\n- `competitorIds`: Array of competitor App Store IDs\n- `days`: Number of days of reviews to analyze"
 					},
 					"response": []
 				}
