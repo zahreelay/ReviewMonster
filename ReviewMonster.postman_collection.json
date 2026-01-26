@@ -56,7 +56,7 @@
 							"host": ["{{baseUrl}}"],
 							"path": ["api", "apps"]
 						},
-						"description": "List all apps that have been analyzed. Returns app metadata for each."
+						"description": "List all apps that have been analyzed including competitors.\n\nReturns:\n- `apps`: Array of analyzed apps with `isCompetitor` flag\n- `competitors`: Global competitors list from discovery\n- `summary`: Counts of main apps, analyzed competitors, pending competitors"
 					},
 					"response": []
 				},
@@ -144,7 +144,7 @@
 							"host": ["{{baseUrl}}"],
 							"path": ["api", "apps", "{{appId}}", "issues"]
 						},
-						"description": "Get all issues from complaint reviews with:\n- Severity (critical/high/medium/low)\n- Count of reports\n- Average rating\n- First/last seen dates\n- Affected versions\n- Evidence (sample reviews)"
+						"description": "Get all issues from complaint reviews with:\n- `impactScore` (0-100) - composite score based on frequency, rating, recency, trend\n- `impactFactors` - breakdown of score components\n- `severity` (critical/high/medium/low) - derived from impactScore\n- `trend` (increasing/stable/decreasing/new)\n- Count of reports, average rating\n- First/last seen dates, affected versions\n- Evidence (sample reviews)\n\nAdd `?includeEvidence=false` to exclude sample reviews."
 					},
 					"response": []
 				},
@@ -172,7 +172,7 @@
 							"host": ["{{baseUrl}}"],
 							"path": ["api", "apps", "{{appId}}", "requests"]
 						},
-						"description": "Get all feature requests with:\n- Demand level (high/medium/low)\n- Count of requests\n- First requested date\n- Evidence (sample reviews)\n\nEach request includes up to 10 sample reviews as evidence."
+						"description": "Get all feature requests with:\n- `demandScore` (0-100) - composite score based on frequency, recency, consistency\n- `demandFactors` - breakdown of score components\n- `demand` (high/medium/low) - derived from demandScore\n- Count of requests, first requested date\n- Evidence (up to 10 sample reviews)\n\nAdd `?includeEvidence=false` to exclude sample reviews."
 					},
 					"response": []
 				},
@@ -249,7 +249,7 @@
 							"host": ["{{baseUrl}}"],
 							"path": ["api", "apps", "{{appId}}", "query"]
 						},
-						"description": "Ask natural language questions about the app's reviews. AI-powered answers based on analyzed data.\n\n- `query`: Your question\n- `bypassCache`: true for fresh LLM response"
+						"description": "Ask natural language questions about the app's reviews. AI-powered answers based on analyzed data.\n\n- `query`: Your question\n- `bypassCache`: true for fresh LLM response\n\nResponse includes:\n- `answer`: AI-generated response\n- `cached`: true if response was from cache\n- `context`: App name, review count, avg rating"
 					},
 					"response": []
 				},
