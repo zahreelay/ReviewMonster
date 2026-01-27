@@ -16,6 +16,10 @@ const llm = require("../tools/llm");
 const { analyzeReview } = require("../tools/analyzeReview");
 const { scrapeLastYear } = require("../tools/appStoreScraper");
 const logger = require("../tools/logger");
+const { discoverCompetitors } = require("../tools/competitorDiscovery");
+const { ingestCompetitorReviews } = require("../tools/competitorIngestion");
+const fs = require("fs");
+const path = require("path");
 
 // Track init jobs per app
 const initJobs = {};
@@ -651,6 +655,381 @@ router.get("/", (req, res) => {
         });
     } catch (e) {
         logger.error("Error listing apps", { error: e.message });
+        res.status(500).json({ error: e.message });
+    }
+});
+
+/**
+ * POST /api/apps/:appId/competitors/discover
+ * Discover competitors for an app based on genre and keywords
+ */
+router.post("/:appId/competitors/discover", async (req, res) => {
+    try {
+        const { appId } = req.params;
+        const { country = "us", k = 10 } = req.body;
+        logger.info("Discovering competitors", { appId, country, k });
+
+        const metadata = appStorage.loadMetadata(appId);
+        if (!metadata) {
+            return res.status(404).json({
+                error: "App not found. Run /api/apps/:appId/init first."
+            });
+        }
+
+        // Get reviews for keyword extraction
+        const reviews = appStorage.loadReviews(appId) || [];
+
+        // Discover competitors
+        const competitors = await discoverCompetitors(
+            { appId, ...metadata },
+            reviews,
+            { country, k }
+        );
+
+        // Save to app-specific competitors file
+        appStorage.saveAppCompetitors(appId, competitors);
+
+        logger.info("Discovered competitors", { appId, count: competitors.length });
+
+        res.json({
+            appId,
+            competitors,
+            count: competitors.length
+        });
+    } catch (e) {
+        logger.error("Error discovering competitors", { error: e.message });
+        res.status(500).json({ error: e.message });
+    }
+});
+
+/**
+ * POST /api/apps/:appId/competitors/analyze
+ * Fetch and analyze reviews for specified competitors
+ */
+router.post("/:appId/competitors/analyze", async (req, res) => {
+    try {
+        const { appId } = req.params;
+        const { competitorIds, days = 90, bypassCache = false } = req.body;
+        logger.info("Analyzing competitors", { appId, competitorIds, days, bypassCache });
+
+        if (!Array.isArray(competitorIds) || competitorIds.length === 0) {
+            return res.status(400).json({
+                error: "competitorIds[] is required"
+            });
+        }
+
+        const metadata = appStorage.loadMetadata(appId);
+        if (!metadata) {
+            return res.status(404).json({
+                error: "App not found. Run /api/apps/:appId/init first."
+            });
+        }
+
+        // Analyze each competitor
+        const results = {};
+        for (const compId of competitorIds) {
+            logger.info("Fetching competitor reviews", { competitorId: compId });
+
+            // Fetch competitor reviews
+            const compReviews = await ingestCompetitorReviews(
+                [{ appId: compId, name: compId }],
+                null,
+                { days }
+            );
+
+            const reviews = compReviews?.[compId]?.reviews || [];
+
+            // Analyze reviews
+            const analyzed = [];
+            for (const review of reviews) {
+                const key = cache.makeReviewKey(review);
+                let analysis = bypassCache ? null : cache.get(key);
+
+                if (!analysis) {
+                    analysis = await analyzeReview(review);
+                    cache.set(key, analysis);
+                }
+
+                const parsedAnalysis = typeof analysis === "string" ? JSON.parse(analysis) : analysis;
+                analyzed.push({ ...review, ...parsedAnalysis });
+            }
+
+            // Generate insights for competitor
+            const insights = generateInsights(analyzed);
+
+            // Save competitor data to apps storage
+            appStorage.saveMetadata(compId, {
+                appId: compId,
+                name: compReviews?.[compId]?.name || compId,
+                isCompetitor: true,
+                analyzedAt: new Date().toISOString()
+            });
+            appStorage.saveReviews(compId, reviews);
+            appStorage.saveInsights(compId, insights);
+
+            results[compId] = {
+                appId: compId,
+                reviewCount: reviews.length,
+                analyzedCount: analyzed.length,
+                issues: insights.issues.slice(0, 5),
+                requests: insights.requests.slice(0, 5),
+                strengths: insights.strengths.slice(0, 5)
+            };
+
+            logger.info("Competitor analyzed", { competitorId: compId, reviewCount: reviews.length });
+        }
+
+        res.json({
+            appId,
+            competitors: results,
+            analyzedAt: new Date().toISOString()
+        });
+    } catch (e) {
+        logger.error("Error analyzing competitors", { error: e.message });
+        res.status(500).json({ error: e.message });
+    }
+});
+
+/**
+ * GET /api/apps/:appId/competitors/swot
+ * Generate SWOT analysis comparing app to competitors
+ */
+router.get("/:appId/competitors/swot", async (req, res) => {
+    try {
+        const { appId } = req.params;
+        logger.info("Generating SWOT analysis", { appId });
+
+        const metadata = appStorage.loadMetadata(appId);
+        const insights = appStorage.loadInsights(appId);
+
+        if (!metadata || !insights) {
+            return res.status(404).json({
+                error: "App not found. Run /api/apps/:appId/init first."
+            });
+        }
+
+        // Load competitors
+        const competitors = appStorage.loadAppCompetitors(appId);
+        if (!competitors || competitors.length === 0) {
+            return res.status(400).json({
+                error: "No competitors found. Run /api/apps/:appId/competitors/discover first."
+            });
+        }
+
+        // Build SWOT for each competitor
+        const swot = {
+            mainApp: {
+                appId,
+                name: metadata.name,
+                strengths: insights.strengths.slice(0, 5),
+                weaknesses: insights.issues.slice(0, 5),
+                opportunities: insights.requests.slice(0, 5)
+            },
+            competitors: {},
+            comparison: {
+                strengths: [],
+                weaknesses: [],
+                opportunities: [],
+                threats: []
+            }
+        };
+
+        // Analyze each competitor that has been analyzed
+        for (const comp of competitors.slice(0, 5)) {
+            const compInsights = appStorage.loadInsights(comp.appId);
+            if (!compInsights) continue;
+
+            swot.competitors[comp.appId] = {
+                appId: comp.appId,
+                name: comp.name,
+                score: comp.score,
+                strengths: compInsights.strengths.slice(0, 5),
+                weaknesses: compInsights.issues.slice(0, 5),
+                opportunities: compInsights.requests.slice(0, 5)
+            };
+
+            // Build comparison insights
+            // Threats: What competitors do well that we don't
+            for (const strength of compInsights.strengths.slice(0, 3)) {
+                const weHaveIt = insights.strengths.some(s =>
+                    s.title.toLowerCase().includes(strength.title.toLowerCase()) ||
+                    strength.title.toLowerCase().includes(s.title.toLowerCase())
+                );
+                if (!weHaveIt) {
+                    swot.comparison.threats.push({
+                        text: strength.title,
+                        competitor: comp.name,
+                        count: strength.count
+                    });
+                }
+            }
+
+            // Opportunities: What competitors lack that we could capitalize on
+            for (const weakness of compInsights.issues.slice(0, 3)) {
+                const weHaveIssue = insights.issues.some(i =>
+                    i.title.toLowerCase().includes(weakness.title.toLowerCase())
+                );
+                if (!weHaveIssue) {
+                    swot.comparison.opportunities.push({
+                        text: `Competitor weakness: ${weakness.title}`,
+                        competitor: comp.name,
+                        count: weakness.count
+                    });
+                }
+            }
+        }
+
+        // Our strengths vs competitors
+        swot.comparison.strengths = insights.strengths.slice(0, 5).map(s => ({
+            text: s.title,
+            count: s.count
+        }));
+
+        // Our weaknesses
+        swot.comparison.weaknesses = insights.issues.slice(0, 5).map(i => ({
+            text: i.title,
+            severity: i.severity,
+            count: i.count
+        }));
+
+        logger.info("SWOT analysis generated", { appId, competitorCount: Object.keys(swot.competitors).length });
+
+        res.json(swot);
+    } catch (e) {
+        logger.error("Error generating SWOT", { error: e.message });
+        res.status(500).json({ error: e.message });
+    }
+});
+
+/**
+ * GET /api/apps/:appId/roadmap
+ * Generate prioritized roadmap based on issues, requests, and competitive analysis
+ */
+router.get("/:appId/roadmap", async (req, res) => {
+    try {
+        const { appId } = req.params;
+        logger.info("Generating roadmap", { appId });
+
+        const metadata = appStorage.loadMetadata(appId);
+        const insights = appStorage.loadInsights(appId);
+
+        if (!metadata || !insights) {
+            return res.status(404).json({
+                error: "App not found. Run /api/apps/:appId/init first."
+            });
+        }
+
+        // Load competitors for context
+        const competitors = appStorage.loadAppCompetitors(appId) || [];
+        const competitorInsights = [];
+        for (const comp of competitors.slice(0, 3)) {
+            const compData = appStorage.loadInsights(comp.appId);
+            if (compData) {
+                competitorInsights.push({
+                    appId: comp.appId,
+                    name: comp.name,
+                    strengths: compData.strengths.slice(0, 3),
+                    requests: compData.requests.slice(0, 3)
+                });
+            }
+        }
+
+        // Build roadmap recommendations
+        const recommendations = [];
+
+        // HIGH PRIORITY: Critical bugs
+        for (const issue of insights.issues.filter(i => i.severity === "critical")) {
+            recommendations.push({
+                id: `fix-${issue.id}`,
+                title: `Fix: ${issue.title}`,
+                priority: "high",
+                type: "bug_fix",
+                impact: issue.impactScore || 80,
+                evidence: {
+                    reportCount: issue.count,
+                    avgRating: issue.avgRating,
+                    trend: issue.trend
+                },
+                recommendation: "Immediate fix required - critical user experience issue",
+                sampleReviews: (issue.evidence || []).slice(0, 2)
+            });
+        }
+
+        // HIGH PRIORITY: High severity issues
+        for (const issue of insights.issues.filter(i => i.severity === "high").slice(0, 3)) {
+            recommendations.push({
+                id: `fix-${issue.id}`,
+                title: `Fix: ${issue.title}`,
+                priority: "high",
+                type: "bug_fix",
+                impact: issue.impactScore || 60,
+                evidence: {
+                    reportCount: issue.count,
+                    avgRating: issue.avgRating,
+                    trend: issue.trend
+                },
+                recommendation: "High priority fix - affecting significant users",
+                sampleReviews: (issue.evidence || []).slice(0, 2)
+            });
+        }
+
+        // MEDIUM PRIORITY: Top feature requests
+        for (const request of insights.requests.slice(0, 5)) {
+            // Check if competitors have this feature
+            const competitorsHaveIt = competitorInsights.filter(c =>
+                c.strengths.some(s =>
+                    s.title.toLowerCase().includes(request.title.toLowerCase()) ||
+                    request.title.toLowerCase().includes(s.title.toLowerCase())
+                )
+            );
+
+            const priority = competitorsHaveIt.length >= 2 ? "high" : request.demand === "high" ? "medium" : "low";
+
+            recommendations.push({
+                id: `feature-${request.id}`,
+                title: `Add: ${request.title}`,
+                priority,
+                type: "feature",
+                impact: request.demandScore || 50,
+                evidence: {
+                    requestCount: request.count,
+                    demand: request.demand,
+                    competitorsWithFeature: competitorsHaveIt.map(c => c.name)
+                },
+                recommendation: competitorsHaveIt.length > 0
+                    ? `Competitive gap - ${competitorsHaveIt.length} competitor(s) have this`
+                    : "User-requested feature",
+                sampleReviews: (request.evidence || []).slice(0, 2)
+            });
+        }
+
+        // Sort by priority and impact
+        const priorityOrder = { high: 0, medium: 1, low: 2 };
+        recommendations.sort((a, b) => {
+            if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
+                return priorityOrder[a.priority] - priorityOrder[b.priority];
+            }
+            return b.impact - a.impact;
+        });
+
+        logger.info("Roadmap generated", { appId, recommendationCount: recommendations.length });
+
+        res.json({
+            appId,
+            appName: metadata.name,
+            generatedAt: new Date().toISOString(),
+            summary: {
+                totalRecommendations: recommendations.length,
+                highPriority: recommendations.filter(r => r.priority === "high").length,
+                mediumPriority: recommendations.filter(r => r.priority === "medium").length,
+                lowPriority: recommendations.filter(r => r.priority === "low").length,
+                bugFixes: recommendations.filter(r => r.type === "bug_fix").length,
+                features: recommendations.filter(r => r.type === "feature").length
+            },
+            recommendations
+        });
+    } catch (e) {
+        logger.error("Error generating roadmap", { error: e.message });
         res.status(500).json({ error: e.message });
     }
 });

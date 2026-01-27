@@ -321,6 +321,80 @@
 						"description": "Example query: Ask about specific issues."
 					},
 					"response": []
+				},
+				{
+					"name": "Discover Competitors",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"country\": \"us\",\n    \"k\": 10\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/apps/{{appId}}/competitors/discover",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "apps", "{{appId}}", "competitors", "discover"]
+						},
+						"description": "Discover competitors for an app based on genre, keywords, and App Store charts.\n\n- `country`: App Store country code (default: us)\n- `k`: Number of competitors to return (default: 10)\n\nReturns competitors with relevance scores."
+					},
+					"response": []
+				},
+				{
+					"name": "Analyze Competitors",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"competitorIds\": [\"{{competitorId}}\"],\n    \"days\": 90,\n    \"bypassCache\": false\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/apps/{{appId}}/competitors/analyze",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "apps", "{{appId}}", "competitors", "analyze"]
+						},
+						"description": "Fetch and analyze reviews for specified competitors.\n\n- `competitorIds`: Array of App Store app IDs to analyze\n- `days`: Number of days of reviews to fetch (default: 90)\n- `bypassCache`: Force fresh LLM analysis\n\nSaves competitor data to /data/apps/{competitorId}/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get SWOT Analysis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/apps/{{appId}}/competitors/swot",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "apps", "{{appId}}", "competitors", "swot"]
+						},
+						"description": "Generate SWOT analysis comparing your app to discovered competitors.\n\nReturns:\n- Main app strengths, weaknesses, opportunities\n- Each competitor's strengths, weaknesses, opportunities\n- Comparison: threats (competitor advantages) and opportunities (competitor weaknesses)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Roadmap",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/apps/{{appId}}/roadmap",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "apps", "{{appId}}", "roadmap"]
+						},
+						"description": "Generate prioritized roadmap based on issues, feature requests, and competitive analysis.\n\nReturns recommendations sorted by priority (high/medium/low) with:\n- Bug fixes (critical and high severity issues)\n- Feature requests (with competitive context)\n- Impact scores and evidence\n- Sample reviews for each recommendation"
+					},
+					"response": []
 				}
 			],
 			"description": "Phase 1A Multi-App endpoints - analyze any app by ID. These are the recommended endpoints for new integrations."
