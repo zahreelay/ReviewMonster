@@ -30,7 +30,7 @@ const initJobs = {};
  */
 router.post("/:appId/init", async (req, res) => {
     const { appId } = req.params;
-    const { refresh = false, bypassCache = false } = req.body;
+    const { refresh = false, bypassCache = false } = req.body || {};
 
     // Check if already running
     if (initJobs[appId]?.running) {
@@ -544,7 +544,7 @@ router.get("/:appId/regression-timeline", (req, res) => {
 router.post("/:appId/query", async (req, res) => {
     try {
         const { appId } = req.params;
-        const { query, bypassCache = false } = req.body;
+        const { query, bypassCache = false } = req.body || {};
         logger.info("Processing query", { appId, query, bypassCache });
 
         if (!query) {
@@ -699,7 +699,7 @@ router.get("/", (req, res) => {
 router.post("/:appId/competitors/discover", async (req, res) => {
     try {
         const { appId } = req.params;
-        const { country = "us", k = 10 } = req.body;
+        const { country = "us", k = 10 } = req.body || {};
         logger.info("Discovering competitors", { appId, country, k });
 
         const metadata = appStorage.loadMetadata(appId);
@@ -742,7 +742,7 @@ router.post("/:appId/competitors/discover", async (req, res) => {
 router.post("/:appId/competitors/analyze", async (req, res) => {
     try {
         const { appId } = req.params;
-        const { competitorIds, days = 90, bypassCache = false } = req.body;
+        const { competitorIds, days = 90, bypassCache = false } = req.body || {};
         logger.info("Analyzing competitors", { appId, competitorIds, days, bypassCache });
 
         if (!Array.isArray(competitorIds) || competitorIds.length === 0) {
