@@ -270,6 +270,15 @@ router.get("/:appId/overview", async (req, res) => {
 
         const ratingHistory = appStorage.loadRatingHistory(appId);
 
+        // Load competitors (discovered during init)
+        const competitors = appStorage.loadAppCompetitors(appId) || [];
+        const topCompetitors = competitors.slice(0, 5).map(c => ({
+            appId: c.appId,
+            name: c.name,
+            score: c.score,
+            rating: c.rating
+        }));
+
         // Quick insights with sample reviews
         const topIssue = insights.issues[0] || null;
         const topRequest = insights.requests[0] || null;
@@ -302,7 +311,8 @@ router.get("/:appId/overview", async (req, res) => {
         logger.info("Overview generated", {
             appId,
             issueCount: insights.issues.length,
-            requestCount: insights.requests.length
+            requestCount: insights.requests.length,
+            competitorCount: topCompetitors.length
         });
 
         res.json({
@@ -328,6 +338,7 @@ router.get("/:appId/overview", async (req, res) => {
             },
             metrics: insights.summary,
             ratingHistory,
+            topCompetitors,
             memo
         });
     } catch (e) {
