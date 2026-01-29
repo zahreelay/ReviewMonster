@@ -275,8 +275,12 @@ router.get("/:appId/overview", async (req, res) => {
         const topCompetitors = competitors.slice(0, 5).map(c => ({
             appId: c.appId,
             name: c.name,
+            icon: c.icon,
+            seller: c.seller,
+            genre: c.genre,
             score: c.score,
-            rating: c.rating
+            rating: c.rating,
+            ratingCount: c.ratingCount
         }));
 
         // Quick insights with sample reviews

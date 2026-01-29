@@ -162,8 +162,10 @@ module.exports.discoverCompetitors = async function (appProfile, reviews, opts =
             name: c.trackName,
             seller: c.sellerName,
             genre: c.primaryGenreName,
+            icon: c.artworkUrl100 || c.artworkUrl60,
             score: Number(scoreCandidate(our, c).toFixed(4)),
-            rating: c.averageUserRating ?? null
+            rating: c.averageUserRating ?? null,
+            ratingCount: c.userRatingCount ?? null
         }))
         .sort((a, b) => b.score - a.score)
         .slice(0, k);
