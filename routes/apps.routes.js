@@ -164,6 +164,22 @@ router.post("/:appId/init", async (req, res) => {
             const regression = buildReleaseTimeline(analyzed);
             appStorage.saveRegression(appId, regression);
 
+            // Step 7: Auto-discover competitors
+            let discoveredCompetitors = [];
+            try {
+                log.info("Auto-discovering competitors");
+                discoveredCompetitors = await discoverCompetitors(
+                    { appId, ...metadata },
+                    reviews,
+                    { country: "us", k: 10 }
+                );
+                appStorage.saveAppCompetitors(appId, discoveredCompetitors);
+                log.info("Competitors discovered", { count: discoveredCompetitors.length });
+            } catch (e) {
+                // Non-fatal - log and continue
+                log.warn("Failed to auto-discover competitors", { error: e.message });
+            }
+
             initJobs[appId].running = false;
             initJobs[appId].lastResult = {
                 status: "ok",
@@ -171,6 +187,7 @@ router.post("/:appId/init", async (req, res) => {
                 name: metadata.name,
                 totalReviews: reviews.length,
                 totalAnalyzed: analyzed.length,
+                competitorsDiscovered: discoveredCompetitors.length,
                 completedAt: new Date().toISOString()
             };
 
@@ -178,7 +195,8 @@ router.post("/:appId/init", async (req, res) => {
                 name: metadata.name,
                 reviewCount: reviews.length,
                 issueCount: insights.issues.length,
-                requestCount: insights.requests.length
+                requestCount: insights.requests.length,
+                competitorsDiscovered: discoveredCompetitors.length
             });
         } catch (e) {
             logger.error("Init error", { appId, error: e.message });
