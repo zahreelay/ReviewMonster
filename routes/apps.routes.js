@@ -310,7 +310,7 @@ router.get("/:appId/overview", async (req, res) => {
             return analysis ? { ...r, ...JSON.parse(analysis) } : r;
         }).filter(r => r.intent);
 
-        const memo = generateMemo(analyzed);
+        const memo = generateMemo(analyzed, ratingHistory, metadata);
 
         logger.info("Overview generated", {
             appId,
