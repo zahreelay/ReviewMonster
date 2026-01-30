@@ -1,0 +1,105 @@
+{
+  "competitors": [
+    {
+      "appId": "610498525",
+      "name": "New Statesman Magazine",
+      "seller": "Progressive Media International Ltd.",
+      "genre": "News",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/92/b4/45/92b445d1-c986-a3d1-ab1d-ecc5a26eaa90/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "score": 0.7597,
+      "rating": 4.68519,
+      "ratingCount": 216
+    },
+    {
+      "appId": "1132210952",
+      "name": "The New World",
+      "seller": "The New European Ltd",
+      "genre": "News",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/21/b3/cf21b35b-02a7-2130-6911-ceafdaab31ec/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "score": 0.7543,
+      "rating": 4.94444,
+      "ratingCount": 18
+    },
+    {
+      "appId": "364387007",
+      "name": "The Wall Street Journal. News",
+      "seller": "Dow Jones & Company, Inc., publisher of The Wall Street Journal.",
+      "genre": "News",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8e/98/98/8e989899-7745-61cb-4edb-f50ba485c75d/AppIconWSJ-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/100x100bb.jpg",
+      "score": 0.7506,
+      "rating": 4.70662,
+      "ratingCount": 552083
+    },
+    {
+      "appId": "409128287",
+      "name": "The Guardian - US & World News",
+      "seller": "Guardian News & Media Ltd",
+      "genre": "News",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/fe/01/21fe0119-d646-1849-3184-3f9a84065d20/AppIcon-0-0-1x_U007epad-0-1-0-0-85-220.png/100x100bb.jpg",
+      "score": 0.7473,
+      "rating": 4.85893,
+      "ratingCount": 111466
+    },
+    {
+      "appId": "397599894",
+      "name": "The Atlantic Magazine",
+      "seller": "The Atlantic Monthly Group LLC",
+      "genre": "News",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6a/2b/e3/6a2be348-9509-936b-b6f5-56b2e75f5e8b/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/100x100bb.jpg",
+      "score": 0.7472,
+      "rating": 4.91978,
+      "ratingCount": 105826
+    },
+    {
+      "appId": "313904711",
+      "name": "PressReader: News & Magazines",
+      "seller": "PressReader Inc",
+      "genre": "News",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f3/26/75/f326756a-0f59-763d-4336-bb7f1fea9623/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "score": 0.7434,
+      "rating": 4.67568,
+      "ratingCount": 16493
+    },
+    {
+      "appId": "404607612",
+      "name": "ABC 7 New York",
+      "seller": "Disney Electronic Content, Inc.",
+      "genre": "News",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c1/41/20/c1412063-4779-c3aa-732b-5ac644a24ce6/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-85-220.png/100x100bb.jpg",
+      "score": 0.7398,
+      "rating": 4.75072,
+      "ratingCount": 49102
+    },
+    {
+      "appId": "459182288",
+      "name": "Google News",
+      "seller": "Google LLC",
+      "genre": "News",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/48/86/d7/4886d754-d005-b5bc-52d6-fc9b28aded8a/logo_google_news_color-0-1x_U007emarketing-0-0-0-7-0-0-0-0-0-85-220-0.png/100x100bb.jpg",
+      "score": 0.7372,
+      "rating": 4.57277,
+      "ratingCount": 226373
+    },
+    {
+      "appId": "568014889",
+      "name": "The Spectator Magazine",
+      "seller": "The Spectator (1828) Ltd",
+      "genre": "News",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/69/e0/8e69e047-2988-09d5-7a55-c9c6a34bdc30/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "score": 0.7358,
+      "rating": 4.78884,
+      "ratingCount": 1667
+    },
+    {
+      "appId": "1239397626",
+      "name": "The Economist - News, Podcasts",
+      "seller": "The Economist Newspaper Group Inc.",
+      "genre": "News",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b6/40/d4/b640d4dc-9cda-b837-dd25-8b54b2aef466/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-85-220.png/100x100bb.jpg",
+      "score": 0.7348,
+      "rating": 4.87152,
+      "ratingCount": 178463
+    }
+  ],
+  "savedAt": "2026-01-30T17:16:01.686Z"
+}
