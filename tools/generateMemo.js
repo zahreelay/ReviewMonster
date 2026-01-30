@@ -1,47 +1,38 @@
 function generateMemo(reviews) {
     console.log("Generating memo for", reviews.length, "reviews");
     const total = reviews.length;
-    const avg = (reviews.reduce((s, r) => s + r.rating, 0) / total).toFixed(2);
+    const avg = total > 0 ? parseFloat((reviews.reduce((s, r) => s + r.rating, 0) / total).toFixed(2)) : 0;
 
     const group = (filter) => {
         const m = {};
         reviews.filter(filter).forEach(r =>
-            r.issues.forEach(i => m[i] = (m[i] || 0) + 1)
+            (r.issues || []).forEach(i => m[i] = (m[i] || 0) + 1)
         );
-        return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 3);
+        return Object.entries(m)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 3)
+            .map(([issue, count]) => ({ issue, count }));
     };
 
-    const fmt = arr => arr.length ? arr.map(([k, v]) => `• ${k} (${v})`).join("\n") : "• No strong signal";
-    return `
-PRODUCT FEEDBACK MEMO
-
-KEY METRICS
-• Total Reviews: ${total}
-• Average Rating: ${avg}
-
-BIGGEST COMPLAINTS
-${fmt(group(r => r.intent === "complaint"))}
-
-BIGGEST FEATURE REQUESTS
-${fmt(group(r => r.intent === "feature_request"))}
-
-BIGGEST PRAISES
-${fmt(group(r => r.intent === "praise"))}
-
-LOW RATING DRIVERS (1–2★)
-${fmt(group(r => r.rating <= 2))}
-
-MID RATING DRIVERS (3–4★)
-${fmt(group(r => r.rating >= 3 && r.rating <= 4))}
-
-HIGH RATING DRIVERS (5★)
-${fmt(group(r => r.rating === 5))}
-
-RECOMMENDATIONS
-1. Prioritize top complaint issues to stabilize ratings.
-2. Evaluate most requested features for roadmap inclusion.
-3. Reinforce strengths driving high ratings.
-`.trim();
+    return {
+        keyMetrics: {
+            totalReviews: total,
+            avgRating: avg
+        },
+        biggestComplaints: group(r => r.intent === "complaint"),
+        biggestRequests: group(r => r.intent === "feature_request"),
+        biggestPraises: group(r => r.intent === "praise"),
+        ratingDrivers: {
+            low: group(r => r.rating <= 2),
+            mid: group(r => r.rating >= 3 && r.rating <= 4),
+            high: group(r => r.rating === 5)
+        },
+        recommendations: [
+            "Prioritize top complaint issues to stabilize ratings",
+            "Evaluate most requested features for roadmap inclusion",
+            "Reinforce strengths driving high ratings"
+        ]
+    };
 }
 
 module.exports = { generateMemo };
